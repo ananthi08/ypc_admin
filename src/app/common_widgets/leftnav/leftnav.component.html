@@ -1,0 +1,190 @@
+<!-- <style>
+    .custom-side-navbar {
+      background-color: #ffffff;
+      color: #fff;
+      padding: 20px;
+    }
+  
+    .custom-complete-profile ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    .custom-complete-profile li {
+      border-bottom: 1px solid #555;
+      padding: 20px;
+      transition: background-color 0.3s, opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 1;
+    }
+  
+    .custom-complete-profile li:hover {
+      background-color: #a3a3a3;
+      opacity: 0.8;
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .custom-complete-profile h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+  
+    .custom-complete-profile .ph-identification-card,
+    .custom-complete-profile .ph-chart-bar,
+    .custom-complete-profile .ph-user-gear,
+    .custom-complete-profile .ph-chart-pie-slice {
+      color: black;
+      font-size: 24px;
+      margin-right: 10px;
+      transition: transform 0.3s, color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+  
+    .custom-complete-profile li:hover .ph-identification-card,
+    .custom-complete-profile li:hover .ph-chart-bar,
+    .custom-complete-profile li:hover .ph-user-gear,
+    .custom-complete-profile li:hover .ph-chart-pie-slice {
+      transform: scale(1.6) rotate(20deg);
+      color: #ffffff; 
+      background-color: #9f0000; 
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  
+    .custom-complete-profile li:hover .ph-identification-card::before,
+    .custom-complete-profile li:hover .ph-chart-bar::before,
+    .custom-complete-profile li:hover .ph-user-gear::before,
+    .custom-complete-profile li:hover .ph-chart-pie-slice::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffffff 0%, #ffffff 40%, transparent 60%, transparent 100%);
+      animation: pulsate 1.5s ease-out infinite;
+    }
+  
+    @keyframes pulsate {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  </style> -->
+  
+  
+
+
+<!-- <div class="custom-side-navbar">
+  <div class="mt-5">
+      <div class="row mb-50">
+          <div class="col-lg-12">
+
+
+
+
+              <div class="custom-complete-profile complete-profile_sm ">
+                  <ul>
+                      <li (click)="Dashboard()" class="{{tag_lnav_fin}}" style="cursor: pointer;">
+                          <a>
+                              <div class="row profile-icon-center">
+                                  <div class="col-lg-2">
+                                      <i class="ph-chart-bar"></i>
+                                  </div>
+                                  <div class="col-lg-10">
+                                      <h2>Dashboard</h2>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                      <li (click)="companydirectors()" class="{{tag_lnav_dir}}" style="cursor: pointer;">
+                          <a>
+                              <div class="row profile-icon-center">
+                                  <div class="col-lg-2">
+                                      <i class="ph-user-gear"></i>
+                                  </div>
+                                  <div class="col-lg-10">
+                                      <h2>Manage Leads</h2>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                      <li class="{{tag_lnav_sha}}" (click)="shareholding()" style="cursor: pointer;">
+                          <a>
+                              <div class="col mx-1 {{shareholdings}}"></div>
+                              <div class="row profile-icon-center">
+                                  <div class="col-lg-2">
+                                      <i class="ph-chart-pie-slice"></i>
+                                  </div>
+                                  <div class="col-lg-10">
+                                      <h2>Create Template</h2>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                      <li (click)="VideosComponent()" class="{{tag_lnav_kyc}}" style="cursor: pointer;">
+                          <a>
+                              <div class="row profile-icon-center">
+                                  <div class="col-lg-2">
+                                      <i class="ph-identification-card"></i>
+                                  </div>
+                                  <div class="col-lg-10">
+                                      <h2>Video Verification</h2>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+
+
+
+
+              
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<!-- <style>
+ .new a:hover {
+  color: yellow;
+}
+</style> -->
+<div>
+
+  <div id="mySidebar" class="fin-nav_sidebar pt-3">
+    <ul class="navbar-nav fin-navbar-nav justify-content-end flex-grow-1 pt5">
+      <li class="nav-item fin_nav-item " (click)="Dashboard()">
+        <a class="nav-link fin_nav-link " aria-current="page" routerLink="/rmhome" routerLinkActive="active" >
+          <i class="ph ph-house nav-img"></i>
+          Dashboard</a>
+      </li>
+      <li class="nav-item fin_nav-item" (click)="companydirectors()">
+        <a class="nav-link fin_nav-link new" aria-current="page" routerLink="/mgbbyrm" routerLinkActive="active">
+          <i class="ph ph-user nav-img "></i>
+          Manage Leads</a>
+      </li>
+      <li class="nav-item fin_nav-item" (click)="shareholding()">
+        <a class="nav-link fin_nav-link" aria-current="page" routerLink="/mglbyrm" routerLinkActive="active">
+          <i class="ph ph-bank nav-img"></i>
+          Create Template</a>
+      </li>
+      <li class="nav-item fin_nav-item" (click)="VideosComponent()">
+        <a class="nav-link fin_nav-link" aria-current="page" routerLink="/assigned"
+          routerLinkActive="active">
+          <i class="ph ph-monitor-play nav-img"></i>
+          <span>Video Verification</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>

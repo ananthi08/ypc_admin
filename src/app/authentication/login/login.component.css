@@ -1,0 +1,301 @@
+
+
+.login_wrapper
+{
+    /* height: 100vh; */
+    background-color: #242424;
+    padding-top: 50px;
+}
+body,html
+{
+  background: #121212;
+  height: 100%;
+}
+/*  */
+label{
+    color: #cfcfcf;
+}
+.logo-text
+{
+    font-size: 28px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+/* input
+{
+    border-radius: 0px;
+    background: transparent;
+    color: #fff;
+} */
+p{
+    color: #fff;
+}
+.mob-otp
+{
+  text-align: center;
+}
+.mob-otp a
+{
+  text-align: center;
+  color: var(--primary-clr);
+
+}
+.orline{
+  text-align: center;
+  border-bottom: 1px solid #4d4d4d;
+  width: 91%;
+  margin: 0 auto;
+}
+.mt35{margin-top: 35px;}
+.ortext
+{
+  text-align: center;
+color: #fff;
+text-align: center;
+    color: #fff;
+    position: relative;
+    top: 10px;
+    background: #000;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0px 8px;
+}
+.signin-text a{
+    color: var(--primary-clr);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 400;
+}
+.prime-btn:hover
+{
+    opacity: 0.9;
+}
+.prime-btn {
+    background: var(--primary-clr);
+    padding: 6px 20px;
+    border-radius: var(--btn-radius);
+    color: #fff;
+    border-radius: 2px;
+    border: 1px solid var(--primary-clr);
+}
+.secondary-btn{
+    border: 1px solid var(--primary-clr);
+    padding: 6px 20px;
+    border-radius: var(--btn-radius);
+    border-radius: 2px;
+    background: transparent;
+    margin-left: 6px;
+}
+::placeholder {
+    color: #787878;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #787878;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #787878;
+  }
+
+.login_wrapper {
+    /* background-image: url(../../../../assets/images/banner/banner-netflix.jpg); */
+    /* height: 100vh; */
+    width: 100%;
+    background-size: cover;
+    margin-top: 0px;
+    background-position: bottom;
+    border-radius: 8px;
+}
+.overlay
+{
+    background: #202020b5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.inside-card{
+  max-width: 500px;
+    margin: 0 auto;
+}
+.relative
+{
+  position: relative;
+}
+/* @media (max-width: 768px) {
+    .login-card{margin-left: 15px;
+    margin-right: 15px;
+}
+} */
+/* Resetting some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.login_wrapper {
+  background-color: #242424;
+  padding-top: 50px;
+  width: 100%;
+  background-size: cover;
+  margin-top: 0px;
+  background-position: bottom;
+  border-radius: 8px;
+}
+
+.overlay {
+  background: #202020b5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.inside-card {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Add more styles as needed */
+
+/* Your existing styles below */
+
+label {
+  color: #cfcfcf;
+}
+
+.logo-text {
+  font-size: 28px;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+p {
+  color: #fff;
+}
+
+.mob-otp {
+  text-align: center;
+}
+
+.mob-otp a {
+  text-align: center;
+  color: var(--primary-clr);
+}
+
+.orline {
+  text-align: center;
+  border-bottom: 1px solid #4d4d4d;
+  width: 91%;
+  margin: 0 auto;
+}
+
+.mt35 {
+  margin-top: 35px;
+}
+
+.ortext {
+  text-align: center;
+  color: #fff;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  top: 10px;
+  background: #000;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0px 8px;
+}
+
+.signin-text a {
+  color: var(--primary-clr);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.prime-btn:hover {
+  opacity: 0.9;
+}
+
+.prime-btn {
+  background: var(--primary-clr);
+  padding: 6px 20px;
+  border-radius: var(--btn-radius);
+  color: #fff;
+  border-radius: 2px;
+  border: 1px solid var(--primary-clr);
+}
+
+.secondary-btn {
+  border: 1px solid var(--primary-clr);
+  padding: 6px 20px;
+  border-radius: var(--btn-radius);
+  border-radius: 2px;
+  background: transparent;
+  margin-left: 6px;
+}
+
+::placeholder {
+  color: #787878;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #787878;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #787878;
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+
+
+
+/* mahiii */
+.animated-section {
+  opacity: 0;
+  animation: fadeIn 2.5s forwards;
+}
+

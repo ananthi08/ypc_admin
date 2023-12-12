@@ -1,0 +1,102 @@
+
+#companynamelistid {
+    border-bottom: 1px solid #ccc;
+    color: #444444;
+    font-size: 16px;
+    padding: 10px;
+    font-family: Open Sans;
+    font-weight: 100;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  #browsercompanyid {
+    border: #dadada 1px solid;
+    height: 43px;
+    clear: both
+  }
+
+
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  #ulcompanynamelistid {
+    width: 99.7%;
+    background: #fff;
+    z-index: 9999;
+    max-height: 300px;
+    overflow-x: auto;
+    padding: 0;
+    margin-left: 2px;
+    margin-top: 0%
+  }
+
+
+  @keyframes logoAnimation {
+  0% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    color: rgb(171, 0, 0);
+    transform: translateY(0);
+  }
+  50% {
+    color: #000;
+    transform: translateY(-5px);
+  }
+  100% {
+    color: rgb(171, 0, 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.navbar-brand:hover img {
+  animation: logoAnimation 0.5s ease-in-out;
+}
+
+.navbar-brand:hover small {
+  animation: textAnimation 0.5s ease-in-out;
+}
+
+.navbar-brand:hover .container-fluid {
+  animation: backgroundAnimation 0.5s ease-in-out;
+}

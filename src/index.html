@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ypc</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/brand/favicon.png" type="image/x-icon" />
+    <!-- Bootstrap css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <!-- Range slider style -->
+    <link href="assets/css/d3RangeSlider.css" rel="stylesheet">
+    <!-- Google Fonts -->
+   <link href="https://fonts.gstatic.com" rel="preconnect">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!--- Style css --->
+    <link rel="stylesheet" href="assets/css/dropzone.css" />
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- code by bharath  -->
+
+    <link href="assets/css/admin.css" rel="stylesheet">
+    <link href="assets/css/lender.css" rel="stylesheet">
+    <!-- end of bharath  -->
+
+    <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
+
+  </head>
+
+  <body>
+
+    <app-root></app-root>
+
+      <!-- JQuery min js -->
+      <script src="assets/js/jquery.min.js"></script>
+      <!-- Bootstrap Bundle js -->
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/owl.carousel.js"></script>
+      <script src="assets/js/jquery-searchbox.js"></script>
+      <script type="text/javascript" src="assets/js/jquery.sticky.js"></script>
+      <!-- Range slider code -->
+      <script src="assets/js/d3RangeSlider.js"></script>
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <!-- custom js -->
+      <script src="https://unpkg.com/phosphor-icons"></script>
+      <script src="assets/js/dropzone.js"></script>
+      <script src="assets/js/custom.js"></script>
+
+      <script>
+          function bs_input_file() {
+              $(".input-file").before(
+                  function () {
+                      if (!$(this).prev().hasClass('input-ghost')) {
+                          var element = $("<input type='file' class='input-ghost' style='display: none; height:0'>");
+                          element.attr("name", $(this).attr("name"));
+                          element.change(function () {
+                              element.next(element).find('input').val((element.val()).split('\\').pop());
+                          });
+
+                          $(this).find('input').css("cursor", "pointer");
+                          $(this).find('input').mousedown(function () {
+                              $(this).parents('.input-file').prev().click();
+                              return false;
+                          });
+                          return element;
+                      }
+                  }
+              );
+          }
+          $(function () {
+              bs_input_file();
+          });
+      </script>
+
+      <script type="text/javascript">
+          var slider = createD3RangeSlider(0, 10, "#container", true);
+
+          slider.onChange(function (newRange) {
+              d3.select("#range-label").html("<span class='l'>" + newRange.begin + " Years " + "</span>" + "<span  class='r'>" + newRange.end + " Years " + "</span>");
+          });
+
+          slider.range(0, 10);
+
+          var slider = createD3RangeSlider(0, 25, "#container-1", true);
+
+          slider.onChange(function (newRange) {
+              d3.select("#range-label-1").html("<span class='l'>" + newRange.begin + " % " + "</span>" + "<span  class='r'>" + newRange.end + " % " + "</span>");
+          });
+
+          slider.range(0, 10);
+      </script>
+
+      <script>
+
+           $('#clients').owlCarousel({
+               stagePadding: 0,
+               loop: true,
+               margin: 20,
+               nav: false,
+               dots: true,
+               autoplay: true,
+               autoplayTimeout: 1000,
+               autoplayHoverPause: true,
+               responsive: {
+                   0: {
+                       items: 1
+                   },
+                   600: {
+                       items: 3
+                   },
+                   1000: {
+                       items: 4
+                   }
+               }
+           })
+           $('#rating').owlCarousel({
+               stagePadding: 90,
+               loop: true,
+               margin: 20,
+               nav: false,
+               dots: false,
+               autoplay: true,
+               autoplayTimeout: 1000,
+               autoplayHoverPause: true,
+               responsive: {
+                   0: {
+                       items: 1
+                   },
+                   600: {
+                       items: 3
+                   },
+                   1000: {
+                       items: 4
+                   }
+               }
+           })
+      </script>
+
+      <script>
+           $('.js-searchBox').searchBox({ elementWidth: '250' });
+           window.onload = (event) => {
+         var toastLiveExample = document.getElementById('liveToast')
+         var toast = new bootstrap.Toast(toastLiveExample)
+         toast.show()
+     }
+
+      </script>
+  </body>
+
+  </html>
