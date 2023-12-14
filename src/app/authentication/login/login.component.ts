@@ -20,7 +20,6 @@ export class LoginComponent {
   successMessage: any;
   errorMessage: any;
   result:any={};
-  // cookieService: any;
   showForgotPassword: boolean = false;
   forgotPasswordModel: any = {}; 
 
@@ -43,45 +42,54 @@ export class LoginComponent {
     console.log('Resetting password:', this.forgotPasswordModel);
   }
 
-  onSubmit(form: NgForm): void {
+
+
+
+
+  onPressLogin(form: NgForm): void {
     if (!form.valid) {
       this.errorMsg("Enter the required fields");
     } else {
       let data = {
         "data": this.datas,
         "email": this.model.email,
+        
         "password": this.model.password
       };
   
       localStorage.setItem('email', JSON.stringify(this.model.email));
       this.database.postdata('ypc-admin-micro-service/admin/login', data).subscribe({
         next: (result) => {
-          console.log(result);
+          console.log(result.changePassword);
           localStorage.setItem('id', JSON.stringify(result.adminId));
-          this.cookieService.set('id', result.adminId.toString());
-          this.result = result.data;
+          localStorage.setItem('email', JSON.stringify(result.email));
+         
+          
+          if (result.changePassword == 0) {
+            alert("xssxsxxsxs")
+             this.router.navigate(['resetpassword']);
+           
+           } 
+           else {
+            
+             this.router.navigate(['dashboard']);
+           }
+  
+        
           
         },
-        
-        
         error: (error) => {
           console.log(error.error.error);
-         
           this.errorMsg(error.error.error);
-
         },
-        
         complete: () => {
-
-          this.router.navigate(['dashboard']);
-
-
+          
         }
       });
     }
   }
-  
 
+  
 
 
 // clearance for local

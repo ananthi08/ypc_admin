@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationComponent } from './authentication.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 // import { AdminheaderComponent } from '../common_widgets/adminheader/adminheader.component';
 // import { AdminheaderComponent } from './forgetpassword/forgetpassword.component';
 // import { DashboardComponent } from '../dashboard/dashboard.component';
@@ -13,6 +14,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
   declarations: [
     LoginComponent,
     ForgetpasswordComponent,
+    ResetPasswordComponent,
     // DashboardComponent
  
   ],

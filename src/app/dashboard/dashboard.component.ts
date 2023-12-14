@@ -23,7 +23,7 @@ export class DashboardComponent {
   errorMessage: any;
   result:any={};
   userName: any={};
-  id:any={}
+  id:number| undefined;
   editedUser: any = {};
   isEditing: boolean = false;
   // for_loop
@@ -72,12 +72,12 @@ export class DashboardComponent {
 
   // init_state
   ngOnInit(): void {
-
+    this.GetInfo();
     if (localStorage.getItem("id")) {
       this.id = JSON.parse(localStorage.getItem("id") || '{}');
     }
 
-    this.GetInfo();
+   
 
   }
 
@@ -163,10 +163,6 @@ this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: a
   // console.log('Total admin Details Count:', this.totalAdminCount);
 
 },);
-
-
-
-
 
 
 
@@ -314,9 +310,9 @@ generateNumbers(count: number): number[] {
 
 
 // add_admin_popup
-  AddAdmin(form: NgForm): void{
+  AddAdmin(form2: NgForm): void{
 
-    if (!form.valid) {
+    if (!form2.valid) {
 
 
     }else {
@@ -330,10 +326,10 @@ generateNumbers(count: number): number[] {
 
       this.database.postdata('ypc-admin-micro-service/admin/register/'+ this.id, data).subscribe({
         next: (result) => {
-          // console.log(result);
+
           this.result = result.data;
           this.succesMsg('Admin added successfully')
-          // this.addadminpopup.dismiss('Cross click');
+ 
          
           
         },
@@ -347,10 +343,10 @@ generateNumbers(count: number): number[] {
         },
         
         complete: () => {
- // reload page 
- this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-  this.router.navigate([this.router.url]);
-});
+                      // reload page 
+                 this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+                     this.router.navigate([this.router.url]);
+               }           );
         }
       });
 

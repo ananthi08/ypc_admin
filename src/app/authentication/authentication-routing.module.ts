@@ -8,6 +8,7 @@ import { AdminheaderComponent } from '../common_widgets/adminheader/adminheader.
 import { VideosComponent } from '../videos/videos.component';
 import { VideospagelistComponent } from '../videos/videospagelist/videospagelist.component';
 import { AuthGuard } from './auth.guard';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -22,9 +23,14 @@ const routes: Routes = [
   { path: 'ghdcgh', component: AdminheaderComponent, canActivate: [AuthGuard] },
   { path: 'VideosComponent', component: VideosComponent, canActivate: [AuthGuard] },
   { path: 'video', component: VideospagelistComponent, canActivate: [AuthGuard] },
+  { path: 'resetpassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
+
+
 
 
   // { path: 'login', component: LoginComponent },
+  // { path: 'resetpassword', component: ResetPasswordComponent },
+
   // { path: 'forgetpassword', component: ForgetpasswordComponent, },
   // {path: 'dashboard',component: DashboardComponent,},
   // { path: 'ghdcgh', component: AdminheaderComponent,  },

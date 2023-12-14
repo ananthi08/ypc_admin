@@ -23,18 +23,15 @@ export class DbService {
    httpClient: any;
 
 
-   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService)  { }
+   constructor(private http: HttpClient, private router: Router,)  { }
  
   
 // to allow all-routes
-   isAuthenticated(): boolean {
-   
-    const idCard = this.cookieService.get('id');
-  
-    console.log('ID Card:', idCard);
-
-    return !!idCard;
-  }
+isAuthenticated(): boolean {
+  const idCard = localStorage.getItem('id');
+  console.log('ID Card:', idCard);
+  return !!idCard;
+}
 
 
 

@@ -84,15 +84,15 @@ export class AdminheaderComponent {
 
   confirmLogout() {
 
-    // this.clearLocalStorage();
     this.route.navigate(['login']);
     this.clearlocalstorage();
+    localStorage.clear()
 
   }
   
 
 // clearance for local
-clearlocalstorage(): void {
+clearlocalstorage(){
   this.cookieService.delete('id');
   sessionStorage.clear();
   localStorage.clear();
