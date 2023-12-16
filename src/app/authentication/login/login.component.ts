@@ -22,6 +22,7 @@ export class LoginComponent {
   result:any={};
   showForgotPassword: boolean = false;
   forgotPasswordModel: any = {}; 
+  role: any;
 
   
   constructor(private database: DbService,private router: Router,private cookieService: CookieService) { }
@@ -63,16 +64,19 @@ export class LoginComponent {
           console.log(result.changePassword);
           localStorage.setItem('id', JSON.stringify(result.adminId));
           localStorage.setItem('email', JSON.stringify(result.email));
-         
+          localStorage.setItem('role', JSON.stringify(result.role));
+
+             this.role = result.role;
+             console.log(this.role);
+             
           
-          if (result.changePassword == 0) {
-            alert("xssxsxxsxs")
-             this.router.navigate(['resetpassword']);
-           
+          if (result.changePassword == 1) {
+            this.router.navigate(['dashboard']);
+          
            } 
-           else {
-            
-             this.router.navigate(['dashboard']);
+           else if(result.changePassword ==0) {
+          
+             this.router.navigate(['resetpassword']);
            }
   
         

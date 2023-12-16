@@ -24,6 +24,8 @@ export class DashboardComponent {
   result:any={};
   userName: any={};
   id:number| undefined;
+  role: string | undefined;
+  Superadmin:string | undefined;
   editedUser: any = {};
   isEditing: boolean = false;
   // for_loop
@@ -32,12 +34,12 @@ export class DashboardComponent {
  all_admindetails: any = {};
  all_deleted_videos: any[] = [];
 
-
-
-
-
  all_newChefVideos: any[] = [];
  all_notapproved_videos: any[] = [];
+
+
+
+
   datas: any;
   isEditMode: boolean = false;
   addadminpopup: any;
@@ -77,9 +79,15 @@ export class DashboardComponent {
       this.id = JSON.parse(localStorage.getItem("id") || '{}');
     }
 
-   
+    if (localStorage.getItem("role")) {
+      this.role = JSON.parse(localStorage.getItem("role") || '{}');
+    }
+
+   alert(this.role)
 
   }
+
+
 
 
   toggleEditMode(): void {

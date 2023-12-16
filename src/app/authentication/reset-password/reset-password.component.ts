@@ -85,11 +85,7 @@ var cleanedEmail = this.storedEmail.replace(/"/g, '');
             console.log(result);
             this.result = result;
   
-            if (result.changePassword === 0) {
-              this.router.navigate(['changepassword']);
-            } else {
-              this.router.navigate(['dashboard']);
-            }
+         
           },
           error: (error) => {
             console.log(error.error.error);
@@ -98,6 +94,7 @@ var cleanedEmail = this.storedEmail.replace(/"/g, '');
             this.errorMsg(error.error.error);
           },
           complete: () => {
+            this.router.navigate(['login']);
           
           }
         });
