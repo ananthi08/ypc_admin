@@ -16,11 +16,17 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TestingComponent } from './testing/testing.component';
+// import { TestingComponent } from './testing/testing.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SaraComponent } from './sara/sara.component';
+// import { SaraComponent } from './sara/sara.component';
+import { ManageteamComponent } from './dashboard/manageteam/manageteam.component';
+
+// import { VideosComponent } from './videos/videos/videos.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +36,7 @@ import { SaraComponent } from './sara/sara.component';
     VideosComponent,
     VideospagelistComponent,
     TemplatesComponent,
-    TestingComponent,
-    SaraComponent,
+    ManageteamComponent
  
    
   ],

@@ -78,9 +78,11 @@ export class LeftnavComponent {
         this.tag_lnav_fin ="active";
 
       }
-      companydirectors(){
+      manageTeam(){
    
-        // this.tag_lnav_dir ="active";
+        this.route.navigateByUrl('manageteam')
+
+        this.tag_lnav_fin ="active";
     
       }
       shareholding(){

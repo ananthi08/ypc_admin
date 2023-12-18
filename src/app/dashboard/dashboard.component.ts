@@ -83,7 +83,7 @@ export class DashboardComponent {
       this.role = JSON.parse(localStorage.getItem("role") || '{}');
     }
 
-   alert(this.role)
+
 
   }
 
@@ -336,8 +336,8 @@ generateNumbers(count: number): number[] {
         next: (result) => {
 
           this.result = result.data;
-          this.succesMsg('Admin added successfully')
- 
+         
+       
          
           
         },
@@ -351,10 +351,12 @@ generateNumbers(count: number): number[] {
         },
         
         complete: () => {
+          window.location.reload();
                       // reload page 
-                 this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-                     this.router.navigate([this.router.url]);
-               }           );
+                      this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+                        this.router.navigate([this.router.url]);
+                  }           );
+                  this.succesMsg('Admin added successfully')
         }
       });
 

@@ -1,0 +1,256 @@
+<div class="toast collapse opacity1" id="collapseExample">
+    <div class="toast-body">
+       {{errormsg}}
+    </div>
+  </div>
+  
+  <div class="toast collapse opacity1"  id="collapseExample1">
+    <div class="toast-body">
+       {{successmsg}}
+    </div>
+  </div>
+
+<app-adminheader></app-adminheader>
+  
+  <div class="sidebarContainer">
+ 
+    </div>
+    <div class="pageContent">
+        <div class="col-2 mt-5">
+            <app-leftnav></app-leftnav>
+        
+          </div>
+  <section class="main-p-area pb-50" id="reload" style="margin-top: 100px;">
+    <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+        <div class="">
+          <div class="finnup__profileheader">
+            <div class="finnup__profiletitle">
+              <h3>Manage Team</h3>
+            </div>
+            <div class="finnup_profilebtn">
+              <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-41" ><i
+                  class="ph-plus-circle"></i>Add User</a>
+            </div>
+          </div>
+          <div class="row mt-25">
+            <div class="col-lg-12">
+              <div class="finnup__profiletable">
+                <table class="table" >
+                  <thead>
+                    <tr>
+                      <!-- <th scope="col">Id</th> -->
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Status</th>
+  
+                      <th class="text-center" colspan="3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let admins of all_admindetails">
+                      <!-- <td>{{ fpa_partners.id }}</td> -->
+                      <td>{{admins.userName}}</td>
+                      <td>{{admins.email}}</td>
+
+
+                      <td>{{admins.role}}</td>
+
+
+                      <td>{{admins.status}}</td>
+
+
+
+                 
+  
+                       <td class="finnup-table-icon ml-10">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-41"
+                         >
+                          <i class="ph-pencil-simple"></i>
+                        </a>
+                      </td>
+                     
+                      <td class="finnup-table-icon">
+                      <a   data-bs-toggle="modal" data-bs-target="#exampleModal-7">
+                          <img src="assets/img/delete.svg" />
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  </div>
+  <!-- end of section  -->
+  
+  <!-- modal for add admin  -->
+  <!-- Connector -->
+  <div
+    class="modal fade"
+    id="exampleModal-41"
+    tabindex="-4"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content finnup__profile-modal">
+        <form #form2="ngForm">
+          <div class="modal-header border-0">
+            <div
+              class="finnup__modal-title"
+              style="margin: auto; text-align: center"
+            >
+              <h3 class="modal-title display-2" id="exampleModalLabel">
+                Add/Edit Team Member
+              </h3>
+            
+            </div>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div>
+            <div class="modal-body border-0">
+              <div class="row mt-25">
+                <div class="col-lg-10 mt-20" style="margin: auto">
+                  <label>Name <span class="text-danger"></span></label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      class="form-control"
+                      placeholder="Enter name"
+                      required
+                      pattern="^([a-zA-Z ]){2,30}$"
+                    
+                      name="name"
+                     
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-10 mb-4" style="margin: auto">
+                  <label>Email<span class="text-danger"></span> </label>
+  
+                  <div class="input-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Enter email id "
+                      required
+                      autocomplete="off"
+                    
+                      />
+                  </div>
+                </div>
+                <div class="col-lg-10 mb-4" style="margin: auto">
+                  <label>Mobile Number<span class="text-danger"></span></label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                       maxlength="14" minlength="10"
+                      class="form-control"
+                      placeholder="Enter mobile number"
+                   
+                      pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/"
+                    />
+                  </div>
+                </div>
+  
+                <div class="col-lg-10 mb-4" style="margin: auto">
+                  <label>Password </label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      required
+                      pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                      class="form-control"
+                      placeholder="Enter Password"
+                     
+  
+                    />
+                  </div>
+                </div>
+
+  
+                <div class="col-lg-10 mb-4" style="margin: auto">
+                  <label>Role </label>
+          
+                </div>
+ 
+  
+              </div>
+  
+              <div class="col-12 text-center pt-30">
+                <button
+                  type="submit"
+                  class="btn btn-primary s-bor mb-30"
+                  
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  id="reloaded">
+                  Save
+                </button>
+                <button style="margin-left: 15px;"
+                type="submit"
+                class="btn btn-primary s-bor mb-30"
+               
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                id="reloaded">
+                Save/Send mail
+              </button>
+              </div>
+  
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end of modal  -->
+  
+  <div class="modal fade" id="exampleModal-7" tabindex="4" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg-3"
+      role="document">
+      <div class="modal-content finnup__profile-modal">
+          <div class="modal-header border-0">
+              <div class="finnup__modal-title">
+                  <h5 class="modal-title" id="exampleModalLabel">Warning ! You are trying to delete an Connector user.  Are you sure you want to delete?.  Please note, this is a soft delete and deleted users will be marked as delete and can be inactive in the backend. These users can be activated by Super Admin later.</h5>
+              </div>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+  </button>
+          </div>
+          <div class="row mt-20">
+              <div class="col-lg-6">
+                  <a>
+                      <button class="btn btn-primary  w-100 mt-30"
+                          data-bs-dismiss="modal" aria-label="Close">
+                          Mark Delete
+                      </button>
+                  </a>
+              </div>
+              <div class="col-lg-6">
+                  <a data-bs-dismiss="modal">
+                      <button
+                          class="btn btn-lg border border-primary tn--transparent mt-30 w-100">
+                          Cancel Delete
+                      </button>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>

@@ -74,56 +74,7 @@
                     <!-- Card stats -->
                     <div class="pt-5">
                         <h1>Uploaded Videos</h1>
-                        
-<!-- Filter Dropdown -->
-<!-- <div class="row mt-3 justify-content-end">
-  <div class="col-md-4">
-    <label for="videoFilter" class="form-label">Filter Videos:</label>
-    <select class="form-select custom-select" id="videoFilter" [(ngModel)]="selectedVideoFilter" (change)="applyVideoFilter()">
-      <option value="all">Select</option>
-      <option value="all">All Videos</option>
-      <option value="new">New Videos</option>
-      <option value="approved">Approved Videos</option>
-      <option value="rejected">Rejected Videos</option>
-    </select>
-  </div>
-</div>
-
-
-
-
-<div class="row">
-  <ng-container *ngIf="filteredVideos.length > 0">
-    <div class="col-3" *ngFor="let video of filteredVideos; let i = index">
-      <div class="video-card">
-        <div class="card small-video">
-          <video controls id="example1">
-            <source [src]="base_url + video.videoUrl" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-     
-        </div>
-        <p class="text-left fs-5"><strong>Product Name:</strong> {{video.text}}</p>
-        <p class="text-left fs-5"><strong>Veg/Nonveg:</strong> {{video.productType}}
-          <img *ngIf="video.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
-          <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
-        </p>
-        <p class="text-left fs-5"><strong>Cuisine:</strong> {{video.nationalCuisine}}</p>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          <label class="form-check-label" for="inlineRadio1"><strong>Approve</strong></label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-bs-toggle="modal" data-bs-target="#denybutton">
-          <label class="form-check-label" for="inlineRadio2"><strong>Delete</strong></label>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-
-</div> -->
-
-
+ 
 
 <!-- filter end -->
 
@@ -142,74 +93,74 @@
 
 
 
- <div class="card-body">
-  <div class="row">
-    <div class="col">
-      <div class="row">
-        <div class="col mx-3">
-          <h5 class="card-title text-uppercase text-muted mb-3">New Videos</h5>
-        </div>
-        <div class="col float-end text-primary"> 
-          <button class="card-title mb-3 float-end text-primary" (click)="toggleShowMorenew()">
-            {{ showMoreVideosnew ? 'Less' : 'More' }}
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <ng-container *ngIf="all_newChefVideos.length > 0; else noNewChefVideosFound">
-          <div class="col-3" *ngFor="let video of (showMoreVideosnew ? all_newChefVideos : all_newChefVideos.slice(0, 4)); let i = index">
-            <div class="ratio ratio-16x9" (click)="navigateToVideoDetail(video)" id="example1">
-              <video controls id="example1">
-                <source [src]="base_url + video.videoUrl" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <!-- <p class="text-left font-weight-bold fs-5">Product Name: {{video.text}}</p> -->
+                                    <div  class="card-body">
+                                      <div class="row">
+                                        <div class="col">
+                                          <div class="row">
+                                            <div class="col mx-3">
+                                              <h5 class="card-title text-uppercase text-muted mb-3">New Videos</h5>
+                                            </div>
+                                            <div class="col float-end text-primary">
+                                              <button class="card-title mb-3 float-end text-primary" (click)="toggleShowMorenew()">
+                                                {{ showMoreVideosnew ? 'Less' : 'More' }}
+                                              </button>
+
+                                              <button class="btn float-end btn-danger" *ngIf="AtLeastTwoSelected()" [disabled]="!AtLeastTwoSelected()" data-bs-toggle="modal" data-bs-target="#MAHESHASIGN">Assign</button>
 
 
-            <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Product Name: {{video.text}}</p>
-
-<!-- <div class="row ">
-  <div class="col-6">
-    <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Product Name: </p>
-
-  </div>
-  <div class="col-6">
-    <p class="text-left font-weight-bold fs-5" > {{video.text}}</p>
-    
-  </div>
-</div> -->
-
-
-
-
-            <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Veg/Nonveg: {{video.productType}}
-              <img *ngIf="video.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
-              <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
-            </p>
-            <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Cuisine:{{video.nationalCuisine}}</p>
-            <div class="form-check form-check-inline" style="margin-left: 13px;">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions"  (click)="newChefVideosaccept(video.id)" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <label class="form-check-label" for="inlineRadio1"><strong class="fs-5">Approve</strong></label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-bs-toggle="modal" (click)="newChefVideosdelete(video.id)" data-bs-target="#denybutton">
-              <label class="form-check-label" for="inlineRadio2"><strong class="fs-5">Delete</strong></label>
-            </div>
-          </div>
-        </ng-container>
-        <ng-template #noNewChefVideosFound>
-          <div class="col">
-            <p>No new chef videos found.</p>
-          </div>
-        </ng-template>
-      </div>
-    </div>
-  </div>
-  <p class="mt-3 mb-0 text-muted text-sm">
-    <span class="text-nowrap"></span>
-  </p>
-</div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <span class="form-check form-check-inline">
+                                              <input class="form-check-input" type="checkbox" id="selectAllCheckbox" [(ngModel)]="selectAllChecked" (change)="selectAllVideos()">
+                                              <label class="form-check-label" for="selectAllCheckbox">Select All</label>
+                                            </span>
+                                    
+                                            <ng-container *ngIf="all_newChefVideos.length > 0; else noNewChefVideosFound">
+                                              <div class="col-3" *ngFor="let video of (showMoreVideosnew ? all_newChefVideos : all_newChefVideos.slice(0, 4)); let i = index">
+                                                <div class="ratio ratio-16x9" (click)="navigateToVideoDetail(video)" id="example1">
+                                                  <video controls id="example1">
+                                                    <source [src]="base_url + video.videoUrl" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                  </video>
+                                                </div>
+                                    
+                                                <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Product Name: {{video.text}}</p>
+                                    
+                                                <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Veg/Nonveg: {{video.productType}}
+                                                  <img *ngIf="video.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
+                                                  <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
+                                                </p>
+                                    
+                                                <span class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox{{i}}" [(ngModel)]="video.selected" [disabled]="selectAllChecked" (change)="onCheckChangeAssign(video.id)">
+                                                  <label class="form-check-label" for="inlineCheckbox{{i}}">Assign</label>
+                                                </span>
+                                    
+                                                <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Cuisine:{{video.nationalCuisine}}</p>
+                                                <div class="form-check form-check-inline" style="margin-left: 13px;">
+                                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="newChefVideosaccept(video.id)" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                  <label class="form-check-label" for="inlineRadio1"><strong class="fs-5">Approve</strong></label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-bs-toggle="modal" (click)="newChefVideosdelete(video.id)" data-bs-target="#denybutton">
+                                                  <label class="form-check-label" for="inlineRadio2"><strong class="fs-5">Delete</strong></label>
+                                                </div>
+                                              </div>
+                                            </ng-container>
+                                            <ng-template #noNewChefVideosFound>
+                                              <div class="col">
+                                                <p>No new chef videos found.</p>
+                                              </div>
+                                            </ng-template>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <p class="mt-3 mb-0 text-muted text-sm">
+                                        <span class="text-nowrap"></span>
+                                      </p>
+                                    </div>
+                                    
 
                                     
 
@@ -254,14 +205,7 @@
                                             <img *ngIf="video1.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
                                           </p>
                                           <p class="text-left fs-5" style="margin-left: 13px;">Cuisine : {{video1.nationalCuisine}}</p>
-                                          <!-- <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" (click)="approvedChefVideosaccept(video1.id)">
-                                            <label class="form-check-label" for="inlineRadio1"><strong>Approve</strong></label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-bs-toggle="modal" data-bs-target="#denybutton2" (click)="approvedChefVideosdelete(video1.id)">
-                                            <label class="form-check-label" for="inlineRadio2"><strong>Delete</strong></label>
-                                          </div> -->
+                            
                                         </div>
                                       </ng-container>
                                       <ng-template #noNotApprovedVideosFound>
@@ -314,20 +258,7 @@
                                             <img *ngIf="video2.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
                                           </p>
                                           <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Cuisine : {{video2.nationalCuisine}}</p>
-                                          <!-- <div class="container mahi">
-                                            <div class="row">
-                                              <div class="col-12 col-md-6 text-md-end">
-                                                <button href="#" class="btn-success accept" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" (click)="deletedChefVideosaccept(video2.id)">
-                                                  ACCEPT <span class="fa fa-check"></span>
-                                                </button>
-                                              </div>
-                                              <div class="col-12 col-md-6">
-                                                <button href="#" class="btn-danger deny" data-bs-toggle="modal" data-bs-target="#denybutton3" (click)="deletedChefVideosdelete(video2.id)">
-                                                  DENY <span class="fa fa-close"></span>
-                                                </button>
-                                              </div>
-                                            </div>
-                                          </div> -->
+                             
                                         </div>
                                       </ng-container>
                                       <ng-template #noVideosFound>
@@ -430,122 +361,40 @@
 
 
 
+<!-- to assign a video that  admin  should verify -->
 
-
-
-
-
-<!-- 2nd start -->
-
-
-
-<!-- this is for accept 2nd -->
-<div class="modal fade" *ngFor="let video2 of all_notapproved_videos" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="MAHESHASIGN" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="staticBackdropLabel">Accepting video</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLongTitle">Assign Video</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        Are you sure want to accept?
-      </div>
-      <div class="modal-footer" >
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-
-
+        <form #assignmentForm="ngForm">
+        <!-- list of admins -->
+        <div class="mb-3">
+          <label for="assignToDropdown" class="form-label">Assign To</label>
+          <select class="form-select" id="assignToDropdown" [(ngModel)]="selectedAssignee"  name="assignToDropdown">
+            <option value="" disabled selected>Select</option>
+            <option *ngFor="let admin of all_admindetails" [value]="admin.id">{{ admin.userName }}</option>
+          </select>
+        </div>
         
-        <button *ngIf="video2" type="button" class="btn btn-primary" (click)="accept2Video()" data-bs-dismiss="modal">Yes</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- this is for reject 2nd -->
-<div class="modal fade" *ngFor="let video2 of all_notapproved_videos" id="denybutton2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Review  video</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form>
+   
         <div class="mb-3">
-          <label for="recipient-name" class="col-form-label">Recipient:</label>
-          <input type="text" class="form-control" id="recipient-name">
+          <label for="descriptionInput" class="form-label">Description</label>
+          <input type="text" class="form-control" id="descriptionInput"  name="descriptionInput">
         </div>
-        <div class="mb-3">
-          <label for="message-text" class="col-form-label">Message:</label>
-          <textarea class="form-control" id="message-text"></textarea>
-        </div>
+
       </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary" (click)="delete2Video()"  data-bs-dismiss="modal">Send message</button>
-    </div>
-  </div>
-</div>
-</div>
-<!-- end  -->
-
-
-
-<!-- start of 3rd -->
-
-<!-- this is for accept 3rd -->
-<div class="modal fade" *ngFor="let video3 of all_deleted_videos" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="staticBackdropLabel">Accepting video</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Are you sure want to accept?
-      </div>
-      <div class="modal-footer" >
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-
-
-        
-        <button *ngIf="video3" type="button" class="btn btn-primary" (click)="accept3Video()" data-bs-dismiss="modal">Yes</button>
-
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  (click) ="asignvideo()">Assign</button>
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- this is for reject 3rd -->
-<div class="modal fade" *ngFor="let video3 of all_deleted_videos" id="denybutton3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Review  video</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <label for="recipient-name" class="col-form-label">Recipient:</label>
-          <input type="text" class="form-control" id="recipient-name">
-        </div>
-        <div class="mb-3">
-          <label for="message-text" class="col-form-label">Message:</label>
-          <textarea class="form-control" id="message-text"></textarea>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary" (click)="delete3Video()"  data-bs-dismiss="modal">Send message</button>
-    </div>
-  </div>
-</div>
-</div>
-
-

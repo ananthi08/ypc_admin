@@ -32,23 +32,21 @@ export class VideosComponent implements OnInit {
   approvevideoId:number | undefined;
   deletevideoId:number | undefined;
 
-
-
-
-
   selectedVideoFilter: string = 'all';
   filteredVideos: any[] = [];
+  asignid: any;
 
+  all_admindetails: any = {};
+  selectedAssignee: string = '';
+  // checkox
 
+  selectedVideos: any[] = [];
+  selectAllChecked = false;
+  adminid: any;
+  description: any;
   constructor(private database: DbService, private router: Router) {}
 
   ngOnInit(): void {
-
-    // const navigationState = window.history.state;
-    // this.videoDetails = navigationState.videoDetails;
-    // this.ProductReceipeId = navigationState.videoDetails.id; 
-  
-    // this.clearlocalstorage();
 
 
     this.GetInfo();
@@ -71,6 +69,59 @@ export class VideosComponent implements OnInit {
   }
 
 
+// checkocx
+  isVideoAssigned(videoId: any): boolean {
+    return this.selectedVideos.includes(videoId);
+  }
+
+
+  
+  onCheckChangeAssign(videoId: any): void {
+    const index = this.selectedVideos.indexOf(videoId);
+
+    if (index === -1) {
+
+      this.selectedVideos.push(videoId);
+    } else {
+
+      this.selectedVideos.splice(index, 1);
+    }
+
+    console.log(this.selectedVideos);
+  }
+
+
+
+  // all check select
+  selectAllVideos(): void {
+    this.all_newChefVideos.forEach(video => {
+      video.selected = this.selectAllChecked;
+  
+      if (this.selectAllChecked) {
+        if (!this.selectedVideos.includes(video.id)) {
+          this.selectedVideos.push(video.id);
+        }
+      } else {
+        const index = this.selectedVideos.indexOf(video.id);
+        if (index !== -1) {
+          this.selectedVideos.splice(index, 1);
+        }
+      }
+
+
+    console.log(this.selectedVideos);
+
+    });
+  }
+  
+
+
+
+  AtLeastTwoSelected(): boolean {
+    return this.all_newChefVideos.filter(video => video.selected).length >= 1;
+  }
+  
+// end of all sleect check
 
 
   toggleShowMorenew() {
@@ -94,8 +145,18 @@ export class VideosComponent implements OnInit {
 
 
   GetInfo() {
+// alladmins
+    let getAdminDetails = {}
 
-
+    this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: any) => {
+       
+      this.all_admindetails = result;
+     
+    console.log(this.all_admindetails);
+    
+    
+ 
+    },);
 // not approved videos
 
     
@@ -248,119 +309,39 @@ acceptVideo(): void {
   ///////////////////////1st end 
 
 
-  // 2nd start
+  // ///////asign video to admin ///////////
+
+  asignvideo(): void {
 
 
-
-  accept2Video(): void {
+  console.log(this.selectedAssignee);
+  
     const data = {
-      "ProductReceipeId": this.approvevideoId,
+      description: this.description,
+      videosId: this.selectedVideos, 
     };
-  
-  
-    console.log(data);
-  
-    this.database.postdata(`ypc-admin-micro-service/admin/approve/${this.approvevideoId}`, data).subscribe({
+
+    this.database.postdata(`ypc-admin-micro-service/admin/assign/task/${this.selectedAssignee}`, data).subscribe({
       next: (result) => {
-        this.result = result.data;
         console.log(result);
-  
-        this.succesMsg('Video approved successfully');
+        this.result = result.message;
+        this.succesMsg(this.result);
       },
       error: (error) => {
         console.log(error);
         this.errorMsg(error.error.error);
       },
       complete: () => {
-        this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-          this.router.navigate([this.router.url]);
-        });
+   console.log("completed ..........");
+   
       }
     });
   }
-  
-    
-    delete2Video(): void {
-      const data = {
-        'ProductReceipeId': this.approvevideoId,
-      };
-      console.log(`datadatadata${this.approvevideoId}`);
-    
-      this.database.postdata(`ypc-admin-micro-service/admin/delete/${this.approvevideoId}`, data).subscribe({
-        next: (result) => {
-          console.log(result);
-          this.result = result.data;
-          this.succesMsg('Video deleted successfully');
-        },
-        error: (error) => {
-          console.log(error);
-          this.errorMsg(error.error.error);
-        },
-        complete: () => {
-        
-          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-            this.router.navigate([this.router.url]);
-          });
-        }
-      });
-    }
-    // 2nd end
 
 
-    // 3rd start
 
 
-    accept3Video(): void {
-      const data = {
-        "ProductReceipeId": this.deletevideoId,
-      };
-    
-    
-      console.log(data);
-    
-      this.database.postdata(`ypc-admin-micro-service/admin/approve/${this.deletevideoId}`, data).subscribe({
-        next: (result) => {
-          this.result = result.data;
-          console.log(result);
-    
-          this.succesMsg('Video approved successfully');
-        },
-        error: (error) => {
-          console.log(error);
-          this.errorMsg(error.error.error);
-        },
-        complete: () => {
-          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-            this.router.navigate([this.router.url]);
-          });
-        }
-      });
-    }
-    
-      
-      delete3Video(): void {
-        const data = {
-          'ProductReceipeId': this.deletevideoId,
-        };
-      
-        this.database.postdata(`ypc-admin-micro-service/admin/delete/${this.deletevideoId}`, data).subscribe({
-          next: (result) => {
-            console.log(result);
-            this.result = result.data;
-            this.succesMsg('Video deleted successfully');
-          },
-          error: (error) => {
-            console.log(error);
-            this.errorMsg(error.error.error);
-          },
-          complete: () => {
-          
-            this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
-              this.router.navigate([this.router.url]);
-            });
-          }
-        });
-      }
+
 
 
 // clearance for local
