@@ -9,6 +9,9 @@ import { VideosComponent } from '../videos/videos.component';
 import { VideospagelistComponent } from '../videos/videospagelist/videospagelist.component';
 import { AuthGuard } from './auth.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { TemplatesComponent } from '../templates/templates.component';
+import { TestingComponent } from '../testing/testing.component';
+import { SaraComponent } from '../sara/sara.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -26,16 +29,12 @@ const routes: Routes = [
   { path: 'resetpassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
 
 
+  
+  { path: 'template', component: TemplatesComponent },
+  { path: 'test', component: TestingComponent, },
+  { path: 'dashboard', component: DashboardComponent, }, 
+  { path: 'forgetpassword', component: TestingComponent, },
 
-
-  // { path: 'login', component: LoginComponent },
-  // { path: 'resetpassword', component: ResetPasswordComponent },
-
-  // { path: 'forgetpassword', component: ForgetpasswordComponent, },
-  // {path: 'dashboard',component: DashboardComponent,},
-  // { path: 'ghdcgh', component: AdminheaderComponent,  },
-  // { path: 'VideosComponent', component: VideosComponent, },
-  // { path: 'video', component: VideospagelistComponent,  },
  
 ];
 

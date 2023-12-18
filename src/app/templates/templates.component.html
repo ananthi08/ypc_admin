@@ -51,11 +51,27 @@
                     <div class="row ">
                         <div class="col-lg-3 mt-1" >
                             
-                            <label>International Cuisines</label>
+                            <label>International Cuisines </label>
+                              
+                           
+                            <!-- <div *ngFor=" let dishSelect of  mainDishArray11">
+
+                                <div *ngFor=" let final of dishSelect.mainDish">
+
+                                    <div>
+                                        <label>dishSelect</label>
+                                        <li>{{final.name}}</li>
+
+                                    </div>
+                                </div>
+                            </div> -->
+
+                                                   
+                            
                         </div>
-                        <div class="col-lg-2">
-                            <select class="form-select" [(ngModel)]="internationalCuisine"  >
-                                <option [value]="" selected>Select</option>
+                        <div class="col-lg-2 form-group">
+                            <select class="form-select form-control" [(ngModel)]="interNationSelect"  required>
+                                <option [value]="" selected>Select </option>
                                 
                                 <option *ngFor="let cuisine of internationalCuisine" value="{{cuisine}}" >{{ cuisine}}</option>
                                
@@ -69,12 +85,27 @@
                         </div>
                         <div class="col-lg-2">
 
-                            <select class="form-select" [(ngModel)]="nationalCuisine" aria-label="Default select example">
-                                <option selected>Select</option>
-                                <option *ngFor="let cuisine of nationalCuisine" value="{{cuisine}}" >{{ cuisine}}</option>
+                            <select class="form-select" [(ngModel)]="NationSelect" aria-label="Default select example">
+                                <option value="" selected>Select</option>
+                                <option *ngFor="let cuisine of nationalCuisine" value="{{cuisine}}" >{{cuisine}}</option>
 
                             </select>
                         </div>
+
+
+                        <!-- <div class="col-lg-2 mt-1">
+                            <label>Main dish</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <ul *ngFor="let name1 of mainDishArray11">
+                                <li> {{name1.name}}</li>
+                            </ul>
+
+                            <select class="form-select" [(ngModel)]="dishSelect"  >                               
+                                <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                               
+                            </select>
+                        </div> -->
                     </div>
                     <div class="row mt-3">
                         <div class="col-lg-3 col-sm-12 mt-1">
@@ -82,27 +113,21 @@
                         </div>
                         <div class="col-lg-4 col-sm-12 ">
 
-                            <input class="form-check-input" type="radio" name="foodPreference" id="veg" value="veg" [(ngModel)]="foodPreference">
-<label class="form-check-label" for="veg">Veg</label>
+                            <input class="form-check-input mx-2" type="radio" name="foodPreference" id="veg" value="veg" [(ngModel)]="foodPreference">
+                            <label class="form-check-label" for="veg">Veg</label>
+                            <input class="form-check-input mx-2" type="radio" name="foodPreference" id="nonVeg" value="Non Veg" [(ngModel)]="foodPreference" checked>
+                            <label class="form-check-label" for="nonVeg">Non Veg</label>
 
-<input class="form-check-input" type="radio" name="foodPreference" id="nonVeg" value="Non Veg" [(ngModel)]="foodPreference">
-<label class="form-check-label" for="nonVeg">Non Veg</label>
-
-                            <!-- <div class="form-check form-check-inline  ">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Veg</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Non Veg</label>
-                            </div> -->
+                          
                           
                         </div>
+
+                        
                         <div class="col-lg-2">
-                            <button class="btn btn-primary" type="button" (click)="onClick()">Click</button>
-                            {{mainDishArray11 | json}}
+
+                            <form #myForm="ngForm">
+                            <button class="btn btn-primary "  type="button" (click)="onClick((myForm))">Click</button>
+                        </form>
                            
                         </div>
                     </div>
@@ -128,26 +153,30 @@
                         <div class="col-lg">
                             <div class="row  pt-2 pb-2 border-start border-3 border-start border-3">
 
-                                <div class="col-lg-4 mt-2">
+                                <div class="col-lg-4 mt-2 hello">
                                     <label>Main Dish:</label>
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="mainDishArray1">
-                                      
-                                        <option selected>Select</option>
+                                    <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="dishSelect">
                                        
                                 <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
 
                                     </select> -->
 
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
+                                        <option selected>Select</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
+                                    </select>
+
                                     <!-- <div class="col-lg-2"> -->
-                                        <select class="form-select" [(ngModel)]="mainDishArray1"  >
-                                            <option [value]="" selected>Select</option>
+                                        <!-- <select class="form-select" [(ngModel)]="mainDishArray"  > -->
+                                            <!-- <option [value]="" selected>Select</option> -->
                                             
-                                            <option *ngFor="let name of mainDishArray1" value="{{name}}" >{{ name}}</option>
+                                            <!-- <option value="{{name}}" >{{name }}</option> -->
                                            
-                                        </select>
+                                        <!-- </select> -->
                                     <!-- </div> -->
                                 </div>
                                 <!-- {{mainDishArray11|json}} -->
@@ -156,12 +185,12 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
+
                                 </div>
                               
 
@@ -178,11 +207,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -191,11 +219,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -214,11 +241,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -227,11 +253,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -254,11 +279,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -267,11 +291,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -289,11 +312,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -302,11 +324,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -325,11 +346,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -338,11 +358,9 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>                                         
                                         </select>
                                     </div>
                                   
@@ -368,11 +386,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -381,11 +398,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -403,11 +419,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -416,11 +431,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -439,11 +453,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -452,11 +465,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -481,11 +493,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -494,11 +505,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -516,11 +526,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -529,11 +538,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -552,11 +560,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -565,11 +572,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -595,11 +601,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -608,11 +613,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -630,11 +634,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -643,11 +646,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -666,11 +668,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -679,11 +680,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -707,11 +707,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -720,11 +719,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -741,12 +739,10 @@
                                         <label>Main Dish:</label>
                                     </div>
                                     <div class="col-lg-8 mt-2">
-    
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -755,11 +751,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -778,11 +773,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -791,11 +785,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -820,11 +813,10 @@
                                 </div>
                                 <div class="col-lg-8 mt-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
 
@@ -833,11 +825,10 @@
                                 </div>
                                 <div class="col-lg-8 my-2">
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                         <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                       
                                     </select>
                                 </div>
                               
@@ -855,11 +846,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -868,11 +858,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -891,11 +880,10 @@
                                     </div>
                                     <div class="col-lg-8 mt-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
     
@@ -904,11 +892,10 @@
                                     </div>
                                     <div class="col-lg-8 my-2">
     
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" [(ngModel)]="dishSelect1" aria-label="Default select example">      
                                             <option selected>Select</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option *ngFor="let name1 of SideDishArray" value="{{name1.name}}" > {{name1.name}}</option>
+                                           
                                         </select>
                                     </div>
                                   
@@ -931,3 +918,11 @@
 
 
     </div>
+
+    <!-- <script>
+         $("#show").click(function(){
+    $("p").show();
+  })
+    </script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

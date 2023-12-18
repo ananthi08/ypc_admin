@@ -7,31 +7,34 @@ import * as $ from 'jquery'
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.css']
-})
-export class TemplatesComponent implements OnInit  {
-  dishes: any={};
-mainDishArray1: any;
-  mainDishArray11: any=[];
   
-save(arg0: any) {
-throw new Error('Method not implemented.');
-}
+})
+
+
+export class TemplatesComponent implements OnInit  
+{
+  
+  
+  constructor(private database: DbService,private router: Router) { }
+
+  dishes: any={};
+  mainDishArray11: any[]=[];
+  SideDishArray: any[]=[];
+  mainDishArray: any={};
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
-  internationalCuisine :any=[];
+  internationalCuisine :any={};
   nationalCuisine: any={};
   foodPreference:any={};
-  mainDishArray:any;
   maindish:any={};
-  // name:any={};
-  constructor(private database: DbService,private router: Router) { }
-
+  dishSelect:any;
+  dishSelect1:any;
+  interNationSelect:any;
+  NationSelect:any;
 
 
   ngOnInit() {
-
 
     this.GetInfo();
 
@@ -39,19 +42,8 @@ throw new Error('Method not implemented.');
 
 
 
-  GetInfo() {
-
-
-// getinternational cuisne
-//     this.database.getData('ypc-admin-micro-service/admin/international/cuisine').subscribe(
-//       (result: any) => {
- 
-//         this.internationalCuisine = result.cuisine;
-
-//  console.log( this.internationalCuisine);
- 
-//       },
-//     );
+  GetInfo() 
+  {
 
 
 
@@ -73,7 +65,7 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
     this.nationalCuisine = result.map(item => item.cuisine);
 
   
-    console.log(this.nationalCuisine);
+    console.log("Sara", this.nationalCuisine);
   },
 );
 
@@ -81,15 +73,15 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
 
 
 // get national cuisne
-this.database.getData('ypc-admin-micro-service/ypc/admin/chef/allvideos').subscribe(
-  (result: any) => {
+// this.database.getData('ypc-admin-micro-service/ypc/admin/chef/allvideos').subscribe(
+//   (result: any) => {
 
-    this.nationalCuisine = result;
+//     this.nationalCuisine = result;
 
-console.log( this.nationalCuisine);
+// console.log( this.nationalCuisine);
 
-  },
-);
+//   },
+// );
 
 
 
@@ -105,16 +97,17 @@ console.log( this.nationalCuisine);
   }
 
   
-  onClick() {
+  onClick(form: NgForm) {
 
     if (this.internationalCuisine && this.nationalCuisine && this.foodPreference) {
       // const apiUrl = 'ypc-admin-micro-service/admin/template/getProducts/2';
      
-      let food = "?nationalCuisine="+this.nationalCuisine+"&internationalCuisine="+this.internationalCuisine+"&productType="+this.foodPreference;
+      let food = "?nationalCuisine="+this.NationSelect+"&internationalCuisine="+this.interNationSelect+"&productType="+this.foodPreference;
   
      
   
-      this.database.getData('ypc-admin-micro-service/admin/template/getProducts/2'+food).subscribe((result: any={}) => 
+      this.database.getData('ypc-admin-micro-service/admin/template/getProducts/2'+food).subscribe(
+        (result: any={}) => 
       {
         
         // console.log("sfgvrgvdgvdrt"+result.maindish);
@@ -125,24 +118,26 @@ console.log( this.nationalCuisine);
         // this.dishes = result;
 
         // console.log("dsf"+this.dishes);
+        
 
+        this.mainDishArray11 = result.mainDish; 
 
-        // this.mainDishArray11 = result.mainDish; 
-        // console.log("testing",this.mainDishArray11);
+        // this.mainDishArray11= [{"name":'dosa'},{"name":'idly'},{"name":'upma'}];
+        console.log("testing",this.mainDishArray11);
 
+        this.SideDishArray = result.sideDish; 
+        console.log("testing",this.SideDishArray);
 
-  // const sideDishArray = result.sideDish;
-  // console.log(sideDishArray);
-
-        for (const dish of this.mainDishArray11) {
-          console.log(`Name: ${dish.name}`);
-        }
-        alert();
-      });
+   
+      }
+        );
     } else {
-      console.log('Please select all required values');
+      // console.log('Please select all required values');
+      alert('rtgr');
     }
   }
-  
+  save(arg0: any) {
+    throw new Error('Method not implemented.');
+    }
   
 }

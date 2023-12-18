@@ -10,11 +10,17 @@ import { AdminheaderComponent } from './common_widgets/adminheader/adminheader.c
 import { LeftnavComponent } from './common_widgets/leftnav/leftnav.component';
 import { VideosComponent } from './videos/videos.component';
 import { VideospagelistComponent } from './videos/videospagelist/videospagelist.component';
-
-// import { VideosComponent } from './videos/videos/videos.component';
-
-
-
+import { TemplatesComponent } from './templates/templates.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TestingComponent } from './testing/testing.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SaraComponent } from './sara/sara.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +29,26 @@ import { VideospagelistComponent } from './videos/videospagelist/videospagelist.
     LeftnavComponent,
     VideosComponent,
     VideospagelistComponent,
+    TemplatesComponent,
+    TestingComponent,
+    SaraComponent,
  
    
   ],
   imports: [
+    MatInputModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatChipsModule,
     HttpClientModule,
     BrowserModule,
     AuthenticationModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
