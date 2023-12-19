@@ -75,18 +75,18 @@ export class LeftnavComponent {
       Dashboard(){
         this.route.navigateByUrl('dashboard')
 
-        this.tag_lnav_fin ="active";
+
 
       }
       manageTeam(){
    
         this.route.navigateByUrl('manageteam')
 
-        this.tag_lnav_fin ="active";
+
     
       }
-      shareholding(){
-
+      TemplatesComponent(){
+        this.route.navigateByUrl('template')
         // this.tag_lnav_sha ="active";
     
       }

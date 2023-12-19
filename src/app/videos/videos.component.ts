@@ -36,7 +36,13 @@ export class VideosComponent implements OnInit {
   filteredVideos: any[] = [];
   asignid: any;
 
+  role: string | undefined;
+  Superadmin:string | undefined;
+
+
   all_admindetails: any = {};
+
+  admindetails: any = {};
   selectedAssignee: string = '';
   // checkox
 
@@ -50,6 +56,9 @@ export class VideosComponent implements OnInit {
 
 
     this.GetInfo();
+    if (localStorage.getItem("role")) {
+      this.role = JSON.parse(localStorage.getItem("role") || '{}');
+    }
   }
 
   applyVideoFilter() {
@@ -153,6 +162,20 @@ export class VideosComponent implements OnInit {
       this.all_admindetails = result;
      
     console.log(this.all_admindetails);
+    
+    
+ 
+    },);
+
+
+    // admins who are not assigned the videos 
+    let getnotassignAdminDetails = {}
+
+    this.database.getData('ypc-admin-micro-service/admin/unassigned/admins', ).subscribe((result: any) => {
+       
+      this.admindetails = result;
+     
+    console.log(this.admindetails);
     
     
  
@@ -324,8 +347,8 @@ acceptVideo(): void {
     this.database.postdata(`ypc-admin-micro-service/admin/assign/task/${this.selectedAssignee}`, data).subscribe({
       next: (result) => {
         console.log(result);
-        this.result = result.message;
-        this.succesMsg(this.result);
+        // this.result = result.message;
+        this.succesMsg(result.message);
       },
       error: (error) => {
         console.log(error);
@@ -333,7 +356,7 @@ acceptVideo(): void {
       },
       complete: () => {
    console.log("completed ..........");
-   
+   window.location.reload();
       }
     });
   }

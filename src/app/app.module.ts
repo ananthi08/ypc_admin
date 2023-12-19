@@ -24,8 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManageteamComponent } from './dashboard/manageteam/manageteam.component';
 
 // import { VideosComponent } from './videos/videos/videos.component';
-
-
+ 
 
 @NgModule({
   declarations: [
@@ -53,7 +52,9 @@ import { ManageteamComponent } from './dashboard/manageteam/manageteam.component
     AuthenticationModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

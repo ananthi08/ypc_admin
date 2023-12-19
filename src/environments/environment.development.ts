@@ -6,6 +6,6 @@ export const environment = {
     api_key :"3GR29WG7P0BHULAPFQRO",
     app_name: "ypc.admin",
  
-      
+      SECRET_KEY :"mahesh@fc"
   
 };

@@ -15,7 +15,9 @@ export class TemplatesComponent implements OnInit
 {
   
   
-  constructor(private database: DbService,private router: Router) { }
+  constructor(private database: DbService,private router: Router) { 
+    
+  }
 
   dishes: any={};
   mainDishArray11: any[]=[];
@@ -23,12 +25,17 @@ export class TemplatesComponent implements OnInit
   mainDishArray: any={};
   dropdownList = [];
   selectedItems = [];
-  dropdownSettings = {};
+  // dropdownSettings = {};
   internationalCuisine :any={};
   nationalCuisine: any={};
   foodPreference:any={};
   maindish:any={};
+
+// mahi usecase
   dishSelect:any;
+
+
+
   dishSelect1:any;
   interNationSelect:any;
   NationSelect:any;
@@ -42,6 +49,7 @@ export class TemplatesComponent implements OnInit
 
 
 
+  
   GetInfo() 
   {
 

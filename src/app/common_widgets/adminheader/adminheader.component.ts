@@ -78,7 +78,11 @@ export class AdminheaderComponent {
 
   }
 
+  GetInfo() {
 
+
+    
+  }
 
 
 

@@ -26,12 +26,13 @@ const routes: Routes = [
   { path: 'VideosComponent', component: VideosComponent, canActivate: [AuthGuard] },
   { path: 'video', component: VideospagelistComponent, canActivate: [AuthGuard] },
   { path: 'resetpassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
-  // { path: 'manageteam', component: ResetPasswordComponent, canActivate: [AuthGuard] },
+  { path: 'manageteam', component: ManageteamComponent, canActivate: [AuthGuard] },
+  { path: 'template', component: TemplatesComponent ,canActivate: [AuthGuard]},
 
 
 
   
-  { path: 'template', component: TemplatesComponent },
+  // { path: 'template', component: TemplatesComponent },
   // { path: 'dashboard', component: DashboardComponent, }, 
 
 
@@ -42,9 +43,8 @@ const routes: Routes = [
   // {path: 'dashboard',component: DashboardComponent,},
   // { path: 'ghdcgh', component: AdminheaderComponent,  },
   // { path: 'VideosComponent', component: VideosComponent, },
-  { path: 'manageteam', component: ManageteamComponent, },
+  // { path: 'manageteam', component: ManageteamComponent, },
 
-  { path: 'template', component: TemplatesComponent,  },
  
 ];
 

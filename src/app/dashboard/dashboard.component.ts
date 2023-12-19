@@ -5,6 +5,10 @@ import * as $ from 'jquery'
 import { FormsModule } from '@angular/forms';
 import { DbService } from 'src/app/services/db.service';
 import { Subscription } from 'rxjs';
+
+import * as CryptoJS from 'crypto-js';
+import { EncryptionService } from '../services/encryption.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -34,6 +38,8 @@ export class DashboardComponent {
  all_admindetails: any = {};
  all_deleted_videos: any[] = [];
 
+ all_suscribed_users: any[] = [];
+
  all_newChefVideos: any[] = [];
  all_notapproved_videos: any[] = [];
 
@@ -51,8 +57,13 @@ export class DashboardComponent {
   isUserTableVisible: boolean = false;
   isChefTableVisible: boolean = false;
   isAdminTableVisible:boolean = false;
+
+  isSuscribedUsersTableVisible:boolean = false;
+
+
   chefsId:any={}
-  constructor(private database: DbService,private router: Router) { }
+  totalCountSubscribed: any;
+  constructor(private database: DbService,private router: Router,private encryptionService: EncryptionService) { }
 
 
 
@@ -98,6 +109,7 @@ export class DashboardComponent {
 toggleUserTableVisibility() {
   this.isUserTableVisible = !this.isUserTableVisible;
 
+  this.isSuscribedUsersTableVisible =  false;
 
   this.isChefTableVisible = false;
   this.isAdminTableVisible = false;
@@ -106,6 +118,7 @@ toggleUserTableVisibility() {
 toggleChefTableVisibility() {
   this.isChefTableVisible = !this.isChefTableVisible;
 
+  this.isSuscribedUsersTableVisible =  false;
 
   this.isUserTableVisible = false;
   this.isAdminTableVisible = false;
@@ -114,9 +127,22 @@ toggleChefTableVisibility() {
 toggleAdminTableVisibility() {
   this.isAdminTableVisible = !this.isAdminTableVisible;
 
+
+  this.isSuscribedUsersTableVisible =  false;
   this.isUserTableVisible = false;
   this.isChefTableVisible = false;
 }
+
+
+// subscribed users
+toggleSubscribedUsersTableVisibility() {
+ 
+  this.isSuscribedUsersTableVisible = !this.isSuscribedUsersTableVisible;
+this.isAdminTableVisible = false
+  this.isUserTableVisible = false;
+  this.isChefTableVisible = false;
+}
+
 
 // .....................end of table visible...........
 
@@ -132,8 +158,7 @@ this.database.getData('ypc-admin-micro-service/admin/userdetails', ).subscribe((
   this.all_userdetails = result.userDetails;
   this.totalUserCount = this.all_userdetails.length; 
 
-
-  // console.log('Total User Details Count:', this.totalUserCount);
+  
   
 
 },);
@@ -151,7 +176,7 @@ this.database.getData('ypc-admin-micro-service/admin/chefdetails', ).subscribe((
   this.all_chefdetails = result.chefDetails;
   this.totalChefCount = this.all_chefdetails.length
 
-  // console.log('Total chef Details Count:', this.totalChefCount);
+
 
 
   
@@ -168,7 +193,7 @@ this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: a
 
   this.totalAdminCount = this.all_admindetails.length;
 
-  // console.log('Total admin Details Count:', this.totalAdminCount);
+
 
 },);
 
@@ -185,8 +210,7 @@ this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: a
    
           this.all_newChefVideos = result.Notapproved.length;
           const videoIds = this.all_newChefVideos.map(video => video.id);
-   console.log( this.all_newChefVideos);
-   
+ 
         },
       );
   
@@ -194,10 +218,10 @@ this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: a
   
      this.database.getData('ypc-admin-micro-service/admin/chef/approved/allvideos', ).subscribe((result: any) => {
   
-      // console.log( result);
+
   
       this.all_notapproved_videos = result.approved.length;
-   console.log(  this.all_notapproved_videos);
+
 
      
   },);
@@ -207,14 +231,26 @@ this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: a
   
   this.database.getData('ypc-admin-micro-service/admin/chef/deleted/allvideos', ).subscribe((result: any) => {
   
-      // console.log( result);
+  
   
     this.all_deleted_videos = result.deletedvideos.length;
 
-   console.log(  this.all_deleted_videos);
 
   
   },);
+
+
+// get all subscried users
+  this.database.getData('ypc-admin-micro-service/admin/subcribedUsers', ).subscribe((result: any) => {
+    console.log(  result);
+
+    this.all_suscribed_users = [result.userDetails];
+
+    this.totalCountSubscribed = this.all_suscribed_users.length;
+
+    console.log(this.totalCountSubscribed);
+
+},);
   
 
 
@@ -332,6 +368,14 @@ generateNumbers(count: number): number[] {
         "password": this.model.password
       };
 
+// this is for encrypt
+      // const encryptedData = this.encryptionService.encrypt(data);
+      // console.log(data);
+
+      // this is for decrypt
+      // const decryptedData = this.encryptionService.decrypt(encryptedData);
+   
+
       this.database.postdata('ypc-admin-micro-service/admin/register/'+ this.id, data).subscribe({
         next: (result) => {
 
@@ -370,7 +414,35 @@ generateNumbers(count: number): number[] {
 
 
 
+// delting admin by superadmin
+  deleteAdmin(adminId: any) {
 
+    console.log('Deleting admin with ID:', adminId);
+  let data= {
+
+  }
+  
+  
+    this.database.postdata('ypc-admin-micro-service/delete/admin/'+ adminId ,data).subscribe({
+      next: (result) => {
+        console.log(result);
+        this.result = result.data;
+        this.succesMsg(result.message);
+      },
+      error: (error) => {
+        console.log(error);
+        this.errorMsg(error.error.error);
+      },
+      complete: () => {
+        // Reload 
+  
+        setTimeout(() => {
+     
+          window.location.reload();
+        }, 2000); 
+      },
+    });
+  }
 
 
 

@@ -27,29 +27,28 @@
             <div class="finnup__profiletitle">
               <h3>Manage Team</h3>
             </div>
-            <div class="finnup_profilebtn">
-              <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-41" ><i
-                  class="ph-plus-circle"></i>Add User</a>
-            </div>
+         
           </div>
           <div class="row mt-25">
-            <div class="col-lg-12">
+            <div class="col-lg-10">
               <div class="finnup__profiletable">
                 <table class="table" >
                   <thead>
                     <tr>
-                      <!-- <th scope="col">Id</th> -->
+                      <th scope="col">Id</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
                       <th scope="col">Role</th>
                       <th scope="col">Status</th>
+                      <th scope="col">Asign Video</th>
+
   
-                      <th class="text-center" colspan="3">Actions</th>
+                      <!-- <th scope="col">Actions</th> -->
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let admins of all_admindetails">
-                      <!-- <td>{{ fpa_partners.id }}</td> -->
+                    <tr *ngFor="let admins of admindetails">
+                      <td>{{ admins.id }}</td>
                       <td>{{admins.userName}}</td>
                       <td>{{admins.email}}</td>
 
@@ -59,22 +58,20 @@
 
                       <td>{{admins.status}}</td>
 
+                      <td scope="col">
+
+                        <button type="button" class="btn btn-outline-primary btn-sm" (click)="assignvideo(admins.id)">Assign Video</button>
+                      </td>
 
 
                  
-  
-                       <td class="finnup-table-icon ml-10">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-41"
-                         >
-                          <i class="ph-pencil-simple"></i>
-                        </a>
-                      </td>
+
                      
-                      <td class="finnup-table-icon">
+                      <!-- <td class="finnup-table-icon">
                       <a   data-bs-toggle="modal" data-bs-target="#exampleModal-7">
                           <img src="assets/img/delete.svg" />
                         </a>
-                      </td>
+                      </td> -->
                     </tr>
                   </tbody>
                 </table>
@@ -221,6 +218,8 @@
   </div>
   <!-- end of modal  -->
   
+
+  <!-- deleting admin -->
   <div class="modal fade" id="exampleModal-7" tabindex="4" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg-3"
@@ -228,7 +227,7 @@
       <div class="modal-content finnup__profile-modal">
           <div class="modal-header border-0">
               <div class="finnup__modal-title">
-                  <h5 class="modal-title" id="exampleModalLabel">Warning ! You are trying to delete an Connector user.  Are you sure you want to delete?.  Please note, this is a soft delete and deleted users will be marked as delete and can be inactive in the backend. These users can be activated by Super Admin later.</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Warning ! You are trying to delete an admin.  Are you sure you want to delete?.  Please note, this is a soft delete and deleted admins will be marked as delete and can be inactive in the backend. These users can be activated by Super Admin later.</h5>
               </div>
               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
   </button>

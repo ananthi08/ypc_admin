@@ -19,6 +19,9 @@ export class ManageteamComponent {
   id:number| undefined;
   role: string | undefined;
   all_admindetails: any = {};
+  admindetails: any = {};
+
+  result: any;
 
   constructor(private database: DbService,private router: Router) { }
 
@@ -62,11 +65,55 @@ console.log(this.all_admindetails);
     
 
 
+
+     // admins who are not assigned the videos 
+     let getnotassignAdminDetails = {}
+
+     this.database.getData('ypc-admin-micro-service/admin/unassigned/admins', ).subscribe((result: any) => {
+        
+       this.admindetails = result;
+      
+     console.log(this.admindetails);
+     
+     
+  
+     },);
+
+
   }
 
 
 
 
+
+  assignvideo(adminId: any) {
+    console.log('Admin ID:', adminId);
+
+let data ={
+  videosId: [], 
+}
+
+    this.database.postdata('ypc-admin-micro-service/admin/assign/task/'+ adminId,data).subscribe({
+      next: (result) => {
+        console.log(result);
+        this.result = result.message;
+        this.succesMsg(this.result);
+       console.log(this.result);
+
+      },
+      error: (error) => {
+        console.log(error);
+        this.errorMsg(error.error.error);
+      },
+      complete: () => {
+        // Reload 
+        window.location.reload(); 
+  
+    
+      },
+    });
+
+  }
 
 
 
