@@ -11,6 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { TemplatesComponent } from '../templates/templates.component';
 import { ManageteamComponent } from '../dashboard/manageteam/manageteam.component';
+import { DemoComponent } from '../demo/demo.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -44,6 +45,9 @@ const routes: Routes = [
   // { path: 'ghdcgh', component: AdminheaderComponent,  },
   // { path: 'VideosComponent', component: VideosComponent, },
   // { path: 'manageteam', component: ManageteamComponent, },
+  { path: 'DemoComponent', component: DemoComponent, },
+
+  
 
  
 ];

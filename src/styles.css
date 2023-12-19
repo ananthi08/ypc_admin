@@ -54,3 +54,5 @@ div#collapseExample1 {
     background: #ffffff url(../src/assets/img/error.svg) no-repeat left 10px center;
   }
   
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

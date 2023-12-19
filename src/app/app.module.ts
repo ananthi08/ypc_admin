@@ -22,9 +22,20 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { SaraComponent } from './sara/sara.component';
 import { ManageteamComponent } from './dashboard/manageteam/manageteam.component';
-
+import { DemoComponent } from './demo/demo.component';
+import {MatTabsModule} from '@angular/material/tabs';
 // import { VideosComponent } from './videos/videos/videos.component';
  
+
+
+
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +46,8 @@ import { ManageteamComponent } from './dashboard/manageteam/manageteam.component
     VideosComponent,
     VideospagelistComponent,
     TemplatesComponent,
-    ManageteamComponent
+    ManageteamComponent,
+    DemoComponent
  
    
   ],
@@ -53,6 +65,8 @@ import { ManageteamComponent } from './dashboard/manageteam/manageteam.component
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    MatChipsModule
 
 
   ],
