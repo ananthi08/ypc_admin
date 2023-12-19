@@ -3819,7 +3819,7 @@ section.section.dashboard.borrowers.section-request {
   padding: 16px 0 16px 16px;
   font-family: "DM Sans";
   font-style: normal;
-  font-weight: 500;
+  /* font-weight: 500; */
   font-size: 20px;
   line-height: 18px;
   color: #111111;
