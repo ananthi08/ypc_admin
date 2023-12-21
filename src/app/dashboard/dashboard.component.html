@@ -215,7 +215,7 @@
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">New Videos</h5>
-                    <span class="h2 font-weight-bold mb-0">{{all_newChefVideos }}</span>
+                    <span class="h2 font-weight-bold mb-0">1{{all_newChefVideos }}</span>
                   </div>
                   <div class="col-auto">
                     <div class="badge">
@@ -328,7 +328,9 @@
 
 
 
-
+        <div class="search-hero" *ngIf="isChefTableVisible">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching the chefs">
+        </div>
         <!-- start of  total chefs  -->
         <div class="col-l-9 mt-5 mx-auto d-block" *ngIf="isChefTableVisible">
           <h3>List of Chefs</h3> 
@@ -347,7 +349,8 @@
    </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let chefs of all_chefdetails">
+           
+            <tr *ngFor="let chefs of all_chefdetails | filter:searchText">
               <th scope="row">{{chefs.id}}</th>
               <td>{{chefs.userName}}</td>
               <td>{{chefs.email}}</td>

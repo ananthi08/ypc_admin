@@ -15,7 +15,7 @@ import { EncryptionService } from '../services/encryption.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
+  searchText: any;
   
   private subscription: Subscription = new Subscription();
   model:any={};

@@ -31,8 +31,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 
 
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -66,7 +65,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    Ng2SearchPipeModule
 
 
   ],

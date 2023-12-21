@@ -20,6 +20,9 @@ const routerOptions: ExtraOptions = {
 };
 
 const routes: Routes = [
+
+  // original_routing_paths
+
   { path: 'login', component: LoginComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent, canActivate: [AuthGuard] },
   {path: 'dashboard',component: DashboardComponent,canActivate: [AuthGuard],},
@@ -32,19 +35,34 @@ const routes: Routes = [
 
 
 
-  
-  // { path: 'template', component: TemplatesComponent },
-  // { path: 'dashboard', component: DashboardComponent, }, 
 
 
-  // { path: 'login', component: LoginComponent },
-  // { path: 'resetpassword', component: ResetPasswordComponent },
+  // mahi testing :
+// in this i need to create a seperate module for each then only i need to use the below and import the modules below
+  // { path: 'login', loadChildren: () => import('./login/login.component').then(m => m.LoginComponent) },
+  // { path: 'forgetpassword', loadChildren: () => import('./forgetpassword/forgetpassword.component').then(m => m.ForgetpasswordComponent), canActivate: [AuthGuard] },
+  // { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.component').then(m => m.DashboardComponent), canActivate: [AuthGuard] },
+  // { path: 'ghdcgh', loadChildren: () => import('../common_widgets/adminheader/adminheader.component').then(m => m.AdminheaderComponent), canActivate: [AuthGuard] },
+  // { path: 'VideosComponent', loadChildren: () => import('../videos/videos.component').then(m => m.VideosComponent), canActivate: [AuthGuard] },
+  // { path: 'video', loadChildren: () => import('../videos/videospagelist/videospagelist.component').then(m => m.VideospagelistComponent), canActivate: [AuthGuard] },
+  // { path: 'resetpassword', loadChildren: () => import('./reset-password/reset-password.component').then(m => m.ResetPasswordComponent), canActivate: [AuthGuard] },
+  // { path: 'manageteam', loadChildren: () => import('../dashboard/manageteam/manageteam.component').then(m => m.ManageteamComponent), canActivate: [AuthGuard] },
+  // { path: 'template', loadChildren: () => import('../templates/templates.component').then(m => m.TemplatesComponent), canActivate: [AuthGuard] },
 
-  // { path: 'forgetpassword', component: ForgetpasswordComponent, },
-  // {path: 'dashboard',component: DashboardComponent,},
-  // { path: 'ghdcgh', component: AdminheaderComponent,  },
-  // { path: 'VideosComponent', component: VideosComponent, },
-  // { path: 'manageteam', component: ManageteamComponent, },
+
+// og without guard :
+    // { path: 'login', component: LoginComponent },
+    // { path: 'forgetpassword', component: ForgetpasswordComponent,  },
+    // {path: 'dashboard',component: DashboardComponent,},
+    // { path: 'ghdcgh', component: AdminheaderComponent, },
+    // { path: 'VideosComponent', component: VideosComponent, },
+    // { path: 'video', component: VideospagelistComponent, },
+    // { path: 'resetpassword', component: ResetPasswordComponent, },
+    // { path: 'manageteam', component: ManageteamComponent, },
+    // { path: 'template', component: TemplatesComponent },
+
+
+  // testing purpose
   { path: 'DemoComponent', component: DemoComponent, },
 
   

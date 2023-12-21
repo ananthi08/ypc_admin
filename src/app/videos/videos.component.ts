@@ -53,9 +53,16 @@ export class VideosComponent implements OnInit {
   constructor(private database: DbService, private router: Router) {}
 
   ngOnInit(): void {
-
-
+  
+    if (localStorage.getItem("id")) {
+      this.id = JSON.parse(localStorage.getItem("id") || '{}');
+    }
+    
     this.GetInfo();
+
+   
+
+
     if (localStorage.getItem("role")) {
       this.role = JSON.parse(localStorage.getItem("role") || '{}');
     }
@@ -181,8 +188,19 @@ export class VideosComponent implements OnInit {
  
     },);
 // not approved videos
+if (this.id) {
+this.database.getData(`ypc-admin-micro-service/ypc/admin/chef/allvideos/${this.id}`).subscribe(
+  (result: any) => {
 
-    
+    this.all_newChefVideos = result.Notapproved;
+    const videoIdnew = this.all_newChefVideos.map(video => video.id);
+console.log( videoIdnew);
+
+  },
+)
+}else {
+  console.error("ID not available. Unable to fetch chef videos.");
+}
 
 // approved videos
 
@@ -212,15 +230,7 @@ this.database.getData('ypc-admin-micro-service/admin/chef/deleted/allvideos', ).
 },);
 
 
-this.database.getData('ypc-admin-micro-service/ypc/admin/chef/allvideos').subscribe(
-  (result: any) => {
 
-    this.all_newChefVideos = result.Notapproved;
-    const videoIdnew = this.all_newChefVideos.map(video => video.id);
-console.log( videoIdnew);
-
-  },
-);
 
 }
 
