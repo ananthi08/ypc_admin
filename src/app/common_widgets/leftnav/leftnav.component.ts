@@ -90,8 +90,12 @@ export class LeftnavComponent {
         // this.tag_lnav_sha ="active";
     
       }
-
-
+      
+      manageTemplatesComponent(){
+        this.route.navigateByUrl('template_list')
+        // this.tag_lnav_sha ="active";
+    
+      }
 
 
       // this is for video verification navigation

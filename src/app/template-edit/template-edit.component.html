@@ -1,0 +1,1047 @@
+<style>
+    .dblo {
+        margin: auto;
+    }
+
+    .border {
+        border: 3px solid red;
+    }
+
+    @media (max-width: 576px) {
+        .alig-left {
+            margin-left: 40px;
+            width: 90%;
+        }
+    }
+
+    .hello {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+
+
+
+
+<div *ngIf="internationalCuisine && internationalCuisine.length > 0">
+
+
+
+
+    <div class="toast collapse" id="collapseExample">
+        <div class="toast-body">
+
+        </div>
+    </div>
+    <div class="toast collapse" id="collapseExample1">
+        <div class="toast-body">
+
+        </div>
+    </div>
+    <app-adminheader></app-adminheader>
+    <div class="sidebarContainer">
+        <app-leftnav></app-leftnav>
+    </div>
+    <div class="pageContent col-12" style="margin-top: 100px;">
+        <main id="main" class="main">
+            <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+
+                <section class="section dashboard borrowers">
+
+
+
+
+                    <div class="container ">
+                        <div *ngIf="chartList && chartList.length > 0">
+                            <div class="card mb-5 alig-left">
+                                <div class="card-body p-5">
+
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-12">
+                                            <h2 class="text-danger">Edit Template</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="col-lg-3 mt-1">
+
+                                            <label>International Cuisines </label>
+
+
+                                            <!-- <div *ngFor=" let dishSelect of  mainDishArray11">
+    
+                                    <div *ngFor=" let final of dishSelect.mainDish">
+    
+                                        <div>
+                                            <label>dishSelect</label>
+                                            <li>{{final.name}}</li>
+    
+                                        </div>
+                                    </div>
+                                </div> -->
+
+
+
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <select class="form-select form-control " [(ngModel)]="interNationSelect"
+                                                required placeholder="Select">
+                                                <option value="" disabled>Select </option>
+                                                <option *ngFor="let cuisine of internationalCuisine"
+                                                    value="{{cuisine}}">{{ cuisine}}</option>
+
+                                            </select>
+
+
+                                        </div>
+
+
+
+                                        <div class="col-lg-2 mt-1">
+                                            <label>National Cuisines</label>
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                            <select class="form-select" [(ngModel)]="NationSelect"
+                                                aria-label="Default select example">
+                                                <option value="" disabled>Select</option>
+                                                <option *ngFor="let cuisine of nationalCuisine" value="{{cuisine}}">
+                                                    {{cuisine}}</option>
+
+                                            </select>
+                                        </div>
+
+
+                                        <!-- <div class="col-lg-2 mt-1">
+                                <label>Main dish</label>
+                            </div>
+                            <div class="col-lg-2">
+                                <ul *ngFor="let name1 of mainDishArray11">
+                                    <li> {{name1.name}}</li>
+                                </ul>
+    
+                                <select class="form-select" [(ngModel)]="dishSelect"  >                               
+                                    <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+                                   
+                                </select>
+                            </div> -->
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-lg-3 col-sm-12 mt-1">
+                                            <label>Food Preference</label>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-12 ">
+
+
+
+                                            <input class="form-check-input mx-2" type="radio" name="foodPreference"
+                                                id="veg" value="veg" [checked]="this.foodPreference=='veg'"
+                                                [(ngModel)]="foodPreference">
+                                            <label class="form-check-label" for="veg">Veg</label>
+                                            <input class="form-check-input mx-2" type="radio" name="foodPreference"
+                                                id="nonVeg" value="Non Veg" [checked]="foodPreference=='Non Veg'"
+                                                [(ngModel)]="foodPreference">
+                                            <label class="form-check-label" for="nonVeg">Non Veg</label>
+
+
+
+                                        </div>
+
+
+                                        <div class="col-lg-2">
+
+                                            <form #myForm="ngForm">
+                                                <button class="btn btn-primary " type="button" (click)="onClick()"
+                                                    style="width: 100%;">Click</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center text-center border mt-3">
+
+
+                                        <div class="col-lg-3 mt-3 mb-2">
+                                            <h4 class="text-danger">Breakfast</h4>
+                                        </div>
+                                        <div class="col-lg-3 mt-3 mb-2">
+                                            <h4 class="text-danger"> Lunch</h4>
+
+                                        </div>
+                                        <div class="col-lg-3 mt-3 mb-2">
+                                            <h4 class="text-danger"> Dinner</h4>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row border border-3 text-center ">
+                                        <div class="col-lg-1  center-block dblo  text-danger">Mon</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello hello ">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="dishSelect">
+                                           
+                                    <option *ngFor="let name1 of mainDishArray11" value="{{name1.name}}" > {{name1.name}}</option>
+    
+                                        </select> -->
+
+
+
+
+
+
+
+                                                    <!--                 
+                                        <select class="form-select form-control " [(ngModel)]="interNationSelect"  required placeholder="Select">
+                                            <option value="" disabled>Select </option>                               
+                                            <option *ngFor="let cuisine of internationalCuisine" value="{{cuisine}}" >{{ cuisine}}</option>
+                                           
+                                        </select> -->
+
+
+                                                    <!-- siva -->
+                                                    <select class="form-select form-control" [(ngModel)]="dishSelect"
+                                                        required aria-label="Default select example">
+
+
+
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+
+
+                                                </div>
+                                                <!-- {{mainDishArray11|json}} -->
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect1"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect1"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect2"
+                                                            aria-label="Default select example">
+                                                            <option disabled value="">Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect2"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Tue</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect3"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect3"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect4"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect4"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect5"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect5"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Wed</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect6"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect6"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect7"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect7"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect8"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect8"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Thur</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect9"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect9"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect10"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect10"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect11"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect11"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Fri</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect12"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect12"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect13"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect13"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect14"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect14"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Sat</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3 ">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect15"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect15"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+                                                        <select class="form-select" [(ngModel)]="dishSelect16"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect16"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect17"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect17"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row border border-top-0 border-3 text-center">
+                                        <div class="col-lg-1  center-block dblo text-danger">Sun</div>
+                                        <div class="col-lg">
+                                            <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                <div class="col-lg-4 mt-2 hello">
+                                                    <label>Main Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 mt-2">
+
+                                                    <select class="form-select" [(ngModel)]="dishSelect18"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of mainDishArray11"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-lg-4 my-2  hello">
+                                                    <label>Side Dish:</label>
+                                                </div>
+                                                <div class="col-lg-8 my-2">
+
+                                                    <select class="form-select" [(ngModel)]="sidedishSelect18"
+                                                        aria-label="Default select example">
+                                                        <option value="" disabled>Select</option>
+                                                        <option *ngFor="let name1 of SideDishArray"
+                                                            value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello ">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect19"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect19"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg">
+                                            <div class="col-lg">
+                                                <div class="row  pt-2 pb-2 border-start border-3">
+
+                                                    <div class="col-lg-4 mt-2 hello">
+                                                        <label>Main Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 mt-2">
+
+                                                        <select class="form-select" [(ngModel)]="dishSelect20"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of mainDishArray11"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-lg-4 my-2  hello">
+                                                        <label>Side Dish:</label>
+                                                    </div>
+                                                    <div class="col-lg-8 my-2">
+
+                                                        <select class="form-select" [(ngModel)]="sidedishSelect20"
+                                                            aria-label="Default select example">
+                                                            <option value="" disabled>Select</option>
+                                                            <option *ngFor="let name1 of SideDishArray"
+                                                                value="{{name1.name}}"> {{name1.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <button class="btn btn-danger mt-3 mx-auto d-block "
+                                        (click)="createTemplate()">Submit</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</div>

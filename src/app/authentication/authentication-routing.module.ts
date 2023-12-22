@@ -12,6 +12,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { TemplatesComponent } from '../templates/templates.component';
 import { ManageteamComponent } from '../dashboard/manageteam/manageteam.component';
 import { DemoComponent } from '../demo/demo.component';
+import { TemplateListComponent } from '../template-list/template-list.component';
+import { TemplateEditComponent } from '../template-edit/template-edit.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -63,7 +65,14 @@ const routes: Routes = [
 
 
   // testing purpose
+  // { path: 'forgetpassword', component: ForgetpasswordComponent, },
+  // {path: 'dashboard',component: DashboardComponent,},
+  // { path: 'ghdcgh', component: AdminheaderComponent,  },
+  // { path: 'VideosComponent', component: VideosComponent, },
+  { path: 'template_list', component: TemplateListComponent, },
   { path: 'DemoComponent', component: DemoComponent, },
+  { path: 'template_edit/:id', component: TemplateEditComponent, },
+
 
   
 

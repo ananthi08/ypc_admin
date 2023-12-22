@@ -3,25 +3,40 @@ import { DbService } from 'src/app/services/db.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as $ from 'jquery'
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-templates',
-  templateUrl: './templates.component.html',
+  selector: 'app-template-edit',
+  templateUrl: './template-edit.component.html',
+  styleUrls: ['./template-edit.component.css']
   
 })
 
 
-export class TemplatesComponent implements OnInit  
+
+export class TemplateEditComponent implements OnInit  
 {
   
   
-  constructor(private database: DbService,private router: Router) { 
-    
+  constructor(private database: DbService,private router: Router,private route: ActivatedRoute) { 
+  
   }
+
+ 
+
+ 
+
+  
+
+  all_userdetails: any={};
 
   id:any={};
   dishes: any={};
   mainDishArray11: any[]=[];
+
+  // mainDishArray11: any={};
+
   SideDishArray: any[]=[];
   mainDishArray: any={};
   dropdownList = [];
@@ -29,17 +44,19 @@ export class TemplatesComponent implements OnInit
   // dropdownSettings = {};
   internationalCuisine :any={};
   nationalCuisine: any={};
-  foodPreference:any="";
+  foodPreference:any;
   maindish:any={};
+  chartDetails:any={};
+  country:any={};
 
-// mahi usecase
-  dishSelect:any = "";
+
+  dishSelect: any = "";
   sidedishSelect:any="";
   interNationSelect: any = "";
   NationSelect:any = "";
   adminId:any;
   dishSelect1: any = "";
-  dishSelect2:any = "";
+  dishSelect2: any = "";
   dishSelect3:any = "";
   dishSelect4:any = "";
   dishSelect5:any = "";
@@ -78,22 +95,37 @@ export class TemplatesComponent implements OnInit
   sidedishSelect18:any = "";
   sidedishSelect19:any = "";
   sidedishSelect20:any = "";
+  chartList:any=[];
+
+   async delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
 
   ngOnInit() {
 
     if (localStorage.getItem("id")) {
-      this.id = JSON.parse(localStorage.getItem("id") || '{}');
+      // this.id = JSON.parse(localStorage.getItem("id") || '{}');
     }
-    this.GetInfo();
 
+
+
+    this.route.params.subscribe(params => {
+      this.id  = params['id'];
+      // console.log('ID from route parameter:', id);
+      this.GetInfo(); 
+    });
+    // this.GetInfo();
+    // this.onClick()
+
+    
   }
-
+ 
 
 
   
   GetInfo() 
   {
-
 
 
 // Assuming 'this.database.getData' returns an observable
@@ -103,7 +135,7 @@ this.database.getData('ypc-admin-micro-service/admin/international/cuisine').sub
     this.internationalCuisine = result.map(item => item.cuisine);
 
   
-    console.log(this.internationalCuisine);
+    // console.log('hello',this.internationalCuisine);
   },
 );
 
@@ -114,9 +146,81 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
     this.nationalCuisine = result.map(item => item.cuisine);
 
   
-    console.log( this.nationalCuisine);
+    // console.log("", this.nationalCuisine);
   },
 );
+
+
+this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscribe(
+  (result: any[]) => {
+   
+
+    this.nationalCuisine = result;
+    console.log("test",this.nationalCuisine);
+    this.interNationSelect = this.nationalCuisine.chartDetails[0]['internationalCuisine'];
+    this.NationSelect = this.nationalCuisine.chartDetails[0]['nationalCuisine'];
+    this.foodPreference = this.nationalCuisine.chartDetails[0]['foodPreference'];
+    this.chartList = this.nationalCuisine.chartDetails[0]['chart'];
+    this.dishSelect = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].maindish[0]['breakfast'];
+    console.log("monday",this.dishSelect)
+    this.dishSelect1 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].maindish[0]['lunch'];
+    this.dishSelect2 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].maindish[0]['dinner'];
+    this.dishSelect3 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].maindish[0]['breakfast'];
+    this.dishSelect4 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].maindish[0]['lunch'];
+    this.dishSelect5 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].maindish[0]['dinner'];
+    this.dishSelect6 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].maindish[0]['breakfast'];
+    this.dishSelect7 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].maindish[0]['lunch'];
+    this.dishSelect8 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].maindish[0]['dinner'];
+    this.dishSelect9 = this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].maindish[0]['breakfast'];
+    this.dishSelect10 = this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].maindish[0]['lunch'];
+    this.dishSelect11= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].maindish[0]['dinner'];
+    this.dishSelect12= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].maindish[0]['breakfast'];
+    this.dishSelect13= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].maindish[0]['lunch'];
+    this.dishSelect14 = this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].maindish[0]['dinner'];
+    this.dishSelect15= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].maindish[0]['breakfast'];
+    this.dishSelect16 = this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].maindish[0]['lunch'];
+    this.dishSelect17= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].maindish[0]['dinner'];
+    this.dishSelect18= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].maindish[0]['breakfast'];
+    this.dishSelect19= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].maindish[0]['lunch'];
+    this.dishSelect20= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].maindish[0]['dinner'];
+    
+    this.sidedishSelect = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].sidedish[0]['breakfast'];
+    this.sidedishSelect1 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].sidedish[0]['lunch'];
+    this.sidedishSelect2 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].sidedish[0]['dinner'];
+    this.sidedishSelect3 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].sidedish[0]['breakfast'];
+    this.sidedishSelect4= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].sidedish[0]['lunch'];
+    this.sidedishSelect5= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].sidedish[0]['dinner'];
+    this.sidedishSelect6 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].sidedish[0]['breakfast'];
+    this.sidedishSelect7= this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].sidedish[0]['lunch'];
+    this.sidedishSelect8 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].sidedish[0]['dinner'];
+    this.sidedishSelect9 = this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].sidedish[0]['breakfast'];
+    this.sidedishSelect10= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].sidedish[0]['lunch'];
+    this.sidedishSelect11= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].sidedish[0]['dinner'];
+    this.sidedishSelect12= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].sidedish[0]['breakfast'];
+    this.sidedishSelect13= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].sidedish[0]['lunch'];
+    this.sidedishSelect14= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].sidedish[0]['dinner'];
+    this.sidedishSelect15= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].sidedish[0]['breakfast'];
+    this.sidedishSelect16 = this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].sidedish[0]['lunch'];
+    this.sidedishSelect17= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].sidedish[0]['dinner'];
+    this.sidedishSelect18= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].sidedish[0]['breakfast'];
+    this.sidedishSelect19= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].sidedish[0]['lunch'];
+    this.sidedishSelect20= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].sidedish[0]['dinner'];
+
+    
+    console.log("Siva", this.dishSelect2);
+    // console.log("Siva", this.interNationSelect);
+    
+    // console.log('Total User Details Count:', result);
+
+    // this.all_userdetails = result.chartDetails;
+    // this.totalUserCount = this.all_userdetails.length;
+
+    // console.log(this.all_userdetails);internationalCuisine
+    this.onClick();
+  },
+);
+
+
 
 
   } 
@@ -124,8 +228,8 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
   createTemplate(): void {
 
 
-    console.log(this.interNationSelect);
-    console.log(this.NationSelect);
+    // console.log(this.interNationSelect);
+    // console.log(this.NationSelect);
     
       const data = {
 
@@ -224,35 +328,38 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
     ]
     
       };
-  console.log(data);
+  // console.log(data);
   
-      this.database.postdata(`ypc-admin-micro-service/admin/template/1`, data).subscribe({
-        next: (result) => {
-          console.log(result);
-          // this.result = result.message;
-          // this.succesMsg(this.result);
-        },
-        error: (error) => {
-          // console.log(error);
-          // this.errorMsg(error.error.error);
-        },
-        complete: () => {
-     console.log("completed ..........");
-     
-        }
-      });
-    }
+  
+
+
+    this.database.postdata(`ypc-admin-micro-service/edit/template/3`, data).subscribe({
+      next: (result) => {
+        // console.log(result);
+        // this.result = result.message;
+        // this.succesMsg(this.result);
+      },
+      error: (error) => {
+        // console.log(error);
+        // this.errorMsg(error.error.error);
+      },
+      complete: () => {
+  //  console.log("completed ..........");
+   
+      }
+    });
+  }
 
 
   onItemSelect(item: any) {
-    console.log(item);
+    // console.log(item);
   }
   onSelectAll(items: any) {
-    console.log(items);
+    // console.log(items);
   }
 
   
-  onClick(form: NgForm) {
+  onClick() {
  
 
 
@@ -268,23 +375,15 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
         (result: any={}) => 
       {
         
-        // console.log("sfgvrgvdgvdrt"+result.maindish);
-        // console.log(result);
-        // console.log("--------------");
-        // console.log(this.dishes);
-
-        // this.dishes = result;
-
-        // console.log("dsf"+this.dishes);
-        
+    
 
         this.mainDishArray11 = result.mainDish; 
 
         // this.mainDishArray11= [{"name":'dosa'},{"name":'idly'},{"name":'upma'}];
-        console.log("testing",this.mainDishArray11);
+        // console.log("213123434",this.mainDishArray11);
 
         this.SideDishArray = result.sideDish; 
-        console.log("testing",this.SideDishArray);
+        // console.log("testing",this.SideDishArray);
 
    
       }
@@ -293,7 +392,16 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
       // console.log('Please select all required values');
       alert('Please select all values');
     }
+
+
+
+
+
+    
   }
+
+
+  
   save(arg0: any) {
     throw new Error('Method not implemented.');
     }

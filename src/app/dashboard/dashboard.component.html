@@ -32,7 +32,10 @@
     transform: rotate(180deg);
   }
 
-
+th,td{
+  font-family: DM Sans;
+  font-size: 50;
+}
   
 </style>
 <div class="toast collapse opacity1" id="collapseExample">
@@ -51,16 +54,25 @@
 
 <app-adminheader></app-adminheader>
 <div class="sidebarContainer">
- 
+  <app-leftnav></app-leftnav>
 </div>
+
+
+<div class="pageContent " style="margin-top: 50px;">
+    <main id="main" class="main">
+      <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+  
+        <section class="section dashboard borrowers">
+  
+  
+       
+         
+            <div class="container " >
 <div class="row hik">
 
-  <div class="col-2 mt-5">
-    <app-leftnav></app-leftnav>
 
-  </div>
 
-  <div class="col-10 mt-5">
+  <div class="col-12 mt-5">
 
 
 
@@ -73,9 +85,9 @@
 
       <div class="pt-5">
 
-        <div class="row mt-5">
+        <div class="row mt-5">  
         
-          <div class="row justify-content-end" *ngIf="role == 'Superadmin'">
+          <div class="row justify-content-end" *ngIf="role == 'Super admin'">
             <div class="col-2">
               <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#mahisiva">Add Admin</button>
             </div>
@@ -350,7 +362,7 @@
           </thead>
           <tbody>
            
-            <tr *ngFor="let chefs of all_chefdetails | filter:searchText">
+            <tr *ngFor="let chefs of all_chefdetails ">
               <th scope="row">{{chefs.id}}</th>
               <td>{{chefs.userName}}</td>
               <td>{{chefs.email}}</td>
@@ -480,12 +492,7 @@
     </div>
   </div>
 </div>
-<div class="container-fluid mt--7">
- 
-  <div class="row mt-5">
- 
-  </div>
-</div>
+
 
 
   </div>
@@ -618,3 +625,8 @@
 
 <!--  -->
 
+            </div>
+          </section>
+        </div>
+        </main>
+        </div>

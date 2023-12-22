@@ -24,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManageteamComponent } from './dashboard/manageteam/manageteam.component';
 import { DemoComponent } from './demo/demo.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { TemplateListComponent } from './template-list/template-list.component';
+import { TemplateEditComponent } from './template-edit/template-edit.component';
 // import { VideosComponent } from './videos/videos/videos.component';
  
 
@@ -31,7 +33,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -46,7 +48,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     VideospagelistComponent,
     TemplatesComponent,
     ManageteamComponent,
-    DemoComponent
+    DemoComponent,
+    TemplateListComponent,
+    TemplateEditComponent
  
    
   ],
@@ -66,7 +70,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserAnimationsModule,
     MatTabsModule,
     MatChipsModule,
-    Ng2SearchPipeModule
+    // Ng2SearchPipeModule
 
 
   ],

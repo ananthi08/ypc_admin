@@ -3818,9 +3818,9 @@ section.section.dashboard.borrowers.section-request {
 .nav-link.fin_nav-link {
   padding: 16px 0 16px 16px;
   font-family: "DM Sans";
-  font-style: normal;
+  /* font-style: normal; */
   /* font-weight: 500; */
-  font-size: 20px;
+  font-size: 16px;
   line-height: 18px;
   color: #111111;
   display: flex;

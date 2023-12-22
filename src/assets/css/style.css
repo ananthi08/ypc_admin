@@ -35,6 +35,8 @@ p {
   padding: 0px;
   margin: 0px;
   color: #000;
+
+
 }
 
 h1,
@@ -43,12 +45,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
+  font-family: sans-serif;
+  font-weight:bold;
   padding: 0px;
   margin: 0px;
   line-height: 30px;
   color: #000;
 }
+
+
+
 
 
 a {
@@ -218,9 +224,9 @@ a {
   background-color: #007AFF;
   border-color: #007AFF;
   font-family: DM Sans;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 33px;
+  /* line-height: 33px; */
   letter-spacing: 0em;
   text-align: center;
 }

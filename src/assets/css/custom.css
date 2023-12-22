@@ -95,7 +95,7 @@
 }
 
 .finnup__profiletable table thead{
-    border-bottom: 1px solid #F3F7F9;
+    border-bottom: 1px solid #000000;
 }
 
 .finnup__profiletable table thead tr th{
@@ -124,11 +124,11 @@
 .finnup__profiletable table tbody tr td{
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 500;
+    /* font-weight: 500; */
     font-size: 14px;
     line-height: 18px;
     align-items: center;
-    /* padding: 16px; */
+    padding: 16px;
     /* Black */
     border: none;
     

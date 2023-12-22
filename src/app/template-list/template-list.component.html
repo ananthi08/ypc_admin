@@ -1,0 +1,208 @@
+<style>
+    .hik {
+        margin-top: 60px;
+    }
+
+    .card {
+        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        opacity: 0.9;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title,
+    .h2 {
+        transition: color 0.3s, transform 0.3s;
+    }
+
+    .card:hover .card-title,
+    .card:hover .h2 {
+        color: #ff5733;
+        transform: translateY(-5px);
+    }
+
+    .icon-shape i {
+        transition: transform 0.3s;
+    }
+
+    .card:hover .icon-shape i {
+        transform: rotate(180deg);
+    }
+
+    .her {
+        font-family: 'DM Sans', sans-serif;
+    }
+</style>
+<div class="toast collapse opacity1" id="collapseExample">
+    <div class="toast-body">
+
+    </div>
+   </div>
+
+<div class="toast collapse opacity1" id="collapseExample1">
+    <div class="toast-body">
+
+    </div>
+</div>
+<app-adminheader></app-adminheader>
+<div class="sidebarContainer">
+    <app-leftnav></app-leftnav>
+
+</div>
+
+
+<div class="pageContent " style="margin-top: 50px;">
+    <main id="main" class="main">
+      <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+  
+        <section class="section dashboard borrowers">
+  
+  
+       
+         
+            <div class="container " >
+
+<div class="row hik">
+
+    
+
+   
+
+    <div class="  mt-5">
+
+
+
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+            <div class="container-fluid">
+                <div class="header-body">
+
+                    <!-- Card stats -->
+
+                    <div class="pt-5">
+
+                        <div class="row mt-5">
+                            <section class="main-p-area pb-50" id="reload" style="margin-top: 50px;">
+                                <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+                                    <div class="">
+                                        <div class="finnup__profileheader">
+                                            <div class="finnup__profiletitle">
+                                                <h2 class="text-danger her">Manage Template</h2>
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-25">
+                                            <div class="col-lg-10">
+                                                <div class="finnup__profiletable">
+                                                    <table class="table table-striped">
+                                                        <thead class="thead-dark text-white">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">InterNational Cuisines</th>
+                                                                <th scope="col">National Cuisines</th>
+                                                                <th scope="col">Food Preference</th>
+                                                                <!-- <th scope="col">Chart</th> -->
+                                                                <th scope="col">Actions</th>
+
+
+                                                                <!-- <th scope="col">Actions</th> -->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>Indian</td>
+                                                                <td>Tamil Nadu</td>
+                                                                <td>Veg</td>
+                                                                <td>Monday</td>
+                                                                <td>
+                                                                    <button
+                                                                        class=" btn btn-primary text-white btn-sm">View</button>
+                                                                    <button
+                                                                        class="btn btn-success text-white btn-sm mx-1">Edit</button>
+                                                                    <button
+                                                                        class=" btn btn-danger text-white btn-sm ">Delete</button>
+
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>Indian</td>
+                                                                <td>Punjab</td>
+                                                                <td>Veg</td>
+                                                                <td>Monday</td>
+                                                                <td>
+                                                                    <button
+                                                                        class=" btn btn-primary text-white btn-sm">View</button>
+                                                                    <button
+                                                                        class="btn btn-success text-white btn-sm mx-1">Edit</button>
+                                                                    <button
+                                                                        class=" btn btn-danger text-white btn-sm">Delete</button>
+
+                                                                </td>
+                                                            </tr> -->
+
+
+                                                            <tr *ngFor="let chartDetails of all_userdetails">
+                                                                <th scope="row">{{chartDetails.id}}</th>
+                                                                <td>{{chartDetails.internationalCuisine}}</td>
+                                                                <td>{{chartDetails.nationalCuisine}}</td>
+                                                                <td>{{chartDetails.foodPreference}}</td>
+                                                                <!-- <td>{{chartDetails.chart["monday"]}}</td> -->
+                                                                
+                                                                
+                                                                <td>
+                                                                  <div class="">
+                                                                   
+                                                                    <button 
+                                                                        class="btn btn-success text-white btn-sm mx-1" (click)= "edit(chartDetails.id)">Edit</button>
+                                                                    <button
+                                                                        class=" btn btn-danger text-white btn-sm ">Delete</button>
+
+                                                                  </div>
+                                                                </td>
+                                                                
+                                                              </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt--7">
+
+            <div class="row mt-5">
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+</div>
+
+</section>
+</div>
+</main>
+</div>
