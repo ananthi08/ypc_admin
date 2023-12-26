@@ -47,6 +47,7 @@ export class LeftnavComponent {
   onboardborrowerdetails:any={};
   Navigation:any;
   downloadstrue:any;
+  role: string | undefined;
       //-----------------------------------
       constructor(private dbo: DbService, private route: Router){}
 
@@ -55,7 +56,9 @@ export class LeftnavComponent {
         this.basicprofiletrue = true;
         this.tag_lnav_bap ="active";
 
-       
+        if (localStorage.getItem("role")) {
+          this.role = JSON.parse(localStorage.getItem("role") || '{}');
+        }
         
     
               

@@ -13,7 +13,7 @@ body,html
 }
 /*  */
 label{
-    color: #cfcfcf;
+    /* color: #cfcfcf; */
 }
 .logo-text
 {
@@ -179,7 +179,7 @@ body, html {
 /* Your existing styles below */
 
 label {
-  color: #cfcfcf;
+  /* color: #cfcfcf; */
 }
 
 .logo-text {

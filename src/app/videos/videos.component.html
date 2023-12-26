@@ -86,7 +86,7 @@
 
 
 
-        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" style="margin-top: 64px;">
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" style="margin-top: 30px;">
 
             <div class="container-fluid">
                 <div class="header-body">
@@ -118,7 +118,7 @@
                                         <div class="col">
                                           <div class="row">
                                             <div class="col mx-3">
-                                              <h5 class="card-title text-uppercase text-muted mb-3">New Videos</h5>
+                                              <h4 class="card-title text-uppercase text-muted mb-3">New Videos</h4>
                                             </div>
                                             <div class="col float-end text-primary">
                                               <button class="card-title mb-3 float-end text-primary" (click)="toggleShowMorenew()">
@@ -130,8 +130,8 @@
 
                                             </div>
                                           </div>
-                                          <div class="row">
-                                            <span class="form-check form-check-inline" *ngIf="role == 'Superadmin'">
+                                          <div class="row ">
+                                            <span class="form-check form-check-inline " *ngIf="role == 'Superadmin'" style="margin-left:27px">
                                               <input class="form-check-input" type="checkbox" id="selectAllCheckbox" [(ngModel)]="selectAllChecked" (change)="selectAllVideos()">
                                               <label class="form-check-label" for="selectAllCheckbox">Select All</label>
                                             </span>
@@ -145,26 +145,26 @@
                                                   </video>
                                                 </div>
                                     
-                                                <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Product Name: {{video.text}}</p>
+                                                <p class="text-left font-weight-bold fs-5 text-danger" style="margin-left: 13px;">Product Name: <span class="text-black">{{video.text}}</span></p>
                                     
-                                                <p class="text-left font-weight-bold fs-5" style="margin-left: 13px;">Veg/Nonveg: {{video.productType}}
+                                                <p class="text-left font-weight-bold fs-5 text-danger" style="margin-left: 13px;">Veg/Nonveg: <span class="text-black">{{video.productType}}</span>
                                                   <img *ngIf="video.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
                                                   <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
                                                 </p>
                                     
-                                                <span class="form-check form-check-inline" *ngIf="role == 'Superadmin'">
+                                                <span class="form-check form-check-inline" *ngIf="role == 'Superadmin'" style="margin-left: 16px;">
                                                   <input class="form-check-input" type="checkbox" id="inlineCheckbox{{i}}" [(ngModel)]="video.selected" [disabled]="selectAllChecked" (change)="onCheckChangeAssign(video.id)">
                                                   <label class="form-check-label" for="inlineCheckbox{{i}}">Assign</label>
                                                 </span>
                                     
-                                                <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Cuisine:{{video.nationalCuisine}}</p>
+                                                <p class="text-left fs-5 font-weight-bold text-danger" style="margin-left: 13px;">Cuisine:<span class="text-black">{{video.nationalCuisine}}</span></p>
                                                 <div class="form-check form-check-inline" style="margin-left: 13px;">
                                                   <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="newChefVideosaccept(video.id)" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                   <label class="form-check-label" for="inlineRadio1"><strong class="fs-5">Approve</strong></label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" data-bs-toggle="modal" (click)="newChefVideosdelete(video.id)" data-bs-target="#denybutton">
-                                                  <label class="form-check-label" for="inlineRadio2"><strong class="fs-5">Delete</strong></label>
+                                                  <label class="form-check-label" for="inlineRadio2"><strong class="fs-5">Reject</strong></label>
                                                 </div>
                                               </div>
                                             </ng-container>
@@ -201,7 +201,7 @@
                                   <div class="col">
                                     <div class="row">
                                       <div class="col mx-3">
-                                        <h5 class="card-title text-uppercase text-muted mb-3">Approved Videos</h5>
+                                        <h4 class="card-title text-uppercase text-muted mb-3">Approved Videos</h4>
                                       </div>
                                       <div class="col float-end text-primary">
                                         <button class="card-title mb-3 float-end text-primary" (click)="toggleShowMore()">
@@ -219,12 +219,12 @@
                                               Your browser does not support the video tag.
                                             </video>
                                           </div>
-                                          <p class="text-left font-weight-bold  fs-5" style="margin-left: 13px;">ProductName :{{video1.text}}</p>
-                                          <p class="text-left fs-5 font-weight-bold "style="margin-left: 13px;">Veg/Nonveg: {{video1.productType}}
+                                          <p class="text-left font-weight-bold  fs-5 text-danger" style="margin-left: 13px;">ProductName :{{video1.text}}</p>
+                                          <p class="text-left fs-5 font-weight-bold text-danger"style="margin-left: 13px;">Veg/Nonveg: {{video1.productType}}
                                             <img *ngIf="video1.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
                                             <img *ngIf="video1.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
                                           </p>
-                                          <p class="text-left fs-5" style="margin-left: 13px;">Cuisine : {{video1.nationalCuisine}}</p>
+                                          <p class="text-left fs-5 text-danger" style="margin-left: 13px;">Cuisine : {{video1.nationalCuisine}}</p>
                             
                                         </div>
                                       </ng-container>
@@ -254,7 +254,7 @@
                                   <div class="col">
                                     <div class="row">
                                       <div class="col mx-3">
-                                        <h5 class="card-title text-uppercase text-muted mb-3">Rejected Videos</h5>
+                                        <h4 class="card-title text-uppercase text-muted mb-3">Rejected Videos</h4>
                                       </div>
                                       <div class="col float-end text-primary">
                                         <button class="card-title mb-3 float-end text-primary" (click)="toggleShowMoreRejectedVideos()">
@@ -272,12 +272,12 @@
                                               Your browser does not support the video tag.
                                             </video>
                                           </div>
-                                          <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">ProductName :{{video2.text}}</p>
-                                          <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Veg/Nonveg: {{ video2.productType }}
+                                          <p class="text-left fs-5 font-weight-bold text-danger" style="margin-left: 13px;">ProductName :<span class="text-black">{{video2.text}}</span></p>
+                                          <p class="text-left fs-5 font-weight-bold text-danger" style="margin-left: 13px;">Veg/Nonveg: <span class="text-black">{{ video2.productType }}</span>
                                             <img *ngIf="video2.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
                                             <img *ngIf="video2.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
                                           </p>
-                                          <p class="text-left fs-5 font-weight-bold" style="margin-left: 13px;">Cuisine : {{video2.nationalCuisine}}</p>
+                                          <p class="text-left fs-5 font-weight-bold text-danger" style="margin-left: 13px;">Cuisine : <span class="text-black">{{video2.nationalCuisine}}</span></p>
                              
                                         </div>
                                       </ng-container>

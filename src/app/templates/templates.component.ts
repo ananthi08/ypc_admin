@@ -13,12 +13,13 @@ import * as $ from 'jquery'
 
 export class TemplatesComponent implements OnInit  
 {
+  result: any;
   
   
   constructor(private database: DbService,private router: Router) { 
     
   }
-
+  errormsg :any;
   id:any={};
   dishes: any={};
   mainDishArray11: any[]=[];
@@ -33,10 +34,11 @@ export class TemplatesComponent implements OnInit
   maindish:any={};
 
 // mahi usecase
+successmsg:any;
   dishSelect:any = "";
   sidedishSelect:any="";
-  interNationSelect: any = "";
-  NationSelect:any = "";
+  interNationSelect: any = "Indian";
+  NationSelect:any = "Tamil";
   adminId:any;
   dishSelect1: any = "";
   dishSelect2:any = "";
@@ -124,123 +126,137 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
   createTemplate(): void {
 
 
-    console.log(this.interNationSelect);
-    console.log(this.NationSelect);
-    
-      const data = {
+  
+    if (this.interNationSelect !="" && this.NationSelect !="" && this.foodPreference !="") {
 
-        adminId:this.id,
-        internationalCuisine: [this.interNationSelect],
-        nationalCuisine: [this.NationSelect],
-        foodPreference:this.foodPreference,
-        chart:
-    [
-            {
-            "Monday":{
-                        "maindish": [
-                                        {"breakfast":this.dishSelect,"lunch":this.dishSelect1,"dinner":this.dishSelect2}
-                        ],
-                        "sidedish":[
-                                        {"breakfast":this.sidedishSelect,"lunch":this.sidedishSelect1,"dinner":this.sidedishSelect2}
-                        ]
-                    },
-                        
-        
-            }     ,
-            {
-              "Tuesday":{
+
+      // console.log(this.interNationSelect);
+      // console.log(this.NationSelect);
+      
+        const data = {
+  
+          adminId:this.id,
+          internationalCuisine: [this.interNationSelect],
+          nationalCuisine: [this.NationSelect],
+          foodPreference:this.foodPreference,
+          chart:
+      [
+              {
+              "Monday":{
                           "maindish": [
-                                          {"breakfast":this.dishSelect3,"lunch":this.dishSelect4,"dinner":this.dishSelect5}
+                                          {"breakfast":this.dishSelect,"lunch":this.dishSelect1,"dinner":this.dishSelect2}
                           ],
                           "sidedish":[
-                                          {"breakfast":this.sidedishSelect3,"lunch":this.sidedishSelect4,"dinner":this.sidedishSelect5}
+                                          {"breakfast":this.sidedishSelect,"lunch":this.sidedishSelect1,"dinner":this.sidedishSelect2}
                           ]
                       },
                           
           
-              }    ,
+              }     ,
               {
-                "Wednesday":{
+                "Tuesday":{
                             "maindish": [
-                                            {"breakfast":this.dishSelect6,"lunch":this.dishSelect7,"dinner":this.dishSelect8}
+                                            {"breakfast":this.dishSelect3,"lunch":this.dishSelect4,"dinner":this.dishSelect5}
                             ],
                             "sidedish":[
-                                            {"breakfast":this.sidedishSelect6,"lunch":this.sidedishSelect7,"dinner":this.sidedishSelect8}
+                                            {"breakfast":this.sidedishSelect3,"lunch":this.sidedishSelect4,"dinner":this.sidedishSelect5}
                             ]
                         },
                             
             
                 }    ,
                 {
-                  "Thursday":{
+                  "Wednesday":{
                               "maindish": [
-                                              {"breakfast":this.dishSelect9,"lunch":this.dishSelect10,"dinner":this.dishSelect11}
+                                              {"breakfast":this.dishSelect6,"lunch":this.dishSelect7,"dinner":this.dishSelect8}
                               ],
                               "sidedish":[
-                                              {"breakfast":this.sidedishSelect9,"lunch":this.sidedishSelect10,"dinner":this.sidedishSelect11}
+                                              {"breakfast":this.sidedishSelect6,"lunch":this.sidedishSelect7,"dinner":this.sidedishSelect8}
                               ]
                           },
                               
               
-                  }   , 
+                  }    ,
                   {
-                    "Friday":{
+                    "Thursday":{
                                 "maindish": [
-                                                {"breakfast":this.dishSelect12,"lunch":this.dishSelect13,"dinner":this.dishSelect14}
+                                                {"breakfast":this.dishSelect9,"lunch":this.dishSelect10,"dinner":this.dishSelect11}
                                 ],
                                 "sidedish":[
-                                                {"breakfast":this.sidedishSelect12,"lunch":this.sidedishSelect13,"dinner":this.sidedishSelect14}
+                                                {"breakfast":this.sidedishSelect9,"lunch":this.sidedishSelect10,"dinner":this.sidedishSelect11}
                                 ]
                             },
                                 
                 
-                    }    ,
+                    }   , 
                     {
-                      "Saturday":{
+                      "Friday":{
                                   "maindish": [
-                                                  {"breakfast":this.dishSelect15,"lunch":this.dishSelect16,"dinner":this.dishSelect17}
+                                                  {"breakfast":this.dishSelect12,"lunch":this.dishSelect13,"dinner":this.dishSelect14}
                                   ],
                                   "sidedish":[
-                                                  {"breakfast":this.sidedishSelect15,"lunch":this.sidedishSelect16,"dinner":this.sidedishSelect17}
+                                                  {"breakfast":this.sidedishSelect12,"lunch":this.sidedishSelect13,"dinner":this.sidedishSelect14}
                                   ]
                               },
                                   
                   
                       }    ,
                       {
-                        "Sunday":{
+                        "Saturday":{
                                     "maindish": [
-                                                    {"breakfast":this.dishSelect18,"lunch":this.dishSelect19,"dinner":this.dishSelect20}
+                                                    {"breakfast":this.dishSelect15,"lunch":this.dishSelect16,"dinner":this.dishSelect17}
                                     ],
                                     "sidedish":[
-                                                    {"breakfast":this.sidedishSelect18,"lunch":this.sidedishSelect19,"dinner":this.sidedishSelect20}
+                                                    {"breakfast":this.sidedishSelect15,"lunch":this.sidedishSelect16,"dinner":this.sidedishSelect17}
                                     ]
                                 },
                                     
                     
-                        }    
-
-
-    ]
-    
-      };
-  console.log(data);
+                        }    ,
+                        {
+                          "Sunday":{
+                                      "maindish": [
+                                                      {"breakfast":this.dishSelect18,"lunch":this.dishSelect19,"dinner":this.dishSelect20}
+                                      ],
+                                      "sidedish":[
+                                                      {"breakfast":this.sidedishSelect18,"lunch":this.sidedishSelect19,"dinner":this.sidedishSelect20}
+                                      ]
+                                  },
+                                      
+                      
+                          }    
   
-      this.database.postdata(`ypc-admin-micro-service/admin/template/1`, data).subscribe({
-        next: (result) => {
-          console.log(result);
-          // this.result = result.message;
-          // this.succesMsg(this.result);
-        },
-        error: (error) => {
-          // console.log(error);
-          // this.errorMsg(error.error.error);
-        },
-        complete: () => {
-     console.log("completed ..........");
-     
-        }
-      });
+  
+      ]
+      
+        };
+      console.log(data);
+    
+        this.database.postdata(`ypc-admin-micro-service/admin/template/1`, data).subscribe({
+          next: (result) => {
+            console.log(result);
+            this.result = result.data;
+        this.succesMsg(result.message);
+            this.router.navigate(['template_list']);
+
+          },
+          error: (error) => {
+            // console.log(error);
+            // this.errorMsg(error.error.error);
+          },
+          complete: () => {
+       console.log("completed ..........");
+       
+          }
+        });
+    }
+    else {
+      // console.log('Please select all required values');
+      alert('Please select all values');
+    }
+
+    
+   
     }
 
 
@@ -286,7 +302,7 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
         this.SideDishArray = result.sideDish; 
         console.log("testing",this.SideDishArray);
 
-   
+      //  alert('Templated created')
       }
         );
     } else {
@@ -298,7 +314,24 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
     throw new Error('Method not implemented.');
     }
   
-
+    succesMsg(msg:any)
+    {
+            this.successmsg=msg;
+            $('#collapseExample1').show();
+            setTimeout(() => {
+              $('#collapseExample1').hide();
+            }, 3000);
+   
+    }
+    errorMsg(msg:any)
+    {
+  
+          this.errormsg=msg;
+            $('#collapseExample').show();
+            setTimeout(() => {
+              $('#collapseExample').hide();
+            }, 3000);
+    }
 
 
 

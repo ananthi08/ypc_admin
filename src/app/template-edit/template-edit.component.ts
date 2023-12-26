@@ -333,9 +333,28 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
   
 
 
-    this.database.postdata(`ypc-admin-micro-service/edit/template/3`, data).subscribe({
+  //   this.database.postdata(`ypc-admin-micro-service/edit/template/3`, data).subscribe({
+  //     next: (result) => {
+  //       // console.log(result);
+  //       // this.result = result.message;
+  //       // this.succesMsg(this.result);
+  //     },
+  //     error: (error) => {
+  //       // console.log(error);
+  //       // this.errorMsg(error.error.error);
+  //     },
+  //     complete: () => {
+  // //  console.log("completed ..........");
+   
+  //     }
+  //   });
+
+  // this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscribe(
+
+    this.database.postdata(`ypc-admin-micro-service/edit/template/${this.id}`, data).subscribe({
       next: (result) => {
-        // console.log(result);
+        console.log(result);
+        this.router.navigate(['template_list']);
         // this.result = result.message;
         // this.succesMsg(this.result);
       },
@@ -344,10 +363,11 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
         // this.errorMsg(error.error.error);
       },
       complete: () => {
-  //  console.log("completed ..........");
+   console.log("completed ..........");
    
       }
     });
+
   }
 
 
