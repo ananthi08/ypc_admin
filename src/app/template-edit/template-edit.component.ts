@@ -234,8 +234,8 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
       const data = {
 
         adminId:this.id,
-        internationalCuisine: [this.interNationSelect],
-        nationalCuisine: [this.NationSelect],
+        internationalCuisine: this.interNationSelect,
+        nationalCuisine: this.NationSelect,
         foodPreference:this.foodPreference,
         chart:
     [
