@@ -27,19 +27,17 @@ export class TemplatesComponent implements OnInit
   mainDishArray: any={};
   dropdownList = [];
   selectedItems = [];
-  // dropdownSettings = {};
   internationalCuisine :any={};
   nationalCuisine: any={};
-  foodPreference:any="";
+  // foodPreference:any="";
+  foodPreference:any="Veg";
   maindish:any={};
-
-// mahi usecase
-successmsg:any;
+  successmsg:any;
   dishSelect:any = "";
   sidedishSelect:any="";
   interNationSelect: any = "Indian";
   NationSelect:any = "Tamil";
-  adminId:any;
+  idCard:any;
   dishSelect1: any = "";
   dishSelect2:any = "";
   dishSelect3:any = "";
@@ -85,6 +83,8 @@ successmsg:any;
 
     if (localStorage.getItem("id")) {
       this.id = JSON.parse(localStorage.getItem("id") || '{}');
+      console.log('admin_id',this.id);
+
     }
     this.GetInfo();
 
@@ -126,12 +126,10 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
   createTemplate(): void {
 
 
-  
-    if (this.interNationSelect !="" && this.NationSelect !="" && this.foodPreference !="") {
-
-
-      // console.log(this.interNationSelect);
-      // console.log(this.NationSelect);
+    if (this.dishSelect !="" && this.dishSelect1 !="" && this.dishSelect2 !=""  && this.dishSelect3 !="" && this.dishSelect4 !="" && this.dishSelect5 !="" && this.dishSelect6 !="" && this.dishSelect7 !="" && this.dishSelect8 !="" && this.dishSelect9 !="" && this.dishSelect10 !="" && this.dishSelect11 !="" && this.dishSelect12 !="" && this.dishSelect13 !="" && this.dishSelect14 !="" && this.dishSelect15 !="" && this.dishSelect16 !="" && this.dishSelect17 !="" && this.dishSelect18 !="" && this.dishSelect19 !="" && this.dishSelect20 !=""
+    && this.sidedishSelect !="" && this.sidedishSelect1 !="" && this.sidedishSelect2 !="" && this.sidedishSelect3 !="" && this.sidedishSelect4 !="" && this.sidedishSelect5 !="" && this.sidedishSelect6 !="" && this.sidedishSelect7 !="" && this.sidedishSelect8 !="" && this.sidedishSelect9 !="" && this.sidedishSelect10 !=""  && this.sidedishSelect11 !=""  && this.sidedishSelect12 !=""  && this.sidedishSelect13 !=""  && this.sidedishSelect14 !=""  && this.sidedishSelect15 !=""  && this.sidedishSelect16 !=""  && this.sidedishSelect17 !=""  && this.sidedishSelect18 !=""  && this.sidedishSelect19 !=""  && this.sidedishSelect20 !=""
+    ) {
+    // if (this.interNationSelect !="" && this.NationSelect !="" && this.foodPreference !="") {
       
         const data = {
   
@@ -232,7 +230,7 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
         };
       console.log(data);
     
-        this.database.postdata(`ypc-admin-micro-service/admin/template/1`, data).subscribe({
+        this.database.postdata(`ypc-admin-micro-service/admin/template/${this.id}`, data).subscribe({
           next: (result) => {
             console.log(result);
             this.result = result.data;
@@ -241,8 +239,6 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
 
           },
           error: (error) => {
-            // console.log(error);
-            // this.errorMsg(error.error.error);
           },
           complete: () => {
        console.log("completed ..........");
@@ -273,27 +269,12 @@ this.database.getData('ypc-admin-micro-service/admin/national/cuisine').subscrib
 
 
 
-    if (this.interNationSelect !="" && this.NationSelect !="" && this.foodPreference !="") {
-      // const apiUrl = 'ypc-admin-micro-service/admin/template/getProducts/2';
-     
-      let food = "?nationalCuisine="+this.NationSelect+"&internationalCuisine="+this.interNationSelect+"&productType="+this.foodPreference;
-  
-     
-  
-      this.database.getData('ypc-admin-micro-service/admin/template/getProducts/1'+food).subscribe(
+    if (this.interNationSelect !="" && this.NationSelect !="" && this.foodPreference !="") {     
+      let food = "?nationalCuisine="+this.NationSelect+"&internationalCuisine="+this.interNationSelect+"&productType="+this.foodPreference; 
+
+      this.database.getData(`ypc-admin-micro-service/admin/template/getProducts/${this.id}`+food).subscribe(
         (result: any={}) => 
-      {
-        
-        // console.log("sfgvrgvdgvdrt"+result.maindish);
-        // console.log(result);
-        // console.log("--------------");
-        // console.log(this.dishes);
-
-        // this.dishes = result;
-
-        // console.log("dsf"+this.dishes);
-        
-
+      {        
         this.mainDishArray11 = result.mainDish; 
 
         // this.mainDishArray11= [{"name":'dosa'},{"name":'idly'},{"name":'upma'}];

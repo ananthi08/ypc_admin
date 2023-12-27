@@ -233,7 +233,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
     
       const data = {
 
-        adminId:this.id,
+        // adminId:this.id,
         internationalCuisine: this.interNationSelect,
         nationalCuisine: this.NationSelect,
         foodPreference:this.foodPreference,
@@ -391,7 +391,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
   
      
   
-      this.database.getData('ypc-admin-micro-service/admin/template/getProducts/1'+food).subscribe(
+      this.database.getData(`ypc-admin-micro-service/admin/template/getProducts/${this.id}`+food).subscribe(
         (result: any={}) => 
       {
         

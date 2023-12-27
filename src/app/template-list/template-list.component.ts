@@ -12,12 +12,20 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateListComponent implements OnInit  {
   all_userdetails: any={};
   totalUserCount: any;
+  id:any={};
 
   constructor(private database: DbService, private router: Router, private encryptionService: EncryptionService) { }
 
   ngOnInit() {
 
  
+
+    if (localStorage.getItem("id")) {
+      this.id = JSON.parse(localStorage.getItem("id") || '{}');
+      console.log('admin_id',this.id);
+
+    }
+
     this.GetInfo();
 
   }
@@ -26,7 +34,7 @@ export class TemplateListComponent implements OnInit  {
 
     let getUserDetails = {}
 
-    this.database.getData('ypc-admin-micro-service/template/1',).subscribe((result: any) => {
+    this.database.getData(`ypc-admin-micro-service/template/${this.id}`,).subscribe((result: any) => {
       console.log('Total User Details Count:', result);
 
       this.all_userdetails = result.chartDetails;
