@@ -54,6 +54,26 @@ isAuthenticated(): boolean {
   }
 
 
+  putdata(path: string, formData: any): Observable<any> {
+    const headers = {
+      'content-type': 'application/json; charset=UTF-8',
+      'application-name': this.appname,
+      'auth-key': this.authkey,
+    };
+  
+    return this.http.put(this.baseUrl + path, formData, { headers }).pipe(
+      map((data: any) => {
+        return data;
+      }),
+      catchError(HttpErrorResponse => {
+        return throwError(() => HttpErrorResponse);
+      })
+    );
+  }
+
+
+
+
   paramsData(path: string): Observable<any> {
     const headers = {
       'content-type': 'application/json; charset=UTF-8',
