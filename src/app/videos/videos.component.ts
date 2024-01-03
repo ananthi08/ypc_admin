@@ -16,7 +16,8 @@ export class VideosComponent implements OnInit {
   successmsg: any;
   showMoreVideos = false;
   showMoreVideosnew = false;
-
+  selectFiveChecked: boolean = false;
+  selectedVideos: any[] = []; 
   showMoreRejectedVideos: boolean = false;
   id: any;
   result: any;
@@ -24,14 +25,14 @@ export class VideosComponent implements OnInit {
   ProductReceipeId: any;
   location: any;
   videoDetails: any;
-
-
+  selectedNumberOfVideos: string = "2";
+  maxSelectedVideos: number = 1;
   video: any;
   videos:any;
   newvideoId:number | undefined;
   approvevideoId:number | undefined;
   deletevideoId:number | undefined;
-
+  selectedNumber: string = "2"; 
   selectedVideoFilter: string = 'all';
   filteredVideos: any[] = [];
   asignid: any;
@@ -46,7 +47,9 @@ export class VideosComponent implements OnInit {
   selectedAssignee: string = '';
   // checkox
 
-  selectedVideos: any[] = [];
+
+  
+  // selectedVideos: any[] = [];
   selectAllChecked = false;
   adminid: any;
   description: any;
@@ -132,6 +135,93 @@ export class VideosComponent implements OnInit {
   
 
 
+  selectFiveVideos(): void {
+    // Reset selectedVideos array
+    this.selectedVideos = [];
+  
+    // Iterate through the first 5 videos and mark them as selected
+    for (let i = 0; i < Math.min(5, this.all_newChefVideos.length); i++) {
+      const video = this.all_newChefVideos[i];
+      video.selected = this.selectFiveChecked;
+      this.selectedVideos.push(video.id);
+    }
+  
+    console.log(this.selectedVideos);
+  }
+  
+
+
+  selectTenVideos(): void {
+    // Reset selectedVideos array
+    this.selectedVideos = [];
+  
+    // Iterate through the first 5 videos and mark them as selected
+    for (let i = 0; i < Math.min(5, this.all_newChefVideos.length); i++) {
+      const video = this.all_newChefVideos[i];
+      video.selected = this.selectFiveChecked;
+      this.selectedVideos.push(video.id);
+    }
+  
+    console.log(this.selectedVideos);
+  }
+
+
+
+
+  // onSelectNumberChange(): void {
+  //   // Reset selectedVideos array
+  //   this.selectedVideos = [];
+
+  //   if (this.selectedNumberOfVideos === 'all') {
+  //     // Select all videos
+  //     this.all_newChefVideos.forEach(video => {
+  //       video.selected = true;
+  //       this.selectedVideos.push(video.id);
+  //     });
+  //   } else {
+  //     // Select a specific number of videos
+  //     const numberOfVideosToSelect = parseInt(this.selectedNumberOfVideos, 10);
+
+  //     for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
+  //       const video = this.all_newChefVideos[i];
+  //       video.selected = true;
+  //       this.selectedVideos.push(video.id);
+  //     }
+  //   }
+
+  //   console.log(this.selectedVideos);
+  // }
+
+
+  onSelectNumberChange(): void {
+    // Reset selectedVideos array
+    this.selectedVideos = [];
+
+    if (this.selectedNumber === 'all') {
+      // Select all videos
+      this.all_newChefVideos.forEach(video => {
+        video.selected = true;
+        this.selectedVideos.push(video.id);
+      });
+    } else {
+      // Select a specific number of videos
+      const numberOfVideosToSelect = parseInt(this.selectedNumber, 10);
+
+      for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
+        const video = this.all_newChefVideos[i];
+        video.selected = true;
+        this.selectedVideos.push(video.id);
+      }
+    }
+
+    console.log(this.selectedVideos);
+  }
+
+  
+
+
+
+
 
   AtLeastTwoSelected(): boolean {
     return this.all_newChefVideos.filter(video => video.selected).length >= 1;
@@ -153,7 +243,7 @@ export class VideosComponent implements OnInit {
   }
   
   navigateToVideoDetail(videoDetails: any): void {
-    this.router.navigate(['/video'], { state: { videoDetails } });
+    this.router.navigate(['/videodetails'], { state: { videoDetails } });
   
     
   }

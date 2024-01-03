@@ -2,7 +2,8 @@ import { DbService } from 'src/app/services/db.service';
 import { Router } from '@angular/router';
 import { EncryptionService } from '../services/encryption.service';
 import { Component, OnInit } from '@angular/core';
-
+import { UserdetailsComponent } from '../userdetails/userdetails.component';
+// import { UserdetailsComponent } from '.';
 
 @Component({
   selector: 'app-template-list',
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-list.component.css']
 })
 export class TemplateListComponent implements OnInit {
-  all_userdetails: any = {};
+  // all_userdetails: any = {};
+  all_userdetails: UserdetailsComponent[] = [];
   totalUserCount: any;
   id: any = {};
   admin_id: any = {};
@@ -18,6 +20,8 @@ export class TemplateListComponent implements OnInit {
   result: any;
   chartDetails: any;
   ChartId: any = {};
+
+  
   constructor(private database: DbService, private router: Router, private encryptionService: EncryptionService) { }
 
   ngOnInit() {
@@ -46,17 +50,29 @@ export class TemplateListComponent implements OnInit {
 
     let getUserDetails = {}
 
-    this.database.getData(`ypc-admin-micro-service/template/${this.admin_id}`,).subscribe((result: any) => {
+    // this.database.getData(`ypc-admin-micro-service/template/${this.admin_id}`,).subscribe((result: any) => {
+    //   console.log('Total User Details Count:', result);
+
+    //   this.all_userdetails = result.chartDetails;
+    //   this.totalUserCount = this.all_userdetails.length;
+
+    //   console.log(this.all_userdetails);
+
+
+    // },);
+    this.database.getData(`ypc-admin-micro-service/template/${this.admin_id}`).subscribe((result: any) => {
       console.log('Total User Details Count:', result);
-
+    
+      // Assign the data to all_userdetails
       this.all_userdetails = result.chartDetails;
+    
+      // Sort the array based on the 'id' property in ascending order
+      this.all_userdetails.sort((a, b) => (parseInt(a.id, 10) > parseInt(b.id, 10) ? 1 : -1));
+    
       this.totalUserCount = this.all_userdetails.length;
-
+    
       console.log(this.all_userdetails);
-
-
-    },);
-
+    });
 
 
 
