@@ -1,0 +1,402 @@
+<style>
+
+</style>
+
+
+
+
+<div class="toast collapse" id="collapseExample">
+  <div class="toast-body">
+
+  </div>
+</div>
+<div class="toast collapse" id="collapseExample1">
+  <div class="toast-body">
+
+  </div>
+</div>
+<app-adminheader></app-adminheader>
+<div class="sidebarContainer">
+  <app-leftnav></app-leftnav>
+</div>
+<div class="pageContent col-12" style="margin-top: 100px;">
+  <main id="main" class="main">
+      <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+
+          <section class="section dashboard borrowers">
+
+  <div class="container-fluid " *ngIf="video_full">
+
+
+
+    <div class="row">
+      <div class="col-md-6 col-sm-12 offset-1">
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+          <div class="container-fluid">
+            <div class="header-body">
+              <div class="pt-5">
+                <h1 class="text-danger"> Chef Uploaded Videos</h1>
+    
+    
+    
+    
+    
+    
+    
+                <div class="row mt-5" style="margin-top: 22px;">
+                  <div class="col-xl-12 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0" >
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="row">
+                              
+    
+    
+    
+                            </div>
+    
+    
+    
+    
+                            <div class="row ">
+                              <div class="col-md-12">
+                                <div class="ratio ratio-16x9">
+                                  <video controls>
+                                    <!-- <source [src]="base_url+'1698389688486.mp4'" type="video/mp4"> -->
+
+                                    <source *ngIf="video_full" [src]="base_url + video_full" type="video/mp4">
+
+                                    Your browser does not support the video tag.
+                                  </video>
+                                </div>
+                              </div>
+                            </div>
+                                <br>
+    
+                               
+                                  <div class="row">
+
+                                    <div class="col-sm-7 col-md-8 text-md-start">
+                                      <h2>{{video_fulldetail.text}}</h2>
+                                    </div>
+
+
+                                   
+    
+                                    <!-- <div class="col col-md text-md-end">
+                                      <button href="#" class=" btn btn-sm btn-success accept" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        ACCEPT <span class="fa fa-check"></span>
+                                      </button>
+                                    </div> -->
+                                    
+                                    <div class="col col-md text-md-end px-2 " *ngIf="video_fulldetail.adminApproved ==0 && video_fulldetail.isDeleted==0">
+                                      <button href="#" class="btn btn-sm btn-success deny" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        Accept 
+                                      </button>
+                                    </div>
+
+
+                                    <div class="col col-md px-2" *ngIf="video_fulldetail.adminApproved ==0 &&video_fulldetail.isDeleted==0">
+                                      <button href="#" class="btn btn-sm btn-danger deny" data-bs-toggle="modal"
+                                        data-bs-target="#denybutton">
+                                        Deny 
+                                      </button>
+                                    </div>
+
+
+
+                                  </div>
+
+                                  <!-- <h3 class="text-danger ">About Recipes</h3> -->
+                                  <p class="fw-bolder text-danger">About Recipes</p>
+
+                                  <div class="row bg-light py-2">
+
+                                    <div class="col-lg-4">
+                                        <p class=" fw-bolder text-danger">International Cuisine:<span class="text-black">  {{video_fulldetail.internationalCuisine}}</span> </p>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <p class="fw-bolder text-danger"> National Cuisine: <span class="text-black">  {{video_fulldetail.nationalCuisine}}</span></p>
+                                      
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <p class="fw-bolder text-danger"> Chef Id:<span class="text-black"> YPCID {{video_fulldetail.chefId}}</span></p>
+                                    </div>
+                                  </div>
+                              
+
+                                  <div class="row bg-light py-2 mt-2">
+
+                                    <div class="col-lg-4">
+                                        <p class="fw-bolder text-danger">Product Type:<span class="text-black">  {{video_fulldetail.productType}}</span> </p>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <p class="fw-bolder text-danger"> Serve Category: <span class="text-black">  {{video_fulldetail.productServeCategory}}</span></p>
+                                      
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <p class="fw-bolder text-danger"> Product Category:<span class="text-black">  {{video_fulldetail.productCategory}}</span></p>
+                                    </div>
+                                  </div>
+
+                                  <h2>Description</h2>
+                                  <div class="row bg-light py-2 mt-2">
+
+                                   <p>{{video_fulldetail.description}}</p>
+                                  </div>
+
+
+                                  <h2>Steps</h2>
+
+                                  <p>{{video_fulldetail.steps}}</p>
+
+                              
+    
+                              <!-- <div class="col">
+                                <h3 style="font-family: 'Your Desired Font', Helvetica;">International Cuisine</h3>
+                                <p style="font-style: Arial;">{{videoDetails.internationalCuisine}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Description</h3>
+                                <p style="font-weight: normal;">{{videoDetails.description}}</p>
+                              </div>
+    
+                              <div class="col">
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">National Cuisine</h3>
+                                <p style="font-style: Arial;">{{videoDetails.nationalCuisine}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Chef ID</h3>
+                                <p style="font-style: Arial;">{{videoDetails.chefId}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Steps</h3>
+                                <p style="font-style: Arial;"> {{videoDetails.steps}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Text</h3>
+                                <p style="font-style: Arial;"> {{videoDetails.text}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Product Type</h3>
+                                <p style="font-style: Arial;">{{videoDetails.productType}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">ProductServe Category</h3>
+                                <p style="font-style: Arial;">{{videoDetails.productServeCategory}}</p>
+    
+                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Product Category</h3>
+                                <p style="font-style: Arial;">{{videoDetails.productCategory}}</p>
+                              </div> -->
+                           
+    
+    
+    
+    
+                          </div>
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span class="text-nowrap"></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+    
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    
+    
+    
+        
+    
+    
+        </div>
+      </div>
+
+      <div class="col-4">
+        
+
+
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+          <div class="container-fluid">
+            <div class="header-body">
+              <div class="pt-5">
+                <h1 class="text-danger"> Recommended Videos</h1>
+    
+    
+    
+    
+    
+    
+    
+                <div class="row mt-5">
+                  <div class="col-xl-12 col-lg-6 col-sm-12">
+                    <div class="card card-stats mb-4 mb-xl-0" *ngFor="let videoDetails of videosList" style="margin-top: 8px;">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-5 col-sm-12">
+                           <div class="ratio ratio-4x3  " >
+                                
+
+                                  <video controls class="">
+                                    <source [src]="base_url + videoDetails.videoUrl" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
+
+
+                                </div>
+   
+                          </div>
+
+
+                          <div class="col-md-7 d-flex align-items-center">
+                            <div class="row">
+
+                              <div class="col-12">
+                                <h2 >
+                                 {{ videoDetails.text}}
+                                </h2>
+                              </div>
+                              <div class="col-12">
+                                <p> {{ videoDetails.description}}
+
+                                </p>
+                              </div>
+                            </div>
+                          
+                            <br>
+                           </div>
+
+
+
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span class="text-nowrap"></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                
+
+
+
+                
+
+
+
+               
+
+
+                
+    
+    
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    
+    
+    
+          <div class="container-fluid mt--7">
+    
+            <div class="row mt-5">
+    
+    
+    
+    
+    
+    
+    
+            </div>
+          </div>
+    
+    
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+   
+  </div>
+
+
+
+
+</section>
+</div>
+</main>
+</div>
+
+
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="staticBackdropLabel">Accepting video</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to accept?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)=acceptVideo()>Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="denybutton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Review of uploaded video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)=deleteVideo()>Send
+            message</button>
+        </div>
+      </div>
+    </div>
+  </div>

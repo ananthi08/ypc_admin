@@ -26,6 +26,8 @@ import { DemoComponent } from './demo/demo.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TemplateListComponent } from './template-list/template-list.component';
 import { TemplateEditComponent } from './template-edit/template-edit.component';
+import { VideodetailsComponent } from './videodetails/videodetails.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 // import { VideosComponent } from './videos/videos/videos.component';
  
 
@@ -50,7 +52,9 @@ import { TemplateEditComponent } from './template-edit/template-edit.component';
     ManageteamComponent,
     DemoComponent,
     TemplateListComponent,
-    TemplateEditComponent
+    TemplateEditComponent,
+    VideodetailsComponent,
+  
  
    
   ],

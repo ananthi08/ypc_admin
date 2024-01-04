@@ -32,11 +32,11 @@ export class VideosComponent implements OnInit {
   newvideoId:number | undefined;
   approvevideoId:number | undefined;
   deletevideoId:number | undefined;
-  selectedNumber: string = "2"; 
+  // selectedNumber: string = "2"; 
   selectedVideoFilter: string = 'all';
   filteredVideos: any[] = [];
   asignid: any;
-
+  selectedNumber: string = '2';
   role: string | undefined;
   Superadmin:string | undefined;
 
@@ -53,6 +53,7 @@ export class VideosComponent implements OnInit {
   selectAllChecked = false;
   adminid: any;
   description: any;
+  videoIdnew: any={};
   constructor(private database: DbService, private router: Router) {}
 
   ngOnInit(): void {
@@ -193,30 +194,65 @@ export class VideosComponent implements OnInit {
   // }
 
 
+  // onSelectNumberChange(): void {
+  //   // Reset selectedVideos array
+  //   this.selectedVideos = [];
+
+  //   if (this.selectedNumber === 'all') {
+  //     // Select all videos
+  //     this.all_newChefVideos.forEach(video => {
+  //       video.selected = true;
+  //       this.selectedVideos.push(video.id);
+  //     });
+  //   } else {    
+  //     const numberOfVideosToSelect = parseInt(this.selectedNumber, 10);
+
+  //     for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
+  //       const video = this.all_newChefVideos[i];
+  //       video.selected = true;
+  //       this.selectedVideos.push(video.id);
+  //     }
+  //   }
+
+  //   console.log(this.selectedVideos);
+  // }
+
+
+  // onSelectNumberChange(): void {
+  //   console.log('onSelectNumberChange triggered');
+  //   // Rest of the code...
+  // }
+
+
+
   onSelectNumberChange(): void {
+    console.log('onSelectNumberChange triggered');
+  
     // Reset selectedVideos array
     this.selectedVideos = [];
-
+  
     if (this.selectedNumber === 'all') {
       // Select all videos
       this.all_newChefVideos.forEach(video => {
         video.selected = true;
         this.selectedVideos.push(video.id);
       });
-    } else {
-      // Select a specific number of videos
+    } else {    
       const numberOfVideosToSelect = parseInt(this.selectedNumber, 10);
-
+  
       for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
         const video = this.all_newChefVideos[i];
         video.selected = true;
         this.selectedVideos.push(video.id);
       }
     }
-
-    console.log(this.selectedVideos);
+  
+    // console.log(this.selectedVideos);
   }
 
+  
+
+  
   
 
 
@@ -242,11 +278,16 @@ export class VideosComponent implements OnInit {
     this.showMoreRejectedVideos = !this.showMoreRejectedVideos;
   }
   
-  navigateToVideoDetail(videoDetails: any): void {
-    this.router.navigate(['/videodetails'], { state: { videoDetails } });
+  navigateToVideoDetail(id: any): void {
+    // alert(id)
+    // console.log("click",id)
+    // console.log("allcontent",this.all_newChefVideos)
+    this.router.navigate(['/videodetails'], { state: { id } });
   
     
   }
+
+  
 
 
 
@@ -256,9 +297,10 @@ export class VideosComponent implements OnInit {
 
     this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: any) => {
        
+      // this.all_admindetails = result;
       this.all_admindetails = result;
      
-    console.log(this.all_admindetails);
+    // console.log(this.all_admindetails);
     
     
  
@@ -283,8 +325,10 @@ this.database.getData(`ypc-admin-micro-service/ypc/admin/chef/allvideos/${this.i
   (result: any) => {
 
     this.all_newChefVideos = result.Notapproved;
-    const videoIdnew = this.all_newChefVideos.map(video => video.id);
-console.log( videoIdnew);
+   this.videoIdnew = this.all_newChefVideos.map(video => video.id);
+  //  console.log('ererere',this.all_newChefVideos);
+  //  console.log('iidd',this.videoIdnew);
+
 
   },
 )
@@ -302,7 +346,7 @@ console.log( videoIdnew);
 
 
     const videoIdnot = this.all_notapproved_videos.map(video => video.id);
-    console.log( videoIdnot);
+    // console.log( videoIdnot);
    
 },);
 
@@ -315,7 +359,7 @@ this.database.getData('ypc-admin-micro-service/admin/chef/deleted/allvideos', ).
 
   this.all_deleted_videos = result.deletedvideos;
   const videoIddelete = this.all_deleted_videos.map(video=> video.id);
-  console.log( videoIddelete);
+  // console.log( videoIddelete);
 
 },);
 
