@@ -250,7 +250,7 @@ export class DashboardComponent {
 
       this.totalCountSubscribed = this.all_suscribed_users.length;
 
-      console.log(this.totalCountSubscribed);
+      console.log('subscribed',this.totalCountSubscribed);
 
     },);
 
@@ -350,7 +350,9 @@ export class DashboardComponent {
 
 
 
-
+  VideosComponent(){
+  this.router.navigateByUrl('VideosComponent')
+  }
 
 
 

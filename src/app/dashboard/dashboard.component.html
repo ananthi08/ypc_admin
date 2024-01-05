@@ -3,6 +3,10 @@
      margin-top: 60px;
   }
 
+  .hi{
+    background: #A51C05;
+    color: white;
+  }
   .card {
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
   }
@@ -221,7 +225,7 @@ th,td{
 
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" >
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" (click)="VideosComponent()" >
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -245,7 +249,7 @@ th,td{
 
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" >
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" (click)="VideosComponent()">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -271,7 +275,7 @@ th,td{
 
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" >
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;"  (click)="VideosComponent()">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -306,9 +310,9 @@ th,td{
         <th scope="col">Email</th>
         <th scope="col">Mobile Number</th>
         <th scope="col">User Type</th>
-        <th scope="col">Following chefIds</th>
+        <!-- <th scope="col">Following chefIds</th>
         <th scope="col">Is Email Verified</th>
-        <th scope="col">Is Mobile Verified</th>
+        <th scope="col">Is Mobile Verified</th> -->
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -320,9 +324,9 @@ th,td{
         <td>{{user.email}}</td>
         <td>{{user.mobileNumber}}</td>
         <td>{{user.userType}}</td>
-        <td>{{user.followingChefId}}</td>
+        <!-- <td>{{user.followingChefId}}</td>
         <td>{{user.isEmailVerified}}</td>
-        <td>{{user.isMobileVerified}}</td>
+        <td>{{user.isMobileVerified}}</td> -->
         <td>
           <div class="d-flex justify-content-between">
             <!-- <button class="btn btn-outline-primary" (click)="editUser(user.id)">Edit</button> -->
@@ -355,8 +359,8 @@ th,td{
               <th scope="col">Mobile Number</th>
               <th scope="col">User Type</th>
           
-              <th scope="col">Is Email Verified</th>
-              <th scope="col">Is Mobile Verified</th>
+              <!-- <th scope="col">Is Email Verified</th>
+              <th scope="col">Is Mobile Verified</th> -->
         <th scope="col">Actions</th>
    </tr>
           </thead>
@@ -369,8 +373,8 @@ th,td{
               <td>{{chefs.mobileNumber}}</td>
               <td>{{chefs.userType}}</td>
            
-              <td>{{chefs.isEmailVerified}}</td>
-              <td>{{chefs.isMobileVerified}}</td>
+              <!-- <td>{{chefs.isEmailVerified}}</td>
+              <td>{{chefs.isMobileVerified}}</td> -->
 
               <td >
                 <div class="d-flex justify-content-between">
@@ -397,7 +401,7 @@ th,td{
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Mobile Number</th>
+      <!-- <th scope="col">Mobile Number</th> -->
       <th scope="col">User Type</th>
 
       <th scope="col" *ngIf="role == 'Superadmin'">Actions</th>
@@ -413,8 +417,8 @@ th,td{
       <th scope="row">{{admins.id}}</th>
       <td>{{admins.userName}}</td>
       <td>{{admins.email}}</td>
-      <td>{{admins.mobileNumber}}</td>
-      <td>{{admins.userType}}</td>
+      <!-- <td>{{admins.mobileNumber}}</td> -->
+      <td>{{admins.role}}</td>
   
       <td *ngIf="role == 'Superadmin'"> 
         <div class="d-flex justify-content-between">
@@ -438,7 +442,7 @@ th,td{
 
 <!-- list of suscribed users  -->
 <div class="col-l-9 mt-5 mx-auto d-block" *ngIf="isSuscribedUsersTableVisible">
-  <h3>List of Suscribed Users</h3> 
+  <h3>List of Subscribed Users</h3> 
   <table class="table table-bordered" >
   <thead>
     <tr>
@@ -605,7 +609,7 @@ th,td{
         
               <button style="margin-left: 15px;"
               type="submit"
-              class="btn btn-primary s-bor mb-30"
+              class="btn hi s-bor mb-30"
               [disabled] = "form2.invalid" (click)="AddAdmin(form2)"
               data-bs-dismiss="modal"
               aria-label="Close"

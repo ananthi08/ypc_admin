@@ -28,6 +28,7 @@ import { TemplateListComponent } from './template-list/template-list.component';
 import { TemplateEditComponent } from './template-edit/template-edit.component';
 import { VideodetailsComponent } from './videodetails/videodetails.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { AllVideosComponent } from './all-videos/all-videos.component';
 // import { VideosComponent } from './videos/videos/videos.component';
  
 
@@ -54,6 +55,7 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     TemplateListComponent,
     TemplateEditComponent,
     VideodetailsComponent,
+    AllVideosComponent,
   
  
    
