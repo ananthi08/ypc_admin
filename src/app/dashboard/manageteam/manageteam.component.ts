@@ -37,7 +37,7 @@ export class ManageteamComponent {
 
  
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.GetInfo();
     if (localStorage.getItem("id")) {
       this.id = JSON.parse(localStorage.getItem("id") || '{}');
@@ -59,7 +59,7 @@ export class ManageteamComponent {
     this.database.getData('ypc-admin-micro-service/alladmin', ).subscribe((result: any) => {
        
       this.all_admindetails = result;
-console.log(this.all_admindetails);
+      // console.log(this.all_admindetails);
     
     },);
     
@@ -69,15 +69,16 @@ console.log(this.all_admindetails);
      // admins who are not assigned the videos 
      let getnotassignAdminDetails = {}
 
-     this.database.getData('ypc-admin-micro-service/admin/unassigned/admins', ).subscribe((result: any) => {
+    //  this.database.getData('ypc-admin-micro-service/admin/unassigned/admins', ).subscribe((result: any) => {
         
-       this.admindetails = result;
-      
-     console.log(this.admindetails);
-     
-     
-  
-     },);
+    //    this.admindetails = result;           
+    //  },);
+
+
+    this.database.getData('ypc-admin-micro-service/admin/unassigned/admins').subscribe((result: any[]) => {
+      // Sort the result array by id
+      this.admindetails = result.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+    });
 
 
   }
@@ -87,7 +88,7 @@ console.log(this.all_admindetails);
 
 
   assignvideo(adminId: any) {
-    console.log('Admin ID:', adminId);
+    // console.log('Admin ID:', adminId);
 
 let data ={
   videosId: [], 
@@ -98,11 +99,11 @@ let data ={
         console.log(result);
         this.result = result.message;
         this.succesMsg(this.result);
-       console.log(this.result);
+      //  console.log(this.result);
 
       },
       error: (error) => {
-        console.log(error);
+        // console.log(error);
         this.errorMsg(error.error.error);
       },
       complete: () => {
@@ -115,6 +116,36 @@ let data ={
 
   }
 
+
+  unassignvideo(adminId: any) {
+    // console.log('Admin ID:', adminId);
+
+let data ={ 
+  
+}
+// this.database.postdata('ypc-admin-micro-service/admin/unassign/task/2',data).subscribe({
+
+    this.database.postdata('ypc-admin-micro-service/admin/unassign/task/'+ adminId,data).subscribe({
+      next: (result) => {
+        // console.log(result);
+        this.result = result.message;
+        this.succesMsg(this.result);
+      //  console.log(this.result);
+
+      },
+      error: (error) => {
+        // console.log(error);
+        this.errorMsg(error.error.error);
+      },
+      complete: () => {
+        // Reload 
+        window.location.reload(); 
+  
+    
+      },
+    });
+
+  }
 
 
 

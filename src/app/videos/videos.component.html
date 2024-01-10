@@ -93,7 +93,7 @@
 
                     <!-- Card stats -->
                     <div class="pt-5">
-                        <h1>Uploaded Videos</h1>
+                        <h1 style="color:#A51C05;">Uploaded Videos</h1>
  
 
 <!-- filter end -->
@@ -105,7 +105,7 @@
                 <!-- </div> -->
 
 
-
+                          
                         <div class="row mt-5">
                             <div class="col-xl-12 col-lg-6">
                                 <div class="card card-stats mb-4 mb-xl-0"
@@ -127,12 +127,12 @@
 
 
                                             </div>
-                                            <!-- <span class="form-check form-check-inline " *ngIf="role == 'Superadmin'" style="margin-left:27px">
+                                            <span class="form-check form-check-inline " *ngIf="role == 'Superadmin'" style="margin-left:27px">
                                               <input class="form-check-input" type="checkbox" id="selectAllCheckbox" [(ngModel)]="selectAllChecked" (change)="selectAllVideos()">
                                               <label class="form-check-label" for="selectAllCheckbox">Select All</label>
-                                            </span> -->
+                                            </span>
 
-<!-- Testing -->
+                                            <!-- Testing -->
                                             <!-- <div class="row">
                                               <div class="col-2" style="margin-left: 12px;">
                                                 Select Videos
@@ -210,10 +210,9 @@
                                                     Your browser does not support the video tag.
                                                   </video>
                                                 </div>
+                                                <p class="text-left font-weight-bold fs-7 " style="margin-left: 13px;color:#A51C05;">Product Name: <span class="text-black">{{video.text}}</span></p>
                                     
-                                                <p class="text-left font-weight-bold fs-7 text-danger" style="margin-left: 13px;">Product Name: <span class="text-black">{{video.text}}</span></p>
-                                    
-                                                <p class="text-left font-weight-bold fs-7 text-danger" style="margin-left: 13px;">Veg/Nonveg: <span class="text-black">{{video.productType}}</span>
+                                                <p class="text-left font-weight-bold fs-7" style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{video.productType}}</span>
                                                   <img *ngIf="video.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
                                                   <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
                                                 </p>
@@ -233,7 +232,7 @@
                                     
                                                
                                     
-                                                <p class="text-left fs-7 font-weight-bold text-danger" style="margin-left: 13px;">Cuisine:<span class="text-black">{{video.nationalCuisine}}</span></p>
+                                                <p class="text-left fs-7 font-weight-bold" style="margin-left: 13px;color:#A51C05;">Cuisine:<span class="text-black">{{video.nationalCuisine}}</span></p>
                                                 <div class="form-check form-check-inline" style="margin-left: 13px;">
                                                   <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="newChefVideosaccept(video.id)" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                   <label class="form-check-label" for="inlineRadio1"><strong class="fs-7">Approve</strong></label>
@@ -279,7 +278,7 @@
 
 
 
-                        <div class="row mt-5">
+                        <div class="row mt-5" >
                           <div class="col-xl-12 col-lg-6">
                             <div class="card card-stats mb-4 mb-xl-0" style="margin-top: 50px; margin-bottom: 30px;" id="example1">
                               <div class="card-body">
@@ -301,12 +300,12 @@
                                               Your browser does not support the video tag.
                                             </video>
                                           </div>
-                                          <p class="text-left font-weight-bold  fs-7 text-danger" style="margin-left: 13px;">ProductName : <span class="text-black">{{video1.text}} </span></p>
-                                          <p class="text-left fs-7 font-weight-bold text-danger"style="margin-left: 13px;">Veg/Nonveg: <span class="text-black">{{video1.productType}}</span>
+                                          <p class="text-left font-weight-bold  fs-7" style="margin-left: 13px;color:#A51C05;">ProductName : <span class="text-black">{{video1.text}} </span></p>
+                                          <p class="text-left fs-7 font-weight-bold"style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{video1.productType}}</span>
                                             <img *ngIf="video1.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
                                             <img *ngIf="video1.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
                                           </p>
-                                          <p class="text-left fs-7 text-danger" style="margin-left: 13px;">Cuisine : <span class="text-black">{{video1.nationalCuisine}}</span></p>
+                                          <p class="text-left fs-7" style="margin-left: 13px; color:#A51C05;">Cuisine : <span class="text-black">{{video1.nationalCuisine}}</span></p>
                             
                                         </div>
                                       </ng-container>
@@ -358,12 +357,12 @@
                                               Your browser does not support the video tag.
                                             </video>
                                           </div>
-                                          <p class="text-left fs-7 font-weight-bold text-danger" style="margin-left: 13px;">ProductName :<span class="text-black">{{video2.text}}{{video2.id}}</span></p>
-                                          <p class="text-left fs-7 font-weight-bold text-danger" style="margin-left: 13px;">Veg/Nonveg: <span class="text-black">{{ video2.productType }}</span>
+                                          <p class="text-left fs-7 font-weight-bold " style="margin-left: 13px;color:#A51C05;">ProductName :<span class="text-black">{{video2.text}}{{video2.id}}</span></p>
+                                          <p class="text-left fs-7 font-weight-bold " style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{ video2.productType }}</span>
                                             <img *ngIf="video2.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
                                             <img *ngIf="video2.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
                                           </p>
-                                          <p class="text-left fs-7 font-weight-bold text-danger" style="margin-left: 13px;">Cuisine : <span class="text-black">{{video2.nationalCuisine}}</span></p>
+                                          <p class="text-left fs-7 font-weight-bold" style="margin-left: 13px;color:#A51C05;">Cuisine : <span class="text-black">{{video2.nationalCuisine}}</span></p>
                              
                                         </div>
                                       </ng-container>

@@ -22,25 +22,26 @@
         <div id="sideBarContent" class="container-fluid pe-5 ps-6">
   <section class="section dashboard borrowers">
     <div id="sideBarContent" class="container-fluid pe-5 ps-6">
-        <div class="">
+        <div class="container">
           <div class="finnup__profileheader">
             <div class="finnup__profiletitle">
-              <h3>Manage Team</h3>
+              <h2 style="color:#A51C05;">Manage Team</h2>
             </div>
          
           </div>
           <div class="row mt-25">
             <div class="col-lg-10">
               <div class="finnup__profiletable">
-                <table class="table" >
-                  <thead>
+                <table class="table table-striped" >
+                  <thead class="thead-dark text-white">
                     <tr>
-                      <th scope="col">Id</th>
+                      <th scope="col">#</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
                       <th scope="col">Role</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Asign Video</th>
+                      <!-- <th scope="col">Status</th> -->
+                      <th scope="col">Video Status</th>
+                      <!-- <th scope="col">UnAssign Video</th> -->
 
   
                       <!-- <th scope="col">Actions</th> -->
@@ -56,22 +57,18 @@
                       <td>{{admins.role}}</td>
 
 
-                      <td>{{admins.status}}</td>
+                      <!-- <td>{{admins.status}}</td> -->
 
-                      <td scope="col">
+                      <td scope="col" *ngIf="admins.taskAssigned == 0">
 
-                        <button type="button" class="btn btn-outline-primary btn-sm" (click)="assignvideo(admins.id)">Assign Video</button>
+                        <button type="button" class="btn btn-success btn-sm px-3" (click)="assignvideo(admins.id)">Assign Video</button>
                       </td>
 
 
-                 
+                      <td scope="col" *ngIf="admins.taskAssigned == 1">
 
-                     
-                      <!-- <td class="finnup-table-icon">
-                      <a   data-bs-toggle="modal" data-bs-target="#exampleModal-7">
-                          <img src="assets/img/delete.svg" />
-                        </a>
-                      </td> -->
+                        <button type="button" class="btn btn-danger btn-sm" (click)="unassignvideo(admins.id)">UnAssign Video</button>
+                      </td>                 
                     </tr>
                   </tbody>
                 </table>
