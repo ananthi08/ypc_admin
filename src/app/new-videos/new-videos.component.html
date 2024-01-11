@@ -127,10 +127,7 @@
 
 
                                             </div>
-                                            <!-- <span class="form-check form-check-inline " *ngIf="role == 'Superadmin'" style="margin-left:27px">
-                                              <input class="form-check-input" type="checkbox" id="selectAllCheckbox" [(ngModel)]="selectAllChecked" (change)="selectAllVideos()">
-                                              <label class="form-check-label" for="selectAllCheckbox">Select All</label>
-                                            </span> -->
+                                           
 
                                             <!-- Testing -->
                                             <div class="row">
@@ -174,36 +171,13 @@
                                             <div class="row">
                                             
                                             
-                                              <!-- <div class="col-2">
-                                                <div class="form-group" *ngIf="role == 'Superadmin'" style="margin-left: 27px">
-                                                  <label for="selectNumberDropdown">Select No of Videos:</label>
-                                                    <select class="form-control" id="selectNumberDropdown" [(ngModel)]="selectedNumber" (change)="onSelectNumberChange()">
-                                                      <option  >Select </option> 
-
-                                                    <option value="2">Select 2</option>
-                                                    <option value="all">Select All</option>
-                                                  </select>
-                                                </div>
-                                              </div> -->
+                                             
                                             </div>
 
                                             
 
-                                            
-                                              <!-- <span class="form-check form-check-inline" *ngIf="role == 'Superadmin'" style="margin-left: 27px">
-                                                <input class="form-check-input" type="checkbox" id="selectAllCheckbox" [(ngModel)]="selectAllChecked" (change)="selectAllVideos()">
-                                                <label class="form-check-label" for="selectAllCheckbox">Select All</label>
                                             
                                            
-                                            </div>
-                                            <div class="row ">
-                                             
-                                           <select class="form-select" aria-label="Default select example">
-                                              <option selected>Open this select menu</option>
-                                              <option value="1">One</option>
-                                              <option value="2">Two</option>
-                                              <option value="3">Three</option>
-                                            </select> -->
 
 
                                             
@@ -286,117 +260,7 @@
 
 
 
-                        <div class="row mt-5" >
-                          <div class="col-xl-12 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0" style="margin-top: 50px; margin-bottom: 30px;" id="example1">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col mx-3">
-                                        <h4 class="card-title text-uppercase text-muted mb-3">Approved Videos</h4>
-                                      </div>
-                                      
-                                    </div>
-                        
-                                    <div class="row">
-                                      <ng-container *ngIf="all_notapproved_videos.length > 0; else noNotApprovedVideosFound">
-                                        <div class="col-xl-3" *ngFor="let video1 of (showMoreVideos ? all_notapproved_videos : all_notapproved_videos.slice(0, 4)); let i = index">
-                                          <div class="ratio ratio-16x9" (click)="navigateToVideoDetail(video1.id)" id="example1">
-                                            <video controls id="example1">
-                                              <source [src]="base_url + video1.videoUrl" type="video/mp4">
-                                              Your browser does not support the video tag.
-                                            </video>
-                                          </div>
-                                          <p class="text-left font-weight-bold  fs-7" style="margin-left: 13px;color:#A51C05;">ProductName : <span class="text-black">{{video1.text}} </span></p>
-                                          <p class="text-left fs-7 font-weight-bold"style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{video1.productType}}</span>
-                                            <img *ngIf="video1.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
-                                            <img *ngIf="video1.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
-                                          </p>
-                                          <p class="text-left fs-7" style="margin-left: 13px; color:#A51C05;">Cuisine : <span class="text-black">{{video1.nationalCuisine}}</span></p>
-                            
-                                        </div>
-                                      </ng-container>
-
-                                      <div class="">
-                                        <button class="card-title mb-1 float-end text-primary" (click)="toggleShowMore()">
-                                          {{ showMoreVideos ? 'Less' : 'More' }}
-                                        </button>
-                                      </div>
-
-
-                                      <ng-template #noNotApprovedVideosFound>
-                                        <div class="col">
-                                          <p>No not-approved videos found.</p>
-                                        </div>
-                                      </ng-template>
-                                    </div>
-                                  </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-muted text-sm">
-                                  <span class="text-nowrap"></span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-
-
-                        <div class="row mt-5">
-                          <div class="col-xl-12 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0" style="margin-top: 50px; margin-bottom: 30px;" id="example1">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col">
-                                    <div class="row">
-                                      <div class="col mx-3">
-                                        <h4 class="card-title text-uppercase text-muted mb-3">Rejected Videos</h4>
-                                      </div>
-                                      
-                                    </div>
-                        
-                                    <div class="row">
-                                      <ng-container *ngIf="all_deleted_videos.length > 0; else noVideosFound">
-                                        <div class="col-xl-3" *ngFor="let video2 of (showMoreRejectedVideos ? all_deleted_videos : all_deleted_videos.slice(0, 4)); let i = index">
-                                          <div class="ratio ratio-16x9" (click)="navigateToVideoDetail(video2.id)" id="example1">
-                                            <video controls id="example1">
-                                              <source [src]="base_url + video2.videoUrl" type="video/mp4">
-                                              Your browser does not support the video tag.
-                                            </video>
-                                          </div>
-                                          <p class="text-left fs-7 font-weight-bold " style="margin-left: 13px;color:#A51C05;">ProductName :<span class="text-black">{{video2.text}}{{video2.id}}</span></p>
-                                          <p class="text-left fs-7 font-weight-bold " style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{ video2.productType }}</span>
-                                            <img *ngIf="video2.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
-                                            <img *ngIf="video2.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video2.productType }}" />
-                                          </p>
-                                          <p class="text-left fs-7 font-weight-bold" style="margin-left: 13px;color:#A51C05;">Cuisine : <span class="text-black">{{video2.nationalCuisine}}</span></p>
-                             
-                                        </div>
-                                      </ng-container>
-
-                                      <div class="">
-                                        <button class="card-title mb-1 float-end text-primary" (click)="toggleShowMoreRejectedVideos()">
-                                          {{ showMoreRejectedVideos ? 'Less' : 'More' }}
-                                        </button>
-                                      </div>
-
-                                      <ng-template #noVideosFound>
-                                        <div class="col">
-                                          <p>No videos found.</p>
-                                        </div>
-                                      </ng-template>
-                                    </div>
-                                  </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-muted text-sm">
-                                  <span class="text-nowrap"></span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
+                       
                           
 
 

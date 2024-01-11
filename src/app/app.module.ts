@@ -29,10 +29,15 @@ import { TemplateEditComponent } from './template-edit/template-edit.component';
 import { VideodetailsComponent } from './videodetails/videodetails.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { AllVideosComponent } from './all-videos/all-videos.component';
+import { NewVideosComponent } from './new-videos/new-videos.component';
+import { ApprVideosComponent } from './appr-videos/appr-videos.component';
+import { RejVideosComponent } from './rej-videos/rej-videos.component';
+import { TestingComponent } from './testing/testing.component';
 // import { VideosComponent } from './videos/videos/videos.component';
- 
+// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 
 
@@ -56,6 +61,10 @@ import { AllVideosComponent } from './all-videos/all-videos.component';
     TemplateEditComponent,
     VideodetailsComponent,
     AllVideosComponent,
+    NewVideosComponent,
+    ApprVideosComponent,
+    RejVideosComponent,
+    TestingComponent,
   
  
    
@@ -73,12 +82,11 @@ import { AllVideosComponent } from './all-videos/all-videos.component';
     AuthenticationModule,
     AppRoutingModule,
     FormsModule,
+    AngularMultiSelectModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatChipsModule,
-    // Ng2SearchPipeModule
-
-
+    // Ng2SearchPipeModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

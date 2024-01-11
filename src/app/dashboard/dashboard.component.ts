@@ -351,8 +351,30 @@ export class DashboardComponent {
 
 
   VideosComponent(){
-  this.router.navigateByUrl('VideosComponent')
+  this.router.navigateByUrl('new_videos');
+  // localStorage.setItem('VideosComponent',JSON.stringify('newv'));
+  // localStorage.setItem('VideosComponent',JSON.stringify('appv'));
+  // alert(newv);
   }
+
+
+
+  approvedvideos(){
+    this.router.navigateByUrl('app_videos');
+    }
+
+    
+
+    rejectedvideos(){
+      this.router.navigateByUrl('rej_videos');
+      }
+
+
+
+
+    allVideos(){
+    this.router.navigateByUrl('all_videos')
+    }
 
 
 

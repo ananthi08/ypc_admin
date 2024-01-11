@@ -198,7 +198,7 @@ th,td{
           </div>
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" >
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" (click)="allVideos()">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -249,14 +249,14 @@ th,td{
 
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" (click)="VideosComponent()">
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;" (click)="approvedvideos()">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Approved Videos</h5>
                     <!-- <span class="h2 font-weight-bold mb-0">{{ all_notapproved_videos }}</span> -->
-                    <span class="h2 font-weight-bold mb-0">{{ all_notapproved_videos.length }}</span>
+                    <span class="h2 font-weight-bold mb-0">{{ all_notapproved_videos }}</span>
 
                   </div>
                   <div class="col-auto">
@@ -275,12 +275,12 @@ th,td{
 
 
 
-          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;"  (click)="VideosComponent()">
+          <div class="col-xl-3 col-lg-6" style="margin-top: 50px; margin-bottom: 30px;"  (click)="rejectedvideos()">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">Deleted Videos</h5>
+                    <h5 class="card-title text-uppercase text-muted mb-0">Rejected Videos</h5>
                     <span class="h2 font-weight-bold mb-0">{{all_deleted_videos  }}</span>
                   </div>
                   <div class="col-auto">

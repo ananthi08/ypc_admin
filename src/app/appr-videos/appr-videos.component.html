@@ -1,0 +1,300 @@
+<style>
+    .hik {
+        margin-top: 60px;
+    }
+
+.rad{
+  border-color: red;
+}
+
+
+#example1 {
+  /* border: 2px solid red; */
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.small-image {
+    width: 20px; 
+    height: 20px;
+  }
+
+
+  .video-card {
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+.small-video {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio (adjust as needed) */
+  position: relative;
+}
+
+.small-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.custom-select {
+  background-color: #faf8f8; /* Background color */
+  border: 1px solid #ced4da; /* Border color */
+  padding: 7px; /* Padding */
+  border-radius: 5px; /* Border radius */
+  width: 50%; /* Full width */
+  box-sizing: border-box; /* Ensure the padding is included in the width */
+}
+
+</style>
+
+<div class="toast collapse opacity1" id="collapseExample">
+  <div class="toast-body">
+
+  </div>
+ </div>
+
+<div class="toast collapse opacity1" id="collapseExample1">
+  <div class="toast-body">
+
+  </div>
+</div>
+
+<app-adminheader></app-adminheader>
+<div class="sidebarContainer">
+<app-leftnav></app-leftnav>
+</div>
+ 
+ 
+<div class="pageContent " style="margin-top: 50px;">
+  <main id="main" class="main">
+    <div id="sideBarContent" class="container-fluid pe-5 ps-6">
+
+      <section class="section dashboard borrowers">
+
+
+     
+       
+          <div class="container " >
+
+<div class="row hik">
+
+    <div class=" mt-5">
+
+
+
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" style="margin-top: 30px;">
+
+            <div class="container-fluid">
+                <div class="header-body">
+
+                    <!-- Card stats -->
+                    <div class="pt-5">
+                        <h1 style="color:#A51C05;">Uploaded Videos</h1>
+ 
+
+<!-- filter end -->
+
+<!-- </div> -->
+<p class="mt-3 mb-0 text-muted text-sm">
+<span class="text-nowrap"></span>
+</p>
+                <!-- </div> -->
+
+
+                          
+                    
+
+
+
+
+                        <div class="row mt-5" >
+                          <div class="col-xl-12 col-lg-6">
+                            <div class="card card-stats mb-4 mb-xl-0" style="margin-top: 50px; margin-bottom: 30px;" id="example1">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="row">
+                                      <div class="col mx-3">
+                                        <h4 class="card-title text-uppercase text-muted mb-3">Approved Videos</h4>
+                                      </div>
+                                      
+                                    </div>
+                        
+                                    <div class="row">
+                                      <ng-container *ngIf="all_notapproved_videos.length > 0; else noNotApprovedVideosFound">
+                                        <div class="col-xl-3" *ngFor="let video1 of (showMoreVideos ? all_notapproved_videos : all_notapproved_videos.slice(0, 4)); let i = index">
+                                          <div class="ratio ratio-16x9" (click)="navigateToVideoDetail(video1.id)" id="example1">
+                                            <video controls id="example1">
+                                              <source [src]="base_url + video1.videoUrl" type="video/mp4">
+                                              Your browser does not support the video tag.
+                                            </video>
+                                          </div>
+                                          <p class="text-left font-weight-bold  fs-7" style="margin-left: 13px;color:#A51C05;">ProductName : <span class="text-black">{{video1.text}} </span></p>
+                                          <p class="text-left fs-7 font-weight-bold"style="margin-left: 13px;color:#A51C05;">Veg/Nonveg: <span class="text-black">{{video1.productType}}</span>
+                                            <img *ngIf="video1.productType == 'Veg'" src="../../assets/img/veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
+                                            <img *ngIf="video1.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video1.productType }}" />
+                                          </p>
+                                          <p class="text-left fs-7" style="margin-left: 13px; color:#A51C05;">Cuisine : <span class="text-black">{{video1.nationalCuisine}}</span></p>
+                            
+                                        </div>
+                                      </ng-container>
+
+                                      <div class="">
+                                        <button class="card-title mb-1 float-end text-primary" (click)="toggleShowMore()">
+                                          {{ showMoreVideos ? 'Less' : 'More' }}
+                                        </button>
+                                      </div>
+
+
+                                      <ng-template #noNotApprovedVideosFound>
+                                        <div class="col">
+                                          <p>No not-approved videos found.</p>
+                                        </div>
+                                      </ng-template>
+                                    </div>
+                                  </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                  <span class="text-nowrap"></span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+
+
+                      
+                          
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt--7">
+
+            <div class="row mt-5">
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+          
+
+
+
+<!-- this is for accept 1st -->
+  <div class="modal fade" *ngFor="let video of all_newChefVideos" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="staticBackdropLabel">Accepting video</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to accept?
+        </div>
+        <div class="modal-footer" >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+
+          
+          <button *ngIf="video" type="button" class="btn btn-primary" (click)="acceptVideo()" data-bs-dismiss="modal">Yes</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- this is for reject 1st -->
+<div class="modal fade" *ngFor="let video of all_newChefVideos" id="denybutton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Review of uploaded video</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="deleteVideo()"  data-bs-dismiss="modal">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- to assign a video that  admin  should verify -->
+
+<div class="modal fade" id="MAHESHASIGN" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Assign Video</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #assignmentForm="ngForm">
+        <!-- list of admins -->
+        <div class="mb-3">
+          <label for="assignToDropdown" class="form-label">Assign To</label>
+          <select class="form-select" id="assignToDropdown" [(ngModel)]="selectedAssignee"  name="assignToDropdown">
+            <option value="" disabled selected>Select</option>
+            <option *ngFor="let admin of admindetails" [value]="admin.id">{{ admin.userName }}</option>
+          </select>
+        </div>
+        
+   
+        <div class="mb-3">
+          <label for="descriptionInput" class="form-label">Description</label>
+          <input type="text" class="form-control" id="descriptionInput"  name="descriptionInput" autocomplete="off">
+        </div>
+
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  (click) ="asignvideo()" data-bs-dismiss="modal">Assign</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</section>
+</div>
+</main>
+</div>

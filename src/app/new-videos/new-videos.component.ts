@@ -1,13 +1,13 @@
+// import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DbService } from '../services/db.service';
-
 @Component({
-  selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.css']
+  selector: 'app-new-videos',
+  templateUrl: './new-videos.component.html',
+  styleUrls: ['./new-videos.component.css']
 })
-export class VideosComponent implements OnInit {
+export class NewVideosComponent {
   all_newChefVideos: any[] = [];
   base_url = "http://localhost:4000/upload/";
   all_notapproved_videos: any[] = [];
@@ -56,10 +56,10 @@ export class VideosComponent implements OnInit {
   adminid: any;
   description: any;
   videoIdnew: any={};
-//   Vediotype:any={};
+  Vediotype:any={};
   
-// status: any;
-// newv: any='new videos';
+status: any;
+newv: any='new videos';
   constructor(private database: DbService, private router: Router) {}
 
   ngOnInit(): void {
@@ -69,11 +69,11 @@ export class VideosComponent implements OnInit {
     }
     
     this.GetInfo();
-    // if (localStorage.getItem("VideosComponent")) {
-    //   this.Vediotype = JSON.parse(localStorage.getItem("VideosComponent") || '{}');
-    //   console.log(this.Vediotype);
+    if (localStorage.getItem("VideosComponent")) {
+      this.Vediotype = JSON.parse(localStorage.getItem("VideosComponent") || '{}');
+      console.log(this.Vediotype);
       
-    // }
+    }
     if (localStorage.getItem("role")) {
       this.role = JSON.parse(localStorage.getItem("role") || '{}');
     }
@@ -173,62 +173,6 @@ export class VideosComponent implements OnInit {
     console.log(this.selectedVideos);
   }
 
-
-
-
-  // onSelectNumberChange(): void {
-  //   // Reset selectedVideos array
-  //   this.selectedVideos = [];
-
-  //   if (this.selectedNumberOfVideos === 'all') {
-  //     // Select all videos
-  //     this.all_newChefVideos.forEach(video => {
-  //       video.selected = true;
-  //       this.selectedVideos.push(video.id);
-  //     });
-  //   } else {
-  //     // Select a specific number of videos
-  //     const numberOfVideosToSelect = parseInt(this.selectedNumberOfVideos, 10);
-
-  //     for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
-  //       const video = this.all_newChefVideos[i];
-  //       video.selected = true;
-  //       this.selectedVideos.push(video.id);
-  //     }
-  //   }
-
-  //   console.log(this.selectedVideos);
-  // }
-
-
-  // onSelectNumberChange(): void {
-  //   // Reset selectedVideos array
-  //   this.selectedVideos = [];
-
-  //   if (this.selectedNumber === 'all') {
-  //     // Select all videos
-  //     this.all_newChefVideos.forEach(video => {
-  //       video.selected = true;
-  //       this.selectedVideos.push(video.id);
-  //     });
-  //   } else {    
-  //     const numberOfVideosToSelect = parseInt(this.selectedNumber, 10);
-
-  //     for (let i = 0; i < Math.min(numberOfVideosToSelect, this.all_newChefVideos.length); i++) {
-  //       const video = this.all_newChefVideos[i];
-  //       video.selected = true;
-  //       this.selectedVideos.push(video.id);
-  //     }
-  //   }
-
-  //   console.log(this.selectedVideos);
-  // }
-
-
-  // onSelectNumberChange(): void {
-  //   console.log('onSelectNumberChange triggered');
-  //   // Rest of the code...
-  // }
 
 
 
@@ -480,10 +424,7 @@ acceptVideo(): void {
       }
     });
   }
-  ///////////////////////1st end 
-
-
-  // ///////asign video to admin ///////////
+ 
 
   asignvideo(): void {
 
@@ -543,5 +484,4 @@ errorMsg(msg:any)
           $('#collapseExample').hide();
         }, 3000);
 }
-
 }

@@ -15,6 +15,11 @@ import { DemoComponent } from '../demo/demo.component';
 import { TemplateListComponent } from '../template-list/template-list.component';
 import { TemplateEditComponent } from '../template-edit/template-edit.component';
 import { VideodetailsComponent } from '../videodetails/videodetails.component';
+import { AllVideosComponent } from '../all-videos/all-videos.component';
+import { NewVideosComponent } from '../new-videos/new-videos.component';
+import { ApprVideosComponent } from '../appr-videos/appr-videos.component';
+import { RejVideosComponent } from '../rej-videos/rej-videos.component';
+import { TestingComponent } from '../testing/testing.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -31,6 +36,10 @@ const routes: Routes = [
   {path: 'dashboard',component: DashboardComponent,canActivate: [AuthGuard],},
   { path: 'ghdcgh', component: AdminheaderComponent, canActivate: [AuthGuard] },
   { path: 'VideosComponent', component: VideosComponent, canActivate: [AuthGuard] },
+  { path: 'new_videos', component: NewVideosComponent, canActivate: [AuthGuard] },
+  { path: 'app_videos', component: ApprVideosComponent, canActivate: [AuthGuard] },
+  { path: 'rej_videos', component: RejVideosComponent, canActivate: [AuthGuard] },
+
   { path: 'video', component: VideospagelistComponent, canActivate: [AuthGuard] },
   { path: 'resetpassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
   { path: 'manageteam', component: ManageteamComponent, canActivate: [AuthGuard] },
@@ -67,15 +76,20 @@ const routes: Routes = [
 
   // testing purpose
   // { path: 'forgetpassword', component: ForgetpasswordComponent, },
+  // { path: 'reset', component: ResetPasswordComponent, },
+
   // {path: 'dashboard',component: DashboardComponent,},
   // { path: 'ghdcgh', component: AdminheaderComponent,  },
   { path: 'videodetails', component: VideodetailsComponent, },
   { path: 'template_list', component: TemplateListComponent, },
   { path: 'DemoComponent', component: DemoComponent, },
   { path: 'template_edit/:id', component: TemplateEditComponent, },
+  { path: 'all_videos', component: AllVideosComponent, },
+  { path: 'newdetails/:newvideos', component: VideodetailsComponent, },
+  { path: 'testing', component: TestingComponent, },
 
-
-
+  
+  
   
 
  
