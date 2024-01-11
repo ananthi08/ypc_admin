@@ -23,6 +23,7 @@ export class TemplatesComponent implements OnInit {
   dishes: any = {};
   mainDishArray11: any[] = [];
   SideDishArray: any[] = [];
+  otherDishArray:any[] =[];
   mainDishArray: any = {};
   dropdownList = [];
   selectedItems = [];
@@ -34,6 +35,7 @@ export class TemplatesComponent implements OnInit {
   successmsg: any;
   dishSelect: any = "";
   sidedishSelect: any = "";
+  otherdishSelect: any = "";
   interNationSelect: any = "Indian";
   NationSelect: any = "Tamil";
   idCard: any;
@@ -77,6 +79,26 @@ export class TemplatesComponent implements OnInit {
   sidedishSelect18: any = "";
   sidedishSelect19: any = "";
   sidedishSelect20: any = "";
+  otherdishSelect1: any = "";
+  otherdishSelect2: any = "";
+  otherdishSelect3: any = "";
+  otherdishSelect4: any = "";
+  otherdishSelect5: any = "";
+  otherdishSelect6: any = "";
+  otherdishSelect7: any = "";
+  otherdishSelect8: any = "";
+  otherdishSelect9: any = "";
+  otherdishSelect10: any = "";
+  otherdishSelect11: any = "";
+  otherdishSelect12: any = "";
+  otherdishSelect13: any = "";
+  otherdishSelect14: any = "";
+  otherdishSelect15: any = "";
+  otherdishSelect16: any = "";
+  otherdishSelect17: any = "";
+  otherdishSelect18: any = "";
+  otherdishSelect19: any = "";
+  otherdishSelect20: any = "";
 
   ngOnInit() {
 
@@ -144,6 +166,9 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect, "lunch": this.sidedishSelect1, "dinner": this.sidedishSelect2 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect, "lunch": this.otherdishSelect1, "dinner": this.otherdishSelect2 }
                 ]
               },
 
@@ -156,6 +181,9 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect3, "lunch": this.sidedishSelect4, "dinner": this.sidedishSelect5 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect3, "lunch": this.otherdishSelect4, "dinner": this.otherdishSelect5 }
                 ]
               },
 
@@ -168,6 +196,9 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect6, "lunch": this.sidedishSelect7, "dinner": this.sidedishSelect8 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect6, "lunch": this.otherdishSelect7, "dinner": this.otherdishSelect8 }
                 ]
               },
 
@@ -180,6 +211,9 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect9, "lunch": this.sidedishSelect10, "dinner": this.sidedishSelect11 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect9, "lunch": this.otherdishSelect10, "dinner": this.otherdishSelect11 }
                 ]
               },
 
@@ -192,6 +226,9 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect12, "lunch": this.sidedishSelect13, "dinner": this.sidedishSelect14 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect12, "lunch": this.otherdishSelect13, "dinner": this.otherdishSelect14 }
                 ]
               },
 
@@ -204,7 +241,11 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect15, "lunch": this.sidedishSelect16, "dinner": this.sidedishSelect17 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect15, "lunch": this.otherdishSelect16, "dinner": this.otherdishSelect17 }
                 ]
+
               },
 
 
@@ -216,7 +257,11 @@ export class TemplatesComponent implements OnInit {
                 ],
                 "sidedish": [
                   { "breakfast": this.sidedishSelect18, "lunch": this.sidedishSelect19, "dinner": this.sidedishSelect20 }
+                ],
+                "otherDish": [
+                  { "breakfast": this.otherdishSelect18, "lunch": this.otherdishSelect19, "dinner": this.otherdishSelect20 }
                 ]
+
               },
 
 
@@ -279,6 +324,11 @@ export class TemplatesComponent implements OnInit {
 
           this.SideDishArray = result.sideDish;
           console.log("testing", this.SideDishArray);
+
+
+          this.otherDishArray = result.otherDish;
+          console.log("testing", this.otherDishArray);
+
 
           //  alert('Templated created')
         }
