@@ -32,12 +32,12 @@ import { AllVideosComponent } from './all-videos/all-videos.component';
 import { NewVideosComponent } from './new-videos/new-videos.component';
 import { ApprVideosComponent } from './appr-videos/appr-videos.component';
 import { RejVideosComponent } from './rej-videos/rej-videos.component';
-import { TestingComponent } from './testing/testing.component';
+// import { TestingComponent } from './testing/testing.component';
 // import { VideosComponent } from './videos/videos/videos.component';
 // import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+// import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 
 
@@ -64,7 +64,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     NewVideosComponent,
     ApprVideosComponent,
     RejVideosComponent,
-    TestingComponent,
+    // TestingComponent,
   
  
    
@@ -82,7 +82,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     AuthenticationModule,
     AppRoutingModule,
     FormsModule,
-    AngularMultiSelectModule,
+    // AngularMultiSelectModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatChipsModule,

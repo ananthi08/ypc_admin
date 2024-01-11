@@ -19,7 +19,7 @@ import { AllVideosComponent } from '../all-videos/all-videos.component';
 import { NewVideosComponent } from '../new-videos/new-videos.component';
 import { ApprVideosComponent } from '../appr-videos/appr-videos.component';
 import { RejVideosComponent } from '../rej-videos/rej-videos.component';
-import { TestingComponent } from '../testing/testing.component';
+// import { TestingComponent } from '../testing/testing.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -86,7 +86,7 @@ const routes: Routes = [
   { path: 'template_edit/:id', component: TemplateEditComponent, },
   { path: 'all_videos', component: AllVideosComponent, },
   { path: 'newdetails/:newvideos', component: VideodetailsComponent, },
-  { path: 'testing', component: TestingComponent, },
+  // { path: 'testing', component: TestingComponent, },
 
   
   
