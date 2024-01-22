@@ -516,7 +516,7 @@ this.dishCrtl20=new FormControl("");
 
 
 
-// console.log(this.mockSideDishList)
+// //console.log(this.mockSideDishList)
 
     this.filterDishList = this.dishCrtl.valueChanges.pipe(
       startWith(null),
@@ -533,8 +533,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList1 = this.dishCrtl1.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -542,8 +542,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList2 = this.dishCrtl2.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -551,8 +551,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList3 = this.dishCrtl3.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -560,8 +560,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList4 = this.dishCrtl4.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -569,8 +569,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList5 = this.dishCrtl5.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -578,8 +578,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList6 = this.dishCrtl6.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -587,8 +587,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList7 = this.dishCrtl7.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -596,8 +596,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList8 = this.dishCrtl8.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -605,8 +605,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList9 = this.dishCrtl9.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -614,8 +614,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList10 = this.dishCrtl10.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -623,8 +623,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList11 = this.dishCrtl11.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -632,8 +632,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList12 = this.dishCrtl12.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -641,8 +641,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList13 = this.dishCrtl13.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -650,8 +650,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList14 = this.dishCrtl14.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -659,8 +659,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList15 = this.dishCrtl15.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -668,8 +668,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList16 = this.dishCrtl16.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -677,8 +677,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList17 = this.dishCrtl17.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -686,8 +686,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList18 = this.dishCrtl18.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -695,8 +695,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList19 = this.dishCrtl19.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -704,8 +704,8 @@ this.dishCrtl20=new FormControl("");
     this.filterDishList20 = this.dishCrtl20.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish)
-        console.log(this.mockSideDishList)
+        //console.log(dish)
+        //console.log(this.mockSideDishList)
 
         return (dish ? this._dish(dish) : this.mockSideDishList.slice())
       }),
@@ -715,7 +715,7 @@ this.dishCrtl20=new FormControl("");
     this.otherfilterDishList = this.otherdishCrtl.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
 
@@ -724,7 +724,7 @@ this.dishCrtl20=new FormControl("");
 this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {       
-        return (dish ? this._dish(dish) : this.otherDishList.slice())
+        return (dish ? this._otherdish(dish) : this.otherDishList.slice())
       }),
     );
 
@@ -732,28 +732,28 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.otherfilterDishList2 = this.otherdishCrtl2.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList3 = this.otherdishCrtl3.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList4 = this.otherdishCrtl4.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList5 = this.otherdishCrtl5.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
@@ -761,35 +761,35 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.otherfilterDishList6 = this.otherdishCrtl6.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList7 = this.otherdishCrtl7.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList8 = this.otherdishCrtl8.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList9 = this.otherdishCrtl9.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList10 = this.otherdishCrtl10.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
 
@@ -797,70 +797,70 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.otherfilterDishList11 = this.otherdishCrtl11.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList12 = this.otherdishCrtl12.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList13 = this.otherdishCrtl13.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList14 = this.otherdishCrtl14.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList15 = this.otherdishCrtl15.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
 
     this.otherfilterDishList16 = this.otherdishCrtl16.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList17 = this.otherdishCrtl17.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList18 = this.otherdishCrtl18.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList19 = this.otherdishCrtl19.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
     
     this.otherfilterDishList20 = this.otherdishCrtl20.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.otherDishList.slice();
+        return dish ? this._otherdish(dish) : this.otherDishList.slice();
       }),
     );
 
@@ -881,39 +881,39 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.sidefilterDishList = this.sidedishCrtl.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList1 = this.sidedishCrtl1.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList2 = this.sidedishCrtl2.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {      
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList3 = this.sidedishCrtl3.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList4 = this.sidedishCrtl4.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
 
@@ -922,52 +922,52 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.sidefilterDishList5 = this.sidedishCrtl4.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
 
     this.sidefilterDishList6 = this.sidedishCrtl6.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList7 = this.sidedishCrtl7.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList8 = this.sidedishCrtl8.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList9 = this.sidedishCrtl9.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList10 = this.sidedishCrtl10.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
 
@@ -976,110 +976,110 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     this.sidefilterDishList11 = this.sidedishCrtl11.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList12 = this.sidedishCrtl12.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList13 = this.sidedishCrtl13.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList14 = this.sidedishCrtl14.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList15 = this.sidedishCrtl15.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     this.sidefilterDishList15 = this.sidedishCrtl15.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList16 = this.sidedishCrtl16.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList17 = this.sidedishCrtl17.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList18 = this.sidedishCrtl18.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList19 = this.sidedishCrtl19.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
     this.sidefilterDishList20 = this.sidedishCrtl20.valueChanges.pipe(
       startWith(null),
       map((dish: any | null) => {
-        console.log(dish);
-        console.log(this.maxSideDishList);
-        return dish ? this._dish(dish) : this.maxSideDishList.slice();
+        //console.log(dish);
+        //console.log(this.maxSideDishList);
+        return dish ? this._sidedish(dish) : this.maxSideDishList.slice();
       }),
     );
     
 
-    // console.log(this.filterDishList)
+    // //console.log(this.filterDishList)
   }
 
   ngOnInit() {
 
     if (localStorage.getItem("id")) {
       this.id = JSON.parse(localStorage.getItem("id") || '{}');
-      console.log('admin_id', this.id);
+      //console.log('admin_id', this.id);
 
     }
     this.GetInfo();
@@ -1100,7 +1100,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
         this.internationalCuisine = result.map(item => item.cuisine);
 
 
-        console.log(this.internationalCuisine);
+        //console.log(this.internationalCuisine);
       },
     );
 
@@ -1111,7 +1111,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
         this.nationalCuisine = result.map(item => item.cuisine);
 
 
-        console.log(this.nationalCuisine);
+        //console.log(this.nationalCuisine);
       },
     );
 
@@ -1246,11 +1246,11 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
           ]
 
       };
-      console.log(data);
+      //console.log(data);
 
       this.database.postdata(`ypc-admin-micro-service/admin/template/${this.id}`, data).subscribe({
         next: (result) => {
-          console.log(result);
+          //console.log(result);
           this.result = result.data;
           this.succesMsg(result.message);
           this.router.navigate(['template_list']);
@@ -1259,13 +1259,13 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
         error: (error) => {
         },
         complete: () => {
-          console.log("completed ..........");
+          //console.log("completed ..........");
 
         }
       });
     }
     else {
-      // console.log('Please select all required values');
+      // //console.log('Please select all required values');
       alert('Please select all values');
     }
 
@@ -1275,10 +1275,10 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
 
   onItemSelect(item: any) {
-    console.log(item);
+    //console.log(item);
   }
   onSelectAll(items: any) {
-    console.log(items);
+    //console.log(items);
   }
 
 
@@ -1295,20 +1295,20 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
           this.mainDishArray11 = result.mainDish;
 
           // this.mainDishArray11= [{"name":'dosa'},{"name":'idly'},{"name":'upma'}];
-          // console.log("testing", this.mainDishArray11);
+          // //console.log("testing", this.mainDishArray11);
 
           this.SideDishArray = result.sideDish;
-          // console.log("testing", this.SideDishArray);
+          // //console.log("testing", this.SideDishArray);
 
 
           this.otherDishArray = result.otherDish;
-          // console.log("testing", this.otherDishArray);
+          // //console.log("testing", this.otherDishArray);
 
           this.mockSideDishList=this.mainDishArray11.map((dish:any)=>dish.name)
-          console.log(this.mockSideDishList);
+          //console.log(this.mockSideDishList);
           
           this.maxSideDishList=this.SideDishArray.map((dish:any)=>dish.name)
-          console.log(this.maxSideDishList);
+          //console.log(this.maxSideDishList);
 
           this.otherDishList=this.otherDishArray.map((dish:any)=>dish.name)
 
@@ -1385,15 +1385,15 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
       
 
 
-// console.log(this.mockSideDishList)
-// console.log(this.filterDishList)
+// //console.log(this.mockSideDishList)
+// //console.log(this.filterDishList)
 
 
           //  alert('Templated created')
         }
       );
     } else {
-      // console.log('Please select all required values');
+      // //console.log('Please select all required values');
       alert('Please select all values');
     }
   }
@@ -2023,13 +2023,13 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
   //   add1(event: MatChipInputEvent): void {
   //     const value = (event.value || '').trim();
-  // console.log(value);
-  // console.log(event.value);
+  // //console.log(value);
+  // //console.log(event.value);
 
   //     // Add our fruit
   //     if (value) {
   //       this.sidedishSelect.push(value);
-  //       console.log('er',this.dishSelect);
+  //       //console.log('er',this.dishSelect);
 
   //     }
 
@@ -2413,9 +2413,9 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
 
   remove(dish: any): void {
-    console.log(this.filterDishList)
+    //console.log(this.filterDishList)
 
-    console.log(dish);
+    //console.log(dish);
     const index = this.selectedDishList.indexOf(dish);
 
     if (index >= 0) {
@@ -2425,9 +2425,9 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
 
   remove1(dish: any): void {
-    console.log(this.filterDishList1)
+    //console.log(this.filterDishList1)
 
-    console.log(dish);
+    //console.log(dish);
     const index = this.selectedDishList1.indexOf(dish);
 
     if (index >= 0) {
@@ -2535,9 +2535,9 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
     }
   }
   remove16(dish: any): void {
-    console.log(this.filterDishList16)
+    //console.log(this.filterDishList16)
 
-    console.log(dish);
+    //console.log(dish);
     const index = this.selectedDishList16.indexOf(dish);
 
     if (index >= 0) {
@@ -2960,31 +2960,35 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
   
 
   private _dish(value: any): any {
-    console.log(value)
+    //console.log(value)
 
     const filterValue = value.toLowerCase();
-    console.log(filterValue)
-    console.log(value)
+    //console.log(filterValue)
+    //console.log(value)
 
-    console.log(this.mockSideDishList)
+    //console.log(this.mockSideDishList)
 
     return this.mockSideDishList.filter((dish: any) => dish.toLowerCase().includes(filterValue));
   }
 
 
   private _sidedish(value: any): any {
-    console.log(value)
+    //console.log(value)
 
     const filterValue = value.toLowerCase();
-    console.log(filterValue)
-    console.log(value)
+    //console.log(filterValue)
+    //console.log(value)
 
-    console.log(this.maxSideDishList)
+    //console.log(this.maxSideDishList)
 
     return this.maxSideDishList.filter((dish: any) => dish.toLowerCase().includes(filterValue));
   }
 
 
+  private _otherdish(value: any): any {
+    const filterValue = value.toLowerCase();
+    return this.otherDishList.filter((dish: any) => dish.toLowerCase().includes(filterValue));
+  }
 
 
   
