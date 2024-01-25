@@ -44,7 +44,8 @@ export class DashboardComponent {
 
   all_newChefVideos: any[] = [];
   all_notapproved_videos: any[] = [];
-
+  all_newChefVideos_1: any[] = [];
+  video_fulldetail :any[]=[];
 
 
 
@@ -206,15 +207,44 @@ export class DashboardComponent {
 
 
     // not approved videos
+  //   if (this.id) {
+  //   this.database.getData('ypc-admin-micro-service/ypc/admin/chef/allvideos/${this.id}').subscribe(
+  //     (result: any) => {
 
-    this.database.getData('ypc-admin-micro-service/ypc/admin/chef/allvideos').subscribe(
+  //       this.all_newChefVideos = result.Notapproved.length;
+  //       const videoIds = this.all_newChefVideos.map(video => video.id);
+
+  //     },
+  //   )
+  // }else {
+  //   console.error("ID not available. Unable to fetch chef videos.");
+  // };
+
+
+  this.database.getData('ypc-admin-micro-service/admin/totalvideos', ).subscribe((result: any) => {
+    
+
+    this.video_fulldetail = result.totalVideos.length;
+    // this.video_full = result.totalVideos.videoUrl;
+
+   console.log(this.video_fulldetail);
+  
+  },);
+
+  
+    this.database.getData(`ypc-admin-micro-service/ypc/admin/chef/allvideos/1`).subscribe(
       (result: any) => {
-
-        this.all_newChefVideos = result.Notapproved.length;
-        const videoIds = this.all_newChefVideos.map(video => video.id);
-
+    
+        this.all_newChefVideos = result.Notapproved;
+        this.all_newChefVideos_1 = result.Notapproved.length;
+       
+       console.log('ererere',this.all_newChefVideos_1);
+      //  console.log('iidd',this.videoIdnew);
+    
+    
       },
-    );
+    )
+   
 
     // approved videos
 
@@ -469,6 +499,7 @@ export class DashboardComponent {
       },
     });
   }
+
 
 
 

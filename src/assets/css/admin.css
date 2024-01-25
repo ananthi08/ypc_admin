@@ -14,9 +14,9 @@
   scroll-behavior: smooth;
 }
 
-html {
+/* html {
   overflow-x: hidden;
-}
+} */
 
 body {
   font-family: 'DM Sans', sans-serif;

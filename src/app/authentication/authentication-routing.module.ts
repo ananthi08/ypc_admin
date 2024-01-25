@@ -19,6 +19,7 @@ import { AllVideosComponent } from '../all-videos/all-videos.component';
 import { NewVideosComponent } from '../new-videos/new-videos.component';
 import { ApprVideosComponent } from '../appr-videos/appr-videos.component';
 import { RejVideosComponent } from '../rej-videos/rej-videos.component';
+import { CrPassComponent } from '../cr-pass/cr-pass.component';
 // import { TestingComponent } from '../testing/testing.component';
 
 const routerOptions: ExtraOptions = {
@@ -32,7 +33,8 @@ const routes: Routes = [
   // original_routing_paths
 
   { path: 'login', component: LoginComponent },
-  { path: 'forgetpassword', component: ForgetpasswordComponent, canActivate: [AuthGuard] },
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
+  // { path: 'forgetpassword', component: ForgetpasswordComponent, canActivate: [AuthGuard] },
   {path: 'dashboard',component: DashboardComponent,canActivate: [AuthGuard],},
   { path: 'ghdcgh', component: AdminheaderComponent, canActivate: [AuthGuard] },
   { path: 'VideosComponent', component: VideosComponent, canActivate: [AuthGuard] },
@@ -44,8 +46,9 @@ const routes: Routes = [
   { path: 'resetpassword', component: ResetPasswordComponent, canActivate: [AuthGuard] },
   { path: 'manageteam', component: ManageteamComponent, canActivate: [AuthGuard] },
   { path: 'template', component: TemplatesComponent ,canActivate: [AuthGuard]},
+  { path: 'cr_reset', component: CrPassComponent },
 
-
+  
 
 
 
