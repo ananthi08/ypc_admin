@@ -4,11 +4,11 @@ import { filter } from 'rxjs/operators';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
-  selector: 'app-videodetails',
-  templateUrl: './videodetails.component.html',
-  styleUrls: ['./videodetails.component.css']
+  selector: 'app-video-describe',
+  templateUrl: './video-describe.component.html',
+  styleUrls: ['./video-describe.component.css']
 })
-export class VideodetailsComponent implements OnInit {
+export class VideosDescribe  implements OnInit {
   videoDetails: any;
   id: any;
   result: any;
@@ -28,7 +28,7 @@ export class VideodetailsComponent implements OnInit {
   constructor(private database: DbService ,private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // console.log('Navigation end event:', event);
+        console.log('Navigation end event:', event);
       }
     });
   }
@@ -59,6 +59,7 @@ export class VideodetailsComponent implements OnInit {
         this.video_fulldetail = result.products;
         this.video_full = result.products.videoUrl;
         this.videosList11 = result.products[0];
+      
         
         
       });
@@ -67,9 +68,8 @@ export class VideodetailsComponent implements OnInit {
  
 
   allVideos( id: any){
-    this.router.navigate(['/videodetails_2'], { state: { id } });
+    this.router.navigate(['/videodetails1'], { state: { id } });
     }
-
 
 
   private clearVideoDetails(): void {
@@ -129,8 +129,6 @@ export class VideodetailsComponent implements OnInit {
 
 
 
-
-
   succesMsg(msg: any): void {
     this.successmsg = msg;
     $('#collapseExample1').show();
@@ -147,10 +145,3 @@ export class VideodetailsComponent implements OnInit {
     }, 3000);
   }
 }
-
-
-
-
-
-
-

@@ -36,6 +36,8 @@ export class LoginComponent {
 
   toggleForgotPassword() {
     this.showForgotPassword = !this.showForgotPassword;
+    this.router.navigateByUrl('forgetpassword');
+    
   }
 
   onResetPassword(form: any) {

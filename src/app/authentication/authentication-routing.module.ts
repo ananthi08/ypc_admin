@@ -20,6 +20,7 @@ import { NewVideosComponent } from '../new-videos/new-videos.component';
 import { ApprVideosComponent } from '../appr-videos/appr-videos.component';
 import { RejVideosComponent } from '../rej-videos/rej-videos.component';
 import { CrPassComponent } from '../cr-pass/cr-pass.component';
+import { VideosDescribe } from '../video-describe/video-describe.component';
 // import { TestingComponent } from '../testing/testing.component';
 
 const routerOptions: ExtraOptions = {
@@ -83,13 +84,15 @@ const routes: Routes = [
 
   // {path: 'dashboard',component: DashboardComponent,},
   // { path: 'ghdcgh', component: AdminheaderComponent,  },
-  { path: 'videodetails', component: VideodetailsComponent, },
+  { path: 'videodetails', component: VideodetailsComponent,  },
+  { path: 'videodetails1', component: VideodetailsComponent,  },
+
   { path: 'template_list', component: TemplateListComponent, },
   { path: 'DemoComponent', component: DemoComponent, },
   { path: 'template_edit/:id', component: TemplateEditComponent, },
   { path: 'all_videos', component: AllVideosComponent, },
   { path: 'newdetails/:newvideos', component: VideodetailsComponent, },
-  // { path: 'testing', component: TestingComponent, },
+  { path: 'videodetails_2', component: VideosDescribe, },
 
   
   

@@ -752,7 +752,7 @@ selectedOtherDishList20: any[] = [];
   dishSelect: any = "";
   sidedishSelect:any="";
   interNationSelect: any = "";
-  NationSelect:any = "";
+  NationSelect:any = "Tamil";
   adminId:any;
   dishSelect1: any = "";
   dishSelect2: any = "";
@@ -1063,7 +1063,6 @@ sidefilterDishList20: Observable<any[]>;
     });
     // this.GetInfo();
     // this.onClick()
-
     
   }
  

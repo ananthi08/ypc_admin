@@ -1,3 +1,4 @@
+<p>test works!</p>
 <style>
 
 </style>
@@ -84,13 +85,6 @@
 
                                    
     
-                                    <!-- <div class="col col-md text-md-end">
-                                      <button href="#" class=" btn btn-sm btn-success accept" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">
-                                        ACCEPT <span class="fa fa-check"></span>
-                                      </button>
-                                    </div> -->
-                                    
                                     <div class="col col-md text-md-end px-2 " *ngIf="video_fulldetail.adminApproved ==0 && video_fulldetail.isDeleted==0">
                                       <button href="#" class="btn btn-sm btn-success deny" data-bs-toggle="modal"
                                         data-bs-target="#staticBackdrop">
@@ -110,7 +104,6 @@
 
                                   </div>
 
-                                  <!-- <h3 class="text-danger ">About Recipes</h3> -->
                                   <p class="fw-bolder " style="color:#A51C05;">About Recipes</p>
 
                                   <div class="row bg-light py-2">
@@ -159,38 +152,7 @@
 
                               
     
-                              <!-- <div class="col">
-                                <h3 style="font-family: 'Your Desired Font', Helvetica;">International Cuisine</h3>
-                                <p style="font-style: Arial;">{{videoDetails.internationalCuisine}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Description</h3>
-                                <p style="font-weight: normal;">{{videoDetails.description}}</p>
-                              </div>
-    
-                              <div class="col">
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">National Cuisine</h3>
-                                <p style="font-style: Arial;">{{videoDetails.nationalCuisine}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Chef ID</h3>
-                                <p style="font-style: Arial;">{{videoDetails.chefId}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Steps</h3>
-                                <p style="font-style: Arial;"> {{videoDetails.steps}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Text</h3>
-                                <p style="font-style: Arial;"> {{videoDetails.text}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Product Type</h3>
-                                <p style="font-style: Arial;">{{videoDetails.productType}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">ProductServe Category</h3>
-                                <p style="font-style: Arial;">{{videoDetails.productServeCategory}}</p>
-    
-                                <h3 style="font-family: 'Your Desired Font', sans-serif;">Product Category</h3>
-                                <p style="font-style: Arial;">{{videoDetails.productCategory}}</p>
-                              </div> -->
-                           
-    
+                            
     
     
     
@@ -241,7 +203,7 @@
                     <div class="card card-stats mb-4 mb-xl-0" *ngFor="let videoDetails of videosList" style="margin-top: 8px;">
                       <div class="card-body">
                         <div class="row">
-                          <div class="col-md-5 col-sm-12" (click)="allVideos(videoDetails.id)" >
+                          <div class="col-md-5 col-sm-12" (click)="allVideos(videoDetails.id)"  >
                            <div class="ratio ratio-4x3" >
                                 
 
