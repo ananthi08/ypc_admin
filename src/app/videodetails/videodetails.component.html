@@ -236,7 +236,7 @@
     
     
     
-                <div class="row mt-5">
+                <div class="row mt-5" *ngIf="videosList && videosList.length > 0">
                   <div class="col-xl-12 col-lg-6 col-sm-12"  >
                     <div class="card card-stats mb-4 mb-xl-0" *ngFor="let videoDetails of videosList" style="margin-top: 8px;">
                       <div class="card-body">
@@ -284,7 +284,12 @@
                     </div>
                   </div>
                 </div>
-
+                <div class="row mt-5" *ngIf="!videosList || videosList.length === 0">
+                  <div class="col-12">
+                      <p>No Recommended videos.</p>
+                  </div>
+              </div>
+              
 
 
                 
