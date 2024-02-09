@@ -1142,7 +1142,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList, "lunch": this.selectedSideDishList1, "dinner": this.selectedSideDishList2 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList, "lunch": this.selectedOtherDishList1, "dinner": this.selectedOtherDishList2 }
                 ]
               },
@@ -1157,7 +1157,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList3, "lunch": this.selectedSideDishList4, "dinner": this.selectedSideDishList5 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList3, "lunch": this.selectedOtherDishList4, "dinner": this.selectedOtherDishList5 }
                 ]
               },
@@ -1172,7 +1172,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList6, "lunch": this.selectedSideDishList7, "dinner": this.selectedSideDishList8 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList6, "lunch": this.selectedOtherDishList7, "dinner": this.selectedOtherDishList8 }
                 ]
               },
@@ -1187,7 +1187,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList9, "lunch": this.selectedSideDishList10, "dinner": this.selectedSideDishList11 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList9, "lunch": this.selectedOtherDishList10, "dinner": this.selectedOtherDishList11 }
                 ]
               },
@@ -1202,7 +1202,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList12, "lunch": this.selectedSideDishList13, "dinner": this.selectedSideDishList14 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList12, "lunch": this.selectedOtherDishList13, "dinner": this.selectedOtherDishList14 }
                 ]
               },
@@ -1217,7 +1217,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList15, "lunch": this.selectedSideDishList16, "dinner": this.selectedSideDishList17 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList15, "lunch": this.selectedOtherDishList16, "dinner": this.selectedOtherDishList17 }
                 ]
 
@@ -1233,7 +1233,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList18, "lunch": this.selectedSideDishList19, "dinner": this.selectedSideDishList20 }
                 ],
-                "otherDish": [
+                "otherdish": [
                   { "breakfast": this.selectedOtherDishList18, "lunch": this.selectedOtherDishList19, "dinner": this.selectedOtherDishList20 }
                 ]
 
@@ -1301,7 +1301,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
           // //console.log("testing", this.SideDishArray);
 
 
-          this.otherDishArray = result.otherDish;
+          this.otherDishArray = result.otherdish;
           // //console.log("testing", this.otherDishArray);
 
           this.mockSideDishList=this.mainDishArray11.map((dish:any)=>dish.name)
