@@ -1211,7 +1211,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
         chart:
           [
             {
-              "Monday": {
+              "monday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList, "lunch": this.selectedDishList2, "dinner": this.selectedDishList2 }
                 ],
@@ -1226,7 +1226,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Tuesday": {
+              "tuesday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList3, "lunch": this.selectedDishList4, "dinner": this.selectedDishList5 }
                 ],
@@ -1241,7 +1241,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Wednesday": {
+              "wednesday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList6, "lunch": this.selectedDishList7, "dinner": this.selectedDishList8 }
                 ],
@@ -1256,7 +1256,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Thursday": {
+              "thursday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList9, "lunch": this.selectedDishList10, "dinner": this.selectedDishList11 }
                 ],
@@ -1271,7 +1271,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Friday": {
+              "friday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList12, "lunch": this.selectedDishList13, "dinner": this.selectedDishList14 }
                 ],
@@ -1286,7 +1286,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Saturday": {
+              "saturday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList15, "lunch": this.selectedDishList16, "dinner": this.selectedDishList17 }
                 ],
@@ -1302,7 +1302,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
             },
             {
-              "Sunday": {
+              "sunday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList18, "lunch": this.selectedDishList19, "dinner": this.selectedDishList20 }
                 ],

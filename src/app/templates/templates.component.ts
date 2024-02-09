@@ -1135,7 +1135,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
         chart:
           [
             {
-              "Monday": {
+              "monday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList, "lunch": this.selectedDishList2, "dinner": this.selectedDishList2 }
                 ],
@@ -1150,7 +1150,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Tuesday": {
+              "tuesday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList3, "lunch": this.selectedDishList4, "dinner": this.selectedDishList5 }
                 ],
@@ -1165,7 +1165,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Wednesday": {
+              "wednesday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList6, "lunch": this.selectedDishList7, "dinner": this.selectedDishList8 }
                 ],
@@ -1180,7 +1180,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Thursday": {
+              "thursday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList9, "lunch": this.selectedDishList10, "dinner": this.selectedDishList11 }
                 ],
@@ -1195,7 +1195,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Friday": {
+              "friday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList12, "lunch": this.selectedDishList13, "dinner": this.selectedDishList14 }
                 ],
@@ -1210,7 +1210,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Saturday": {
+              "saturday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList15, "lunch": this.selectedDishList16, "dinner": this.selectedDishList17 }
                 ],
@@ -1226,7 +1226,7 @@ this.otherfilterDishList1 = this.otherdishCrtl1.valueChanges.pipe(
 
             },
             {
-              "Sunday": {
+              "sunday": {
                 "maindish": [
                   { "breakfast": this.selectedDishList18, "lunch": this.selectedDishList19, "dinner": this.selectedDishList20 }
                 ],
