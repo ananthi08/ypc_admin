@@ -1155,27 +1155,27 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
     
 
-    this.selectedOtherDishList = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList1 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList2 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList3 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList4= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList5= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList6 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList7= this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList8 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList9 = this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList10= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList11= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList12= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList13= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList14= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList15= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList16 = this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList17= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherdish[0]['dinner'];
-    this.selectedOtherDishList18= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherdish[0]['breakfast'];
-    this.selectedOtherDishList19= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherdish[0]['lunch'];
-    this.selectedOtherDishList20= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherdish[0]['dinner'];
+    this.selectedOtherDishList = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList1 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList2 = this.nationalCuisine.chartDetails[0]['chart'][0]['monday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList3 = this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList4= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList5= this.nationalCuisine.chartDetails[0]['chart'][1]['tuesday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList6 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList7= this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList8 = this.nationalCuisine.chartDetails[0]['chart'][2]['wednesday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList9 = this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList10= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList11= this.nationalCuisine.chartDetails[0]['chart'][3]['thursday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList12= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList13= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList14= this.nationalCuisine.chartDetails[0]['chart'][4]['friday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList15= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList16 = this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList17= this.nationalCuisine.chartDetails[0]['chart'][5]['saturday'].otherDish[0]['dinner'];
+    this.selectedOtherDishList18= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherDish[0]['breakfast'];
+    this.selectedOtherDishList19= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherDish[0]['lunch'];
+    this.selectedOtherDishList20= this.nationalCuisine.chartDetails[0]['chart'][6]['sunday'].otherDish[0]['dinner'];
 
 
     //console.log("Siva", this.dishSelect2);
@@ -1218,7 +1218,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList, "lunch": this.selectedSideDishList1, "dinner": this.selectedSideDishList2 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList, "lunch": this.selectedOtherDishList1, "dinner": this.selectedOtherDishList2 }
                 ]
               },
@@ -1233,7 +1233,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList3, "lunch": this.selectedSideDishList4, "dinner": this.selectedSideDishList5 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList3, "lunch": this.selectedOtherDishList4, "dinner": this.selectedOtherDishList5 }
                 ]
               },
@@ -1248,7 +1248,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList6, "lunch": this.selectedSideDishList7, "dinner": this.selectedSideDishList8 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList6, "lunch": this.selectedOtherDishList7, "dinner": this.selectedOtherDishList8 }
                 ]
               },
@@ -1263,7 +1263,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList9, "lunch": this.selectedSideDishList10, "dinner": this.selectedSideDishList11 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList9, "lunch": this.selectedOtherDishList10, "dinner": this.selectedOtherDishList11 }
                 ]
               },
@@ -1278,7 +1278,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList12, "lunch": this.selectedSideDishList13, "dinner": this.selectedSideDishList14 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList12, "lunch": this.selectedOtherDishList13, "dinner": this.selectedOtherDishList14 }
                 ]
               },
@@ -1293,7 +1293,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList15, "lunch": this.selectedSideDishList16, "dinner": this.selectedSideDishList17 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList15, "lunch": this.selectedOtherDishList16, "dinner": this.selectedOtherDishList17 }
                 ]
 
@@ -1309,7 +1309,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
                 "sidedish": [
                   { "breakfast": this.selectedSideDishList18, "lunch": this.selectedSideDishList19, "dinner": this.selectedSideDishList20 }
                 ],
-                "otherdish": [
+                "otherDish": [
                   { "breakfast": this.selectedOtherDishList18, "lunch": this.selectedOtherDishList19, "dinner": this.selectedOtherDishList20 }
                 ]
 
@@ -1398,7 +1398,7 @@ this.database.getData(`ypc-admin-micro-service/gettemplate/${this.id}`).subscrib
 
         this.SideDishArray = result.sideDish; 
         // //console.log("testing",this.SideDishArray);
-        this.otherDishArray = result.otherdish;
+        this.otherDishArray = result.otherDish;
 
         this.mockSideDishList=this.mainDishArray11.map((dish:any)=>dish.name)
         this.maxSideDishList=this.SideDishArray.map((dish:any)=>dish.name)
