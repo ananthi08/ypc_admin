@@ -157,7 +157,11 @@ th,td{
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Subscribed Users</h5>
-                    <span class="h2 font-weight-bold mb-0">{{totalCountSubscribed}}</span>
+              <span class="h2 font-weight-bold mb-0">{{all_suscribed_users}}</span>
+                    
+                      <span class="h2 font-weight-bold mb-0">{{ all_suscribed_users }}</span> 
+                   <span class="h2 font-weight-bold mb-0" *ngIf="all_suscribed_users.length == 0">{{ 0 }}</span>
+
                   </div>
                   <div class="col-auto">
                     <div class="badge">
@@ -232,7 +236,7 @@ th,td{
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">New Videos</h5>
-                    <span class="h2 font-weight-bold mb-0">{{ all_newChefVideos_1 }}</span>
+                    <span class="h2 font-weight-bold mb-0">{{all_newChefVideos_1 }}</span>
                   </div>
                   <div class="col-auto">
                     <div class="badge">
@@ -256,8 +260,12 @@ th,td{
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Approved Videos</h5>
-                    <!-- <span class="h2 font-weight-bold mb-0">{{ all_notapproved_videos }}</span> -->
                     <span class="h2 font-weight-bold mb-0">{{ all_notapproved_videos }}</span>
+                    <span class="h2 font-weight-bold mb-0" *ngIf="all_notapproved_videos.length === 0">{{ 0 }}</span>
+
+                    
+
+
 
                   </div>
                   <div class="col-auto">
@@ -282,7 +290,9 @@ th,td{
                 <div class="row">
                   <div class="col">
                     <h5 class="card-title text-uppercase text-muted mb-0">Rejected Videos</h5>
-                    <span class="h2 font-weight-bold mb-0">{{all_deleted_videos  }}</span>
+                    <!-- <span class="h2 font-weight-bold mb-0">{{all_deleted_videos  }}</span> -->
+                    <span class="h2 font-weight-bold mb-0">{{ all_deleted_videos }}</span>
+                    <span class="h2 font-weight-bold mb-0" *ngIf="all_deleted_videos.length === 0">{{ 0 }}</span>
                   </div>
                   <div class="col-auto">
                     <div class="badge">

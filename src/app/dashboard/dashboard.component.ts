@@ -238,7 +238,7 @@ export class DashboardComponent {
         this.all_newChefVideos = result.Notapproved;
         this.all_newChefVideos_1 = result.Notapproved.length;
        
-       console.log('ererere',this.all_newChefVideos_1);
+      //  console.log('ererere',this.all_newChefVideos_1);
       //  console.log('iidd',this.videoIdnew);
     
     
@@ -253,6 +253,8 @@ export class DashboardComponent {
 
 
       this.all_notapproved_videos = result.approved.length;
+      console.log(this.all_notapproved_videos);
+      
 
 
 
@@ -266,6 +268,7 @@ export class DashboardComponent {
 
 
       this.all_deleted_videos = result.deletedvideos.length;
+      console.log(this.all_deleted_videos);
 
 
 
@@ -274,13 +277,13 @@ export class DashboardComponent {
 
     // get all subscried users
     this.database.getData('ypc-admin-micro-service/admin/subcribedUsers',).subscribe((result: any) => {
-      console.log(result);
+      // console.log(result);
 
-      this.all_suscribed_users = [result.userDetails];
+      this.all_suscribed_users = [result.userDetails.length];
 
       this.totalCountSubscribed = this.all_suscribed_users.length;
 
-      console.log('subscribed',this.totalCountSubscribed);
+      console.log('subscribed',this.all_suscribed_users);
 
     },);
 
