@@ -279,7 +279,7 @@ export class DashboardComponent {
     this.database.getData('ypc-admin-micro-service/admin/subcribedUsers',).subscribe((result: any) => {
       // console.log(result);
 
-      this.all_suscribed_users = [result.userDetails.length];
+      this.all_suscribed_users = [result.userDetails];
 
       this.totalCountSubscribed = this.all_suscribed_users.length;
 
