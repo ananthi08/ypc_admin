@@ -37,7 +37,8 @@ import { VideosDescribe } from './video-describe/video-describe.component';
 // import { TestingComponent } from './testing/testing.component';
 // import { VideosComponent } from './videos/videos/videos.component';
 // import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 // import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
@@ -69,6 +70,7 @@ import { VideosDescribe } from './video-describe/video-describe.component';
     CrPassComponent,
     
     VideosDescribe,
+         EditUserComponent,
   
  
    
@@ -90,10 +92,12 @@ import { VideosDescribe } from './video-describe/video-describe.component';
     BrowserAnimationsModule,
     MatTabsModule,
     MatChipsModule,
+    NgxPaginationModule
     // Ng2SearchPipeModule  
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent , AllVideosComponent ],
+   
 })
 export class AppModule { 
   

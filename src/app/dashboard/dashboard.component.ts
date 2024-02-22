@@ -5,7 +5,7 @@ import * as $ from 'jquery'
 import { FormsModule } from '@angular/forms';
 import { DbService } from 'src/app/services/db.service';
 import { Subscription } from 'rxjs';
-
+import { Observable } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
 import { EncryptionService } from '../services/encryption.service';
 
@@ -23,7 +23,7 @@ export class DashboardComponent {
   model: any = {};
   errormsg: any;
   successmsg: any;
-
+  allAdmindetails$: Observable<any> | undefined; 
   email: any = {};
   successMessage: any;
   errorMessage: any;
@@ -195,6 +195,7 @@ export class DashboardComponent {
 
 
       this.totalAdminCount = this.all_admindetails.length;
+console.log( this.all_admindetails);
 
 
 

@@ -88,7 +88,7 @@ export class AdminheaderComponent {
 
   confirmLogout() {
 
-    this.route.navigate(['login']);
+    this.route.navigate(['']);
     this.clearlocalstorage();
     localStorage.clear()
 

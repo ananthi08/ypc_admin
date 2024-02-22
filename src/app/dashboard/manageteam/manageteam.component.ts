@@ -20,6 +20,7 @@ export class ManageteamComponent {
   role: string | undefined;
   all_admindetails: any = {};
   admindetails: any = {};
+  datas: any;
 
   result: any;
 
@@ -83,6 +84,57 @@ export class ManageteamComponent {
 
   }
 
+
+
+
+  AddAdmin(form2: NgForm): void {
+
+    if (!form2.valid) {
+
+
+    } else {
+
+      let data = {
+        "data": this.datas,
+        "userName": this.model.userName,
+        "email": this.model.email,
+        "password": this.model.password
+      };
+
+   
+      this.database.postdata('ypc-admin-micro-service/admin/register/' + this.id, data).subscribe({
+        next: (result) => {
+
+          this.result = result.data;
+
+
+
+
+        },
+
+
+        error: (error) => {
+          console.log(error);
+
+          this.errorMsg(error.error.error);
+
+        },
+
+        complete: () => {
+          window.location.reload();
+          // reload page 
+          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+            this.router.navigate([this.router.url]);
+          });
+          this.succesMsg('Admin added successfully')
+        }
+      });
+
+
+
+    }
+
+  }
 
 
 
