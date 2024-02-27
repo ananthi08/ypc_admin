@@ -148,6 +148,7 @@
 
 .finnup__profile-modal{
     padding: 50px;
+    border-radius: 15px;
 }
 
 .finnup__profile-modal .modal-header{

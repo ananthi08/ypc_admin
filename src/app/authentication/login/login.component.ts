@@ -70,7 +70,7 @@ export class LoginComponent {
 
              this.role = result.role;
              console.log(this.role);
-             alert("login successfully");
+            //  alert("login successfully");
              this.succesMsg("login successfully");
 
           if (result.changePassword == 1) {

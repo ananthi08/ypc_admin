@@ -1,11 +1,11 @@
-<form>
+<!-- <form>
   <mat-form-field class="example-chip-list" appearance="fill">
     <mat-label>Favorite Fruits</mat-label>
     <mat-chip-grid #chipGrid aria-label="Fruit selection">
       <mat-chip-row *ngFor="let fruit of fruits" (removed)="remove(fruit)">
         {{fruit}}
         <button matChipRemove [attr.aria-label]="'remove ' + fruit">
-          <mat-icon>cancel</mat-icon>
+          <i class="ph ph-x-circle"></i>
         </button>
       </mat-chip-row>
     </mat-chip-grid>
@@ -19,4 +19,62 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-</form>
+</form> -->
+
+
+
+<!-- <form> -->
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-chip-grid #chipGrid aria-label="Fruit selection">
+      <mat-chip-row *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+        {{fruit}}
+        <button matChipRemove [attr.aria-label]="'remove ' + fruit">
+          <i class="ph ph-x-circle"></i>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+    <input placeholder="New Fruit..." #fruitInput [formControl]="fruitCtrl"
+      [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"/>
+    <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit" [disabled]="fruits.includes(fruit)">     
+       {{fruit}}
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-chip-grid #chipGrid2 aria-label="Fruit selection-2">
+      <mat-chip-row *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+        {{fruit}}
+        <button matChipRemove [attr.aria-label]="'remove ' + fruit">
+          <i class="ph ph-x-circle"></i>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+    <input placeholder="New Fruit..." #fruitInput2 [formControl]="fruitCtrl"
+      [matChipInputFor]="chipGrid2" [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"/>
+    <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit" [disabled]="fruits.includes(fruit)">     
+       {{fruit}}
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div style="margin-top: 70%;">
+    hui
+
+  </div>
+<!-- </form> -->
+
+
+ 
+ 
+
+
+
+

@@ -1,7 +1,7 @@
 <style>
-  .hik{
+  /* .hik{
      margin-top: 60px;
-  }
+  } */
 
   .hi{
     background: #A51C05;
@@ -76,7 +76,7 @@ th,td{
 
 
 
-  <div class="col-12 mt-5">
+  <div class="col-12 ">
 
 
 
@@ -87,9 +87,9 @@ th,td{
       
       <!-- Card stats -->
 
-      <div class="pt-5">
+      <div class="">
 
-        <div class="row mt-5">  
+        <div class="row">  
         
           <!-- <div  *ngIf="role == 'Superadmin'">
             <div class=" d-grid gap-2 d-md-flex justify-content-md-end">
@@ -303,7 +303,7 @@ th,td{
 
 <!-- start of table total users  -->
           
-<div class="col-l-9 mt-5 mx-auto d-block" *ngIf="isUserTableVisible">
+<div class="col-l-9 mt-5 mx-auto d-block" *ngIf="isUserTableVisible" style="margin-bottom: 100px;">
   <h3>List of Users</h3>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
@@ -321,7 +321,9 @@ th,td{
     </thead>
     <tbody>
      
-      <tr *ngFor="let user of all_userdetails">
+      <!-- <tr *ngFor="let user of all_userdetails"> -->
+        <tr *ngFor="let user of all_userdetails | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+
         <th scope="row">{{user.id}}</th>
         <td>{{user.userName}}</td>
         <td>{{user.email}}</td>
@@ -334,7 +336,7 @@ th,td{
           <div class="d-flex justify-content-around">
             <!-- <button class="btn btn-outline-primary" (click)="editUser(user.id)">Edit</button> -->
             <button class="btn btn-outline-danger" (click)="deleteUser(user.id)">Delete</button>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#user_list">Edit</button>
+            <button class="btn btn-success" data-bs-toggle="modal" (click)="popup_edituser(user.id)" data-bs-target="#user_list" >Edit</button>
 
           </div>
         </td>
@@ -342,6 +344,17 @@ th,td{
       </tr>
     </tbody>
   </table>
+  <div class="row ">
+
+    <div class="col-lg-9"></div>
+    <div class="col-lg-3 ">
+      <div class="py-5 ">
+
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+    </div>
+  </div>
 </div>
 
         <!-- end of tanble  -->
@@ -395,7 +408,7 @@ th,td{
       </div>
     </div> -->
 
-    <div class="col-l-9 mt-5 mx-auto d-block" *ngIf="isChefTableVisible">
+    <div class="col-l-9 mt-5 mx-auto d-block " *ngIf="isChefTableVisible" style="margin-bottom: 100px;">
       <h3>List of Chefs</h3>
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -415,7 +428,7 @@ th,td{
         </thead>
         <tbody>
          
-          <tr *ngFor="let chefs of all_chefdetails">
+          <tr *ngFor="let chefs of all_chefdetails | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
             <th scope="row">{{chefs.id}}</th>
               <td>{{chefs.userName}}</td>
               <td>{{chefs.email}}</td>
@@ -426,7 +439,8 @@ th,td{
                 <div class="d-flex justify-content-around">
                   <!-- <button class="btn btn-outline-primary" (click)="editUser(user.id)">Edit</button> -->
                   <button class="btn btn-outline-danger" >Delete</button>
-                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#chef_list">Edit</button>
+                  <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#chef_list">Edit</button> -->
+                  <button class="btn btn-success" data-bs-toggle="modal" (click)="popup_editchef(chefs.id)" data-bs-target="#chef_list" >Edit</button>
       
                 </div>
               </td>
@@ -434,6 +448,19 @@ th,td{
           </tr>
         </tbody>
       </table>
+
+      <div class="row ">
+
+        <div class="col-lg-9"></div>
+        <div class="col-lg-3 ">
+          <div class="py-5 ">
+    
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+    
+        </div>
+      </div>
+
     </div>
 
 
@@ -466,7 +493,7 @@ th,td{
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let admins of all_admindetails">
+    <tr *ngFor="let admins of all_admindetails | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <th scope="row">{{admins.id}}</th>
       <td>{{admins.userName}}</td>
       <td>{{admins.email}}</td>
@@ -477,7 +504,7 @@ th,td{
         <div class="d-flex ">
      
           <button class="btn btn-outline-danger mr-5"  (click)="deleteAdmin(admins.id)">Delete</button>
-          <button class="btn btn-success ml-5" data-bs-toggle="modal" data-bs-target="#admin_list">Edit</button>
+          <button class="btn btn-success ml-5" data-bs-toggle="modal" (click)="popup_editadmin(admins.id)" data-bs-target="#admin_list">Edit</button>
          
 
         </div>
@@ -490,7 +517,17 @@ th,td{
     
   </tbody>
 </table>
+<div class="row ">
 
+  <div class="col-lg-9"></div>
+  <div class="col-lg-3 ">
+    <div class="py-5 ">
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+  </div>
+</div>
 
 </div>
 
@@ -517,7 +554,7 @@ th,td{
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let suUsers of all_suscribed_users">
+    <tr *ngFor="let suUsers of all_suscribed_users | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
       <th scope="row">{{suUsers.id}}</th>
       <td>{{suUsers.userName}}</td>
       <td>{{suUsers.email}}</td>
@@ -530,7 +567,7 @@ th,td{
         <div class="">
      
           <button class="btn btn-outline-danger mr-5"  (click)="deleteAdmin(suUsers.id)">Delete</button>
-          <button class="btn btn-success ml-5 " data-bs-toggle="modal" data-bs-target="#sub_list" >Edit</button>
+          <button class="btn btn-success ml-5 " data-bs-toggle="modal" data-bs-target="#sub_list" (click)="popup_editsubscribed(suUsers.id)" >Edit</button>
          
 
         </div>
@@ -543,6 +580,18 @@ th,td{
     
   </tbody>
 </table>
+<div class="row ">
+
+  <div class="col-lg-9"></div>
+  <div class="col-lg-3 ">
+    <div class="py-5 ">
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+  </div>
+</div>
+
 </div>
 <!-- end of tanble  -->
 
@@ -579,7 +628,8 @@ aria-labelledby="exampleModalLabel"
 aria-hidden="true"
 >
 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-  <div class="modal-content finnup__profile-modal">
+  <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
     <form #form2="ngForm">
       <div class="modal-header border-0">
         <div
@@ -610,7 +660,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter name"
                   required
-                  [(ngModel)]="model.userName"
+                  [(ngModel)]="user_getdata.userName"
                   name="userName"
                  
                  
@@ -628,7 +678,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter email id "
                   required
-                  [(ngModel)]="model.email"
+                  [(ngModel)]="user_getdata.email"
                   autocomplete="off"
                  
                   name="email" 
@@ -646,8 +696,7 @@ aria-hidden="true"
                   type="text"
                   autocomplete="off"
                   required
-                  [(ngModel)]="model.password"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                  [(ngModel)]="user_getdata.mobileNumber"
                   class="form-control"
                   placeholder="Mobile Number"
                   name="password" 
@@ -666,7 +715,7 @@ aria-hidden="true"
             <button style="margin-left: 15px;"
             type="submit"
             class="btn hi s-bor mb-30"
-            [disabled] = "form2.invalid" (click)="AddAdmin(form2)"
+            [disabled] = "form2.invalid" (click)="Edit_user(form2,user_getdata.id)" 
             data-bs-dismiss="modal"
             aria-label="Close"
             id="reloaded">
@@ -694,7 +743,8 @@ aria-labelledby="exampleModalLabel"
 aria-hidden="true"
 >
 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-  <div class="modal-content finnup__profile-modal">
+  <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
     <form #form2="ngForm">
       <div class="modal-header border-0">
         <div
@@ -725,7 +775,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter name"
                   required
-                  [(ngModel)]="model.userName"
+                  [(ngModel)]="chef_getdata.userName"
                   name="userName"
                  
                  
@@ -743,7 +793,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter email id "
                   required
-                  [(ngModel)]="model.email"
+                  [(ngModel)]="chef_getdata.email"
                   autocomplete="off"
                  
                   name="email" 
@@ -761,8 +811,8 @@ aria-hidden="true"
                   type="text"
                   autocomplete="off"
                   required
-                  [(ngModel)]="model.password"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                  [(ngModel)]="chef_getdata.mobileNumber"
+                
                   class="form-control"
                   placeholder="Mobile Number"
                   name="password" 
@@ -781,7 +831,7 @@ aria-hidden="true"
             <button style="margin-left: 15px;"
             type="submit"
             class="btn hi s-bor mb-30"
-            [disabled] = "form2.invalid" (click)="AddAdmin(form2)"
+            (click)="Edit_chef(form2,chef_getdata.id)"
             data-bs-dismiss="modal"
             aria-label="Close"
             id="reloaded">
@@ -798,6 +848,97 @@ aria-hidden="true"
 
 
 
+
+
+
+<!-- <div class="modal fade" id="shareholder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg-3" role="document">
+      <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
+          <form #form4="ngForm">
+              <div class="modal-header border-0">
+                  <div class="finnup__modal-title">
+                      <h5 class="modal-title" id="exampleModalLabel">Shareholding Details</h5>
+                      <p>Give us some information about your shareholding Details</p>
+                  </div>
+
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+
+                  </button>
+              </div>
+              <div>
+                  <div class="modal-body border-0">
+
+                      <div class="row mt-25">
+
+                          <div class="col-lg-12 mt-20">
+                              <label>Shareholder Type <span class="text-danger">*</span></label>
+                              <select class="form-select" aria-label="Default select example"
+                                  name="director_type_id" required disabled>
+                                 
+                              </select>
+                          </div>
+                          <div class="col-lg-12 mt-20">
+                              <label>Shareholder Name <span class="text-danger">*</span></label>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Enter full name"  pattern="^([a-zA-Z ]){2,30}$"
+                                   autocomplete="off"
+                                  required
+                                  >
+
+
+                              </div>
+                          </div>
+
+                      </div>
+                      <div class="row mt-20">
+                          <div class="col-lg-12 mt-20">
+                              <label>Shareholding as of <span class=text-danger>*</span>  </label>
+                              <div class="docs-datepicker">
+                                  <div class="input-group">
+                                      <input type="date" min="1900-01-01" class="form-control docs-date"
+                                          placeholder="Choose date of appointment" autocomplete="off"
+                                          [(ngModel)]="share_date" name="share_date"
+                                          #share_date="ngModel" autocomplete="off" required
+                                           disabled>
+                                      <div class="input-group-append">
+                                          <button type="button"
+                                              class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
+                                          </button>
+                                      </div>
+                                  </div>
+                                  <div class="docs-datepicker-container"></div>
+                              </div>
+                          </div>
+                          <div class="col-lg-12 mt-20">
+                              <label>%Holding <span class="text-danger">*</span></label>
+                              <div class="input-group">
+                                  <input type="text" minlength="1" maxlength="5" class="form-control" placeholder="Enter ownersip" 
+                                       name="share_holding" 
+                                      autocomplete="off" required
+                                     >
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer border-0 text-center p-0 mt-20">
+                      <button type="submit" class="btn btn-primary s-bor mb-30"
+                          id="reloaded" data-bs-dismiss="modal" >Save</button>
+                  </div>
+
+              </div>
+          </form>
+      </div>
+  </div>
+</div> -->
+
+
+
+
+
+
 <div
 class="modal fade"
 id="sub_list"
@@ -807,8 +948,9 @@ aria-labelledby="exampleModalLabel"
 aria-hidden="true"
 >
 <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-  <div class="modal-content finnup__profile-modal">
-    <form #form2="ngForm">
+  <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
+    <form #form3="ngForm">
       <div class="modal-header border-0">
         <div
           class="finnup__modal-title"
@@ -830,16 +972,16 @@ aria-hidden="true"
         <div class="modal-body border-0">
           <div class="row mt-25">
             <div class="col-lg-10 mt-20" style="margin: auto">
-              <label>Name <span class="text-danger">*</span></label>
+              <label>International Cuisine <span class="text-danger">*</span></label>
               <div class="input-group">
                 <input
                   type="text"
                   autocomplete="off"
                   class="form-control"
-                  placeholder="Enter name"
+                  placeholder="Enter International Cuisine"
                   required
-                  [(ngModel)]="model.userName"
-                  name="userName"
+                  [(ngModel)]="subscriber_getdata.internationalCuisine"
+                  name="internationalCuisine"
                  
                  
                 />
@@ -848,18 +990,18 @@ aria-hidden="true"
           </div>
           <div class="row mt-20">
             <div class="col-lg-10 mb-4" style="margin: auto">
-              <label>Email<span class="text-danger">*</span> </label>
+              <label>National Cuisine<span class="text-danger">*</span> </label>
 
               <div class="input-group">
                 <input
                   type="email"
                   class="form-control"
-                  placeholder="Enter email id "
+                  placeholder="Enter National Cuisine"
                   required
-                  [(ngModel)]="model.email"
+                  [(ngModel)]="subscriber_getdata.nationalCuisine"
                   autocomplete="off"
                  
-                  name="email" 
+                  name="nationalCuisine" 
                 
                  
                   />
@@ -867,25 +1009,50 @@ aria-hidden="true"
             </div>
       
 
+        
+
+          
+
+
+
             <div class="col-lg-10 mb-4" style="margin: auto">
-              <label>Mobile Number <span class="text-danger">*</span></label>
+              <label>Family Type <span class="text-danger">*</span></label>
               <div class="input-group">
                 <input
                   type="text"
                   autocomplete="off"
                   required
-                  [(ngModel)]="model.password"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                  [(ngModel)]="subscriber_getdata.familyType"                
                   class="form-control"
-                  placeholder="Mobile Number"
-                  name="password" 
+                  placeholder="Enter FamilyType"
+                  name="familyType" 
                  
                 
                 />
               </div>
             </div>
 
-          
+
+
+            <div class="col-lg-10 mb-4" style="margin: auto">
+              <label>Plan Type <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  required
+                  [(ngModel)]="subscriber_getdata.plan"                
+                  class="form-control"
+                  placeholder="Enter Plan Type"
+                  name="plan" 
+                 
+                
+                />
+              </div>
+            </div>
+
+
+
 
           </div>
 
@@ -894,7 +1061,7 @@ aria-hidden="true"
             <button style="margin-left: 15px;"
             type="submit"
             class="btn hi s-bor mb-30"
-            [disabled] = "form2.invalid" (click)="AddAdmin(form2)"
+            [disabled] = "form3.invalid" (click)="Edit_subs(form3,subscriber_getdata.id)"
             data-bs-dismiss="modal"
             aria-label="Close"
             id="reloaded">
@@ -923,9 +1090,11 @@ role="dialog"
 aria-labelledby="exampleModalLabel"
 aria-hidden="true"
 >
-<div class="modal-dialog modal-dialog-centered modal-md" role="document">
-  <div class="modal-content finnup__profile-modal">
-    <form #form2="ngForm">
+<div class="modal-dialog modal-dialog-centered modal-md" role="document" >
+  <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;" style="
+  border-radius: 30px;">
+    <form #form5="ngForm">
       <div class="modal-header border-0">
         <div
           class="finnup__modal-title"
@@ -955,7 +1124,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter name"
                   required
-                  [(ngModel)]="model.userName"
+                  [(ngModel)]="admin_getdata.userName"
                   name="userName"
                  
                  
@@ -973,7 +1142,7 @@ aria-hidden="true"
                   class="form-control"
                   placeholder="Enter email id "
                   required
-                  [(ngModel)]="model.email"
+                  [(ngModel)]="admin_getdata.email"
                   autocomplete="off"
                  
                   name="email" 
@@ -984,15 +1153,14 @@ aria-hidden="true"
             </div>
       
 
-            <div class="col-lg-10 mb-4" style="margin: auto">
+            <!-- <div class="col-lg-10 mb-4" style="margin: auto">
               <label>Mobile Number <span class="text-danger">*</span></label>
               <div class="input-group">
                 <input
                   type="text"
                   autocomplete="off"
                   required
-                  [(ngModel)]="model.password"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                  [(ngModel)]="admin_getdata.mobileNumber"
                   class="form-control"
                   placeholder="Mobile Number"
                   name="password" 
@@ -1000,7 +1168,7 @@ aria-hidden="true"
                 
                 />
               </div>
-            </div>
+            </div> -->
 
           
 
@@ -1011,7 +1179,7 @@ aria-hidden="true"
             <button style="margin-left: 15px;"
             type="submit"
             class="btn hi s-bor mb-30"
-            [disabled] = "form2.invalid" (click)="AddAdmin(form2)"
+            [disabled] = "form5.invalid" (click)="Edit_admin(form5,admin_getdata.id)"
             data-bs-dismiss="modal"
             aria-label="Close"
             id="reloaded">
@@ -1037,7 +1205,8 @@ aria-hidden="true"
 <div class="modal fade" id="shareholder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
 <div class="modal-dialog modal-dialog-centered modal-lg-3" role="document">
-    <div class="modal-content finnup__profile-modal">
+    <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
         <form #form4="ngForm">
             <div class="modal-header border-0">
                 <div class="finnup__modal-title">
@@ -1130,7 +1299,8 @@ aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-    <div class="modal-content finnup__profile-modal">
+    <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
       <form #form2="ngForm">
         <div class="modal-header border-0">
           <div

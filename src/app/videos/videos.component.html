@@ -69,7 +69,7 @@
 </div>
  
  
-<div class="pageContent " style="margin-top: 50px;">
+<div class="pageContent " >
   <main id="main" class="main">
     <div id="sideBarContent" class="container-fluid pe-5 ps-6">
 
@@ -80,13 +80,13 @@
        
           <div class="container " >
 
-<div class="row hik">
+<div class="row ">
 
-    <div class=" mt-5">
+    <div class=" ">
 
 
 
-        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" style="margin-top: 30px;">
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" >
 
             <div class="container-fluid">
                 <div class="header-body">
@@ -106,7 +106,7 @@
 
 
                           
-                        <div class="row mt-5">
+                        <div class="row ">
                             <div class="col-xl-12 col-lg-6">
                                 <div class="card card-stats mb-4 mb-xl-0"
                                     style="margin-top: 50px; margin-bottom: 30px;" id="example1">
@@ -225,8 +225,13 @@
                                                   <img *ngIf="video.productType != 'Veg'" src="../../assets/img/non-veg.png" class="inline-image small-image" alt="{{ video.productType }}" />
                                                 </p>
 
+                                              
+                                    
+                                               
+                                    
+                                                <p class="text-left fs-7 font-weight-bold" style="margin-left: 13px;color:#A51C05;">Cuisine:<span class="text-black">{{video.nationalCuisine}}</span></p>
                                                 <div class="row">
-                                                  <div class="col">
+                                                  <div class="col mb-2">
                                                     <span class="form-check form-check-inline" *ngIf="role == 'Superadmin'" style="margin-left: 16px;">
                                                       <input class="form-check-input" type="checkbox" id="inlineCheckbox{{i}}" [(ngModel)]="video.selected" [disabled]="selectAllChecked" (change)="onCheckChangeAssign(video.id)">
                                                       <label class="form-check-label" for="inlineCheckbox{{i}}">Assign</label>
@@ -237,10 +242,7 @@
                                                     
                                                   </div>
                                                 </div>
-                                    
-                                               
-                                    
-                                                <p class="text-left fs-7 font-weight-bold" style="margin-left: 13px;color:#A51C05;">Cuisine:<span class="text-black">{{video.nationalCuisine}}</span></p>
+
                                                 <div class="form-check form-check-inline" style="margin-left: 13px;">
                                                   <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="newChefVideosaccept(video.id)" id="q156" value="option1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                   <label class="form-check-label" for="inlineRadio1"><strong class="fs-7">Approve</strong></label>

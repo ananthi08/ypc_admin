@@ -15,7 +15,8 @@ export class ManageteamComponent {
   model:any={};
   errormsg :any;
   successmsg:any;
-
+  adminId:any={};
+  admin_getdata :any={};
   id:number| undefined;
   role: string | undefined;
   all_admindetails: any = {};
@@ -79,10 +80,82 @@ export class ManageteamComponent {
     this.database.getData('ypc-admin-micro-service/admin/unassigned/admins').subscribe((result: any[]) => {
       // Sort the result array by id
       this.admindetails = result.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+      // console.log(this.admindetails);
+      
     });
 
 
   }
+
+
+  popup_editadmin(id:any){
+
+    this.adminId=id;
+       
+    this.database.getData(`ypc-admin-micro-service/admin/admin/`+this.adminId).subscribe((result: any) => {   
+      this.admin_getdata = result.adminUser;
+      console.log(this.admin_getdata);
+      
+    },);
+    
+    
+    }
+
+
+
+
+    Edit_admin(form5: NgForm,id:any): void {
+
+      if (!form5.valid) {
+  
+  
+      } else {
+  
+        let data = {
+          "data": this.datas,
+          "userName": this.admin_getdata.userName,
+          // "mobileNumber": this.admin_getdata.mobileNumber,
+          "email": this.admin_getdata.email,
+  
+          // "password": this.model.password
+        };
+  
+        // this.database.postdata('ypc-admin-micro-service/admin/register/' + this.id, data).subscribe({
+        this.database.postdata('ypc-admin-micro-service/admin/admindetail/edit/'+id, data).subscribe({
+  
+          next: (result) => {
+  
+            this.result = result.data;
+  
+  
+  
+  
+          },
+  
+  
+          error: (error) => {
+            console.log(error);
+  
+            this.errorMsg(error.error.error);
+  
+          },
+  
+          complete: () => {
+            window.location.reload();
+            // reload page 
+            this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+              this.router.navigate([this.router.url]);
+            });
+            this.succesMsg('Admin added successfully')
+          }
+        });
+  
+  
+  
+      }
+  
+    }
+
 
 
 

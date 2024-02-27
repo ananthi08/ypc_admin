@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as $ from 'jquery'
@@ -18,7 +18,8 @@ export class DashboardComponent {
   searchText: any;
   
 
-
+  p: number = 1; 
+  itemsPerPage: number = 10;
   private subscription: Subscription = new Subscription();
   model: any = {};
   errormsg: any;
@@ -35,7 +36,8 @@ export class DashboardComponent {
   editedUser: any = {};
   isEditing: boolean = false;
   // for_loop
-  all_userdetails: any = {};
+  // all_userdetails: any = {};
+  all_userdetails: any[] = [];
   all_chefdetails: any;
   all_admindetails: any = {};
   all_deleted_videos: any[] = [];
@@ -46,9 +48,16 @@ export class DashboardComponent {
   all_notapproved_videos: any[] = [];
   all_newChefVideos_1: any[] = [];
   video_fulldetail :any[]=[];
-
-
-
+  user_getdata :any={};
+  chef_getdata :any={};
+  admin_getdata :any={};
+  subscriber_getdata : any ={};
+  userId:any={};
+  chefId:any={};
+  adminId:any={};
+  // userName:any={};
+  // email:any={};
+  mobileNumber:any={};
   datas: any;
   isEditMode: boolean = false;
   addadminpopup: any;
@@ -101,7 +110,61 @@ export class DashboardComponent {
 
   }
 
+popup_edituser(id:any){
 
+this.userId=id;
+   
+this.database.getData(`ypc-admin-micro-service/admin/userdetail/`+this.userId).subscribe((result: any) => {   
+  this.user_getdata = result.user;
+},);
+
+
+}
+
+
+popup_editadmin(id:any){
+
+  this.adminId=id;
+     
+  this.database.getData(`ypc-admin-micro-service/admin/admin/`+this.adminId).subscribe((result: any) => {   
+    this.admin_getdata = result.adminUser;
+    console.log(this.admin_getdata);
+    
+  },);
+  
+  
+  }
+
+
+popup_editsubscribed(id:any){
+
+  this.userId=id;
+     
+  this.database.getData(`ypc-admin-micro-service/admin/subscriptionDetails/`+this.userId).subscribe((result: any) => {   
+    this.subscriber_getdata = result.result;
+    // console.log(this.subscriber_getdata);
+    
+  },);
+  
+  
+  }
+
+
+
+popup_editchef(id:any){
+
+  this.chefId=id;
+     
+  this.database.getData(`ypc-admin-micro-service/admin/chefdetail/`+this.chefId).subscribe((result: any) => {
+      
+  
+    this.chef_getdata = result.chefDetails;
+   
+  
+  },);
+  
+  
+  }
 
 
   toggleEditMode(): void {
@@ -160,8 +223,10 @@ export class DashboardComponent {
 
       this.all_userdetails = result.userDetails;
       this.totalUserCount = this.all_userdetails.length;
+      console.log(this.totalUserCount);
+      
 
-
+      this.all_userdetails.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
 
 
     },);
@@ -171,6 +236,8 @@ export class DashboardComponent {
 
 
 
+    
+
 
 
     let getChefDetails = {}
@@ -178,6 +245,7 @@ export class DashboardComponent {
     this.database.getData('ypc-admin-micro-service/admin/chefdetails',).subscribe((result: any) => {
       this.all_chefdetails = result.chefDetails;
       this.totalChefCount = this.all_chefdetails.length
+      this.all_chefdetails.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
 
 
 
@@ -233,6 +301,9 @@ console.log( this.all_admindetails);
   },);
 
   
+
+  
+ 
     this.database.getData(`ypc-admin-micro-service/ypc/admin/chef/allvideos/1`).subscribe(
       (result: any) => {
     
@@ -473,6 +544,223 @@ console.log( this.all_admindetails);
 
 
 
+  Edit_user(form2: NgForm,id:any): void {
+
+    if (!form2.valid) {
+
+
+    } else {
+
+      let data = {
+        "data": this.datas,
+        "userName": this.user_getdata.userName,
+        "mobileNumber": this.user_getdata.mobileNumber,
+        "email": this.user_getdata.email,
+
+        // "password": this.model.password
+      };
+
+      // this.database.postdata('ypc-admin-micro-service/admin/register/' + this.id, data).subscribe({
+      this.database.postdata('ypc-admin-micro-service/admin/userdetail/edit/'+id, data).subscribe({
+
+        next: (result) => {
+
+          this.result = result.data;
+
+
+
+
+        },
+
+
+        error: (error) => {
+          console.log(error);
+
+          this.errorMsg(error.error.error);
+
+        },
+
+        complete: () => {
+          window.location.reload();
+          // reload page 
+          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+            this.router.navigate([this.router.url]);
+          });
+          this.succesMsg('Admin added successfully')
+        }
+      });
+
+
+
+    }
+
+  }
+
+
+
+
+
+  Edit_admin(form5: NgForm,id:any): void {
+
+    if (!form5.valid) {
+
+
+    } else {
+
+      let data = {
+        "data": this.datas,
+        "userName": this.admin_getdata.userName,
+        "mobileNumber": this.admin_getdata.mobileNumber,
+        "email": this.admin_getdata.email,
+
+        // "password": this.model.password
+      };
+
+      // this.database.postdata('ypc-admin-micro-service/admin/register/' + this.id, data).subscribe({
+      this.database.postdata('ypc-admin-micro-service/admin/admindetail/edit/'+id, data).subscribe({
+
+        next: (result) => {
+
+          this.result = result.data;
+
+
+
+
+        },
+
+
+        error: (error) => {
+          console.log(error);
+
+          this.errorMsg(error.error.error);
+
+        },
+
+        complete: () => {
+          window.location.reload();
+          // reload page 
+          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+            this.router.navigate([this.router.url]);
+          });
+          this.succesMsg('Admin added successfully')
+        }
+      });
+
+
+
+    }
+
+  }
+
+
+
+
+  Edit_subs(form3: NgForm,id:any): void {
+
+    if (!form3.valid) {
+
+
+    } else {
+
+      let data = {
+        "data": this.datas,
+        "internationalCuisine": this.user_getdata.internationalCuisine,
+        "nationalCuisine": this.user_getdata.nationalCuisine,
+        "familyType": this.user_getdata.familyType,
+        // "plan": this.user_getdata.plan,
+
+      };
+
+          this.database.postdata('ypc-admin-micro-service/ypc/subscription/' + id + '/edit', data).subscribe({
+
+        next: (result) => {
+
+          this.result = result.data;
+
+
+
+
+        },
+
+
+        error: (error) => {
+          console.log(error);
+
+          this.errorMsg(error.error.error);
+
+        },
+
+        complete: () => {
+          window.location.reload();
+          // reload page 
+          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+            this.router.navigate([this.router.url]);
+          });
+          this.succesMsg('Admin added successfully')
+        }
+      });
+
+
+
+    }
+
+  }
+
+
+
+
+  Edit_chef(form2: NgForm,id:any): void {
+// alert('hui');
+    if (form2.valid) {
+
+
+    } else {
+
+      let data = {
+        "data": this.datas,
+        "userName": this.chef_getdata.userName,
+        "mobileNumber": this.chef_getdata.mobileNumber,
+        "email": this.chef_getdata.email,
+      };
+        this.database.postdata('ypc-admin-micro-service/admin/chefdetail/edit/'+id, data).subscribe({
+
+        next: (result) => {
+
+          this.result = result.data;
+
+
+
+
+        },
+
+
+        error: (error) => {
+          console.log(error);
+
+          this.errorMsg(error.error.error);
+
+        },
+
+        complete: () => {
+          window.location.reload();
+          // reload page 
+          this.router.navigateByUrl('dashboard', { skipLocationChange: true }).then(() => {
+            this.router.navigate([this.router.url]);
+          });
+          this.succesMsg('Admin added successfully')
+        }
+      });
+
+
+
+    }
+
+  }
+
+
+
+
+
 
   // delting admin by superadmin
   deleteAdmin(adminId: any) {
@@ -532,3 +820,7 @@ console.log( this.all_admindetails);
   }
 
 }
+function edit(id: any, string: any) {
+  throw new Error('Function not implemented.');
+}
+

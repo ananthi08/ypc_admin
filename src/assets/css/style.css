@@ -14,6 +14,14 @@ body {
 }
 
 
+
+
+
+.modal-backdrop {
+  background-color: #ffffff3d!important;
+  /* border-radius: 25px; */
+}
+
 a,
 img {
   border: medium none;
@@ -271,7 +279,7 @@ a {
 }
 
 .close {
-  background: url(../img/close.svg) no-repeat;
+  /* background: url(../img/close.svg) no-repeat; */
   width: 70px;
   height: 70px;
   border: none;

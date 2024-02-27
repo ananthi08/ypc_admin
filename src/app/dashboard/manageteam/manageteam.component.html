@@ -1,3 +1,18 @@
+<style>
+
+.hi{
+    background: #A51C05;
+    color: white;
+  }
+
+  @media (max-width: 576px) { 
+
+    .tablesedit{
+      width: 320px;
+    }
+  }
+</style>
+
 <div class="toast collapse opacity1" id="collapseExample">
     <div class="toast-body">
        {{errormsg}}
@@ -25,7 +40,7 @@
         <div class="container">
           <div class="row">
 
-            <div class="col-lg-10">
+            <div class="col-lg-10 mx-auto d-block">
               <div class="finnup__profileheader">
                 <div class="finnup__profiletitle">
                   <h2 style="color:#A51C05;">Manage Team</h2>
@@ -43,55 +58,59 @@
           </div>
          
           <div class="row mt-25">
-            <div class="col-lg-10">
+            <div class="col-lg-10 mx-auto d-block">
               <div class="finnup__profiletable">
-                <table class="table table-striped" >
-                  <thead class="thead-dark text-white">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Role</th>
-                      <!-- <th scope="col">Status</th> -->
-                      <th scope="col">Video Status</th>
-                      <th scope="col">Actions</th>
 
-                      <!-- <th scope="col">UnAssign Video</th> -->
-
+                <div class="table-responsive tablesedit">
+                  <table class="table table-striped" >
+                    <thead class="thead-dark text-white">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <!-- <th scope="col">Status</th> -->
+                        <th scope="col">Video Status</th>
+                        <th scope="col">Actions</th>
   
-                      <!-- <th scope="col">Actions</th> -->
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let admins of admindetails">
-                      <td>{{ admins.id }}</td>
-                      <td>{{admins.userName}}</td>
-                      <td>{{admins.email}}</td>
+                        <!-- <th scope="col">UnAssign Video</th> -->
+  
+    
+                        <!-- <th scope="col">Actions</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let admins of admindetails">
+                        <td>{{ admins.id }}</td>
+                        <td>{{admins.userName}}</td>
+                        <td>{{admins.email}}</td>
+  
+  
+                        <td>{{admins.role}}</td>
+  
+  
+                        <!-- <td>{{admins.status}}</td> -->
+  
+                        <td scope="col" *ngIf="admins.taskAssigned == 0">
+  
+                          <button type="button" class="btn btn-success btn-sm px-3" (click)="assignvideo(admins.id)">Assign Video</button>
+                        </td>
+  
+  
+                        <td scope="col" *ngIf="admins.taskAssigned == 1">
+  
+                          <button type="button" class="btn btn-danger btn-sm" (click)="unassignvideo(admins.id)">UnAssign Video</button>
+                        </td>     
+                        
+                        
+                        <td>
+                          <button type="button" class="btn btn-danger px-3 btn-sm" data-bs-toggle="modal"  (click)="popup_editadmin(admins.id)" data-bs-target="#admin_list">Edit</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-
-                      <td>{{admins.role}}</td>
-
-
-                      <!-- <td>{{admins.status}}</td> -->
-
-                      <td scope="col" *ngIf="admins.taskAssigned == 0">
-
-                        <button type="button" class="btn btn-success btn-sm px-3" (click)="assignvideo(admins.id)">Assign Video</button>
-                      </td>
-
-
-                      <td scope="col" *ngIf="admins.taskAssigned == 1">
-
-                        <button type="button" class="btn btn-danger btn-sm" (click)="unassignvideo(admins.id)">UnAssign Video</button>
-                      </td>     
-                      
-                      
-                      <td>
-                        <button type="button" class="btn btn-danger px-3 btn-sm" >Edit</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                </div>
               </div>
             </div>
           </div>
@@ -106,7 +125,8 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-    <div class="modal-content finnup__profile-modal">
+    <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
       <form #form2="ngForm">
         <div class="modal-header border-0">
           <div
@@ -211,6 +231,121 @@
 
 
 
+
+<div
+class="modal fade"
+id="admin_list"
+tabindex="-4"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-centered modal-md" role="document">
+  <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
+    <form #form5="ngForm">
+      <div class="modal-header border-0">
+        <div
+          class="finnup__modal-title"
+          style="margin: auto; text-align: center"
+        >
+          <h3 class="modal-title display-2" id="exampleModalLabel">
+            Edit Admin
+          </h3>
+
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="font-size: 40px;">&times;</span>
+          </button>
+         
+        </div>
+   
+       
+      </div>
+      <div>
+        <div class="modal-body border-0">
+          <div class="row mt-25">
+            <div class="col-lg-10 mt-20" style="margin: auto">
+              <label>Name <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  class="form-control"
+                  placeholder="Enter name"
+                  required
+                  [(ngModel)]="admin_getdata.userName"
+                  name="userName"
+                 
+                 
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mt-20">
+            <div class="col-lg-10 mb-4" style="margin: auto">
+              <label>Email<span class="text-danger">*</span> </label>
+
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email id "
+                  required
+                  [(ngModel)]="admin_getdata.email"
+                  autocomplete="off"
+                 
+                  name="email" 
+                
+                 
+                  />
+              </div>
+            </div>
+      
+
+            <!-- <div class="col-lg-10 mb-4" style="margin: auto">
+              <label>Mobile Number <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  required
+                  [(ngModel)]="admin_getdata.mobileNumber"
+                  class="form-control"
+                  placeholder="Mobile Number"
+                  name="password" 
+                 
+                
+                />
+              </div>
+            </div> -->
+
+          
+
+          </div>
+
+          <div class="col-12 text-center pt-30">
+      
+            <button style="margin-left: 15px;"
+            type="submit"
+            class="btn hi s-bor mb-30"
+            [disabled] = "form5.invalid" (click)="Edit_admin(form5,admin_getdata.id)"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            id="reloaded">
+            Save/Send mail
+          </button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+
     </div>
   </section>
   </div>
@@ -229,7 +364,8 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-    <div class="modal-content finnup__profile-modal">
+    <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
       <form #form2="ngForm">
         <div class="modal-header border-0">
           <div
@@ -344,7 +480,8 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content finnup__profile-modal">
+      <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
         <form #form2="ngForm">
           <div class="modal-header border-0">
             <div
@@ -473,7 +610,8 @@
   aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg-3"
       role="document">
-      <div class="modal-content finnup__profile-modal">
+      <div class="modal-content finnup__profile-modal"  style="
+  border-radius: 30px;">
           <div class="modal-header border-0">
               <div class="finnup__modal-title">
                   <h5 class="modal-title" id="exampleModalLabel">Warning ! You are trying to delete an admin.  Are you sure you want to delete?.  Please note, this is a soft delete and deleted admins will be marked as delete and can be inactive in the backend. These users can be activated by Super Admin later.</h5>

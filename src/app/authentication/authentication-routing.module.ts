@@ -21,7 +21,6 @@ import { ApprVideosComponent } from '../appr-videos/appr-videos.component';
 import { RejVideosComponent } from '../rej-videos/rej-videos.component';
 import { CrPassComponent } from '../cr-pass/cr-pass.component';
 import { VideosDescribe } from '../video-describe/video-describe.component';
-import { EditUserComponent } from '../edit-user/edit-user.component';
 // import { TestingComponent } from '../testing/testing.component';
 
 const routerOptions: ExtraOptions = {
@@ -49,7 +48,6 @@ const routes: Routes = [
   { path: 'manageteam', component: ManageteamComponent, canActivate: [AuthGuard] },
   { path: 'template', component: TemplatesComponent ,canActivate: [AuthGuard]},
   { path: 'cr_reset', component: CrPassComponent },
-  { path: 'edit_user', component: EditUserComponent },
 
   
 

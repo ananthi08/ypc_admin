@@ -86,7 +86,7 @@ toggleOldPasswordVisibility() {
             this.errorMsg(error.error.error);
           },
           complete: () => {
-            this.router.navigate(['login']);
+            this.router.navigate(['/']);
           
           }
         });

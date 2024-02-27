@@ -38,7 +38,6 @@ import { VideosDescribe } from './video-describe/video-describe.component';
 // import { VideosComponent } from './videos/videos/videos.component';
 // import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { EditUserComponent } from './edit-user/edit-user.component';
 
 // import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
@@ -70,7 +69,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     CrPassComponent,
     
     VideosDescribe,
-         EditUserComponent,
+       
   
  
    
